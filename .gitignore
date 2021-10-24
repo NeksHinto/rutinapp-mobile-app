@@ -1,15 +1,5 @@
 .DS_Store
 
-# Gradle
-.gradle
-gradle
-build.gradle
-gradle.properties
-gradlew
-gradlew.bat
-local.properties
-settings.gradle
-
 # Editor directories and files
 .idea
 .vscode
