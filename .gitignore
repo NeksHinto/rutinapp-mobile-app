@@ -1,5 +1,9 @@
 .DS_Store
 
+# Gradle
+.gradle
+local.properties
+
 # Editor directories and files
 .idea
 .vscode
