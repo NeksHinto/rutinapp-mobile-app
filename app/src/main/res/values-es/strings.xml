@@ -4,4 +4,8 @@
     <string name="username">Usuario</string>
     <string name="password">Contraseña</string>
     <string name="log_in">Iniciar Sesión</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Contraseña</string>
+    <string name="action_sign_in_short">Iniciar Sesión</string>
+    <string name="logo_image">RutinApp</string>
 </resources>
