@@ -7,4 +7,10 @@
     <string name="prompt_password">Password</string>
     <string name="action_sign_in_short">Log In</string>
     <string name="logo_image">RutinApp</string>
+
+    <string name="navHome">Home</string>
+    <string name="navRoutines">Routines</string>
+    <string name="navMyActivity">My Activity</string>
+    <string name="navFav">Favorite</string>
+    <string name="navSetting">Setting</string>
 </resources>

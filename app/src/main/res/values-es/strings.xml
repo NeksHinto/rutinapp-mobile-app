@@ -1,11 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">rutinapp-mobile-app</string>
+    <string name="logo_image">RutinApp</string>
+
+    <!-- strings del ingreso -->
     <string name="username">Usuario</string>
     <string name="password">Contraseña</string>
     <string name="log_in">Iniciar Sesión</string>
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Contraseña</string>
     <string name="action_sign_in_short">Iniciar Sesión</string>
-    <string name="logo_image">RutinApp</string>
+
+
+    <!-- strings del menu -->
+    <string name="navHome">Inicio</string>
+    <string name="navRoutines">Rutinas</string>
+    <string name="navMyActivity">Historial</string>
+    <string name="navFav">Favoritos</string>
+    <string name="navSetting">Configuracion</string>
+
 </resources>
