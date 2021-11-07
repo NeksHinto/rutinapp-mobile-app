@@ -23,5 +23,6 @@
     <string name="Aerobics">Aerobica</string>
     <string name="Resistance">Resistencia</string>
     <string name="Strength">Fuerza</string>
+    <string name="header_title">Menu</string>
 
 </resources>

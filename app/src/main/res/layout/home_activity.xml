@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@color/green_app">
 
-    
+
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="390dp"
@@ -18,6 +18,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/categoria2" />
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/navigationView"
+        android:layout_width="251dp"
+        android:layout_height="735dp"
+        app:headerLayout="@layout/header_navigation_menu"
+        app:menu="@menu/navigation_menu"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="2dp" />
 
     <ImageView
         android:id="@+id/imageView2"

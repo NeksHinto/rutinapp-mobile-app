@@ -18,5 +18,6 @@
     <string name="Aerobics">Aerobics</string>
     <string name="Resistance">Resistence</string>
     <string name="Strength">Strength</string>
+    <string name="header_title">Menu</string>
 
 </resources>
