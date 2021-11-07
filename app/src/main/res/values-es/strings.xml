@@ -19,4 +19,9 @@
     <string name="navFav">Favoritos</string>
     <string name="navSetting">Configuracion</string>
 
+    <!-- strings del inicio -->
+    <string name="Aerobics">Aerobica</string>
+    <string name="Resistance">Resistencia</string>
+    <string name="Strength">Fuerza</string>
+
 </resources>
