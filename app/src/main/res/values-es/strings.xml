@@ -24,5 +24,6 @@
     <string name="Resistance">Resistencia</string>
     <string name="Strength">Fuerza</string>
     <string name="header_title">Menu</string>
+    <string name="sign_up">Registrarse</string>
 
 </resources>
