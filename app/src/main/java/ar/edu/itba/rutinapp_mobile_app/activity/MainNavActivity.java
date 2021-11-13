@@ -28,7 +28,7 @@ public class MainNavActivity extends AppCompatActivity {
 
         setUpBottomNavigation();
 
-        setSupportActionBar(findViewById(R.id.app_bar_main));
+        setSupportActionBar(findViewById(R.id.toolbar));
 
         userviewModel = new ViewModelProvider(this).get(UserViewModel.class);
 
