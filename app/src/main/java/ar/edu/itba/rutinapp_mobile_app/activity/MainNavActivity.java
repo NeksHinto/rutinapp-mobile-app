@@ -12,25 +12,41 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.NavigationUI;
+import androidx.navigation.NavDirections;
+
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+import ar.edu.itba.rutinapp_mobile_app.fragment.HomeFragment;
 import ar.edu.itba.rutinapp_mobile_app.fragment.UserViewModel;
 import ar.edu.itba.rutinapp_mobile_app.R;
+import ar.edu.itba.rutinapp_mobile_app.databinding.ActivityMainBinding;
 
 public class MainNavActivity extends AppCompatActivity {
     private BottomNavigationView bottomNavigationView;
     private UserViewModel userviewModel;
+    ActivityMainBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        setUpBottomNavigation();
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
-        setSupportActionBar(findViewById(R.id.toolbar));
 
-        userviewModel = new ViewModelProvider(this).get(UserViewModel.class);
+        binding.bottomNav.setOnClickListener(view -> {
+            binding.bottomNav.setEnabled(false);
+
+            NavHostFragment navHostFragment = (NavHostFragment)
+                    getSupportFragmentManager().findFragmentById(R.id.navigationView);
+            NavController navController = navHostFragment.getNavController();
+
+            HomeFragmentDirections.ActionHomeFragmentToSecondaryFragment action = HomeFragmentDirections.actionHomeFragmentToSecondaryFragment(10);
+            navController.navigate(action);
+        });
+
 
     }
 
