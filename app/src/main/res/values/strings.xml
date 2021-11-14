@@ -23,6 +23,8 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="search">Search</string>
+    <string name="sort_title">Sort Routines</string>
+    <string name="order_title">Order Routines</string>
 
 
 </resources>

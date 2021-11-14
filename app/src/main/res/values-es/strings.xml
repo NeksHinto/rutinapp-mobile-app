@@ -26,5 +26,8 @@
     <string name="header_title">Menu</string>
     <string name="sign_up">Registrarse</string>
 
+    <!-- strings del buscador -->
     <string name="search">Buscar</string>
+    <string name="sort_title">Filtrar Rutinas</string>
+    <string name="order_title">Ordenar Rutinas</string>
 </resources>
