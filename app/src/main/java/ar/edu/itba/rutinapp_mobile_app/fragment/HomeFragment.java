@@ -1,5 +1,6 @@
 package ar.edu.itba.rutinapp_mobile_app.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
@@ -62,7 +63,13 @@ public class HomeFragment extends Fragment {
         firstCategory.setOnClickListener((v) -> {
 
             NavController navController = Navigation.findNavController(v);
-            
+            Intent firstCat = new Intent( getActivity() ,SearchRoutinesFragment.class);
+            startActivity(firstCat);
+            SearchRoutinesFragment firstC = new SearchRoutinesFragment();
+            getActivity().getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.searchRoutine_fragment, firstC)
+                    .addToBackStack(null)
+                    .commit();
 
         });
 
