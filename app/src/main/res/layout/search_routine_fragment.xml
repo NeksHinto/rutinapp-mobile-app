@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".searchRoutine_fragment"
+    tools:context=".fragment.SearchRoutinesFragment"
     android:background="@color/green_app">
 
 
@@ -16,6 +16,8 @@
         android:hint="@string/search"
         app:srcCompat="@drawable/ic_search"
         app:endIconDrawable="@drawable/ic_search"
+        android:adjustViewBounds="true"
+        android:scaleType="centerInside"
         app:endIconMode="custom"
         app:layout_constraintStart_toStartOf="@+id/textInputEditText"
         tools:ignore="MissingConstraints"

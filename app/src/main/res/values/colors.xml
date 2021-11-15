@@ -9,4 +9,5 @@
     <color name="white">#FFFFFFFF</color>
     <color name="green_app">#9FE5CA</color>
     <color name="purple_app">#333C8E</color>
+    <color name="backgrounfText">#2D000000</color>
 </resources>
