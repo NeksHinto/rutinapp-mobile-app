@@ -30,4 +30,7 @@
     <string name="search">Buscar</string>
     <string name="sort_title">Filtrar Rutinas</string>
     <string name="order_title">Ordenar Rutinas</string>
+
+    <!-- strings de configuracion -->
+    <string name="modo_oscuro">Dark mode</string>
 </resources>
