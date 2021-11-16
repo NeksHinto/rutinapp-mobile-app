@@ -8,7 +8,8 @@
     <fragment
         android:id="@+id/welcomeFragment"
         android:name="ar.edu.itba.rutinapp_mobile_app.fragment.WelcomeFragment"
-        android:label="WelcomeFragment" >
+        android:label="WelcomeFragment"
+        tools:layout="@layout/fragment_welcome">
         <action
             android:id="@+id/action_welcomeFragment_to_loginFragment"
             app:destination="@id/loginFragment"
@@ -32,7 +33,8 @@
     <fragment
         android:id="@+id/registerFragment"
         android:name="ar.edu.itba.rutinapp_mobile_app.fragment.RegisterFragment"
-        android:label="RegisterFragment" >
+        android:label="RegisterFragment"
+        tools:layout="@layout/fragment_register">
         <action
             android:id="@+id/action_registerFragment_to_welcomeFragment2"
             app:destination="@id/welcomeFragment" />
