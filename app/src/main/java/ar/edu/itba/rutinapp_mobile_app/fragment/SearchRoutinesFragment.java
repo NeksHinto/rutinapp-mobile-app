@@ -70,11 +70,6 @@ public class SearchRoutinesFragment extends Fragment {
         adapterSort.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         sortSpinner.setAdapter(adapterSort);
 
-        orderSpinner = view.findViewById(R.id.orderDiscoverSpinner);
-        ArrayAdapter<CharSequence> adapterOrder = ArrayAdapter.createFromResource(getActivity(), R.array.order, android.R.layout.simple_spinner_item);
-        adapterOrder.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        sortSpinner.setAdapter(adapterOrder);
-
     }
 
 
