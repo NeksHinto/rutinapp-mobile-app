@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    tools:context=".fragment.WelcomeFragment"
     android:background="@color/green_app">
 
     <ImageView
@@ -44,7 +45,7 @@
         android:backgroundTint="@color/purple_app"
         android:enabled="false"
         android:fontFamily="@font/poppins"
-        android:onClick="ResgisterActivity"
+        android:onClick="RegisterActivity"
         android:text="@string/sign_up"
         android:textColor="@color/white"
         app:cornerRadius="10dp"

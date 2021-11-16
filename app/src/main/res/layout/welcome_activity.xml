@@ -4,48 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/green_app">
+    tools:context=".activity.WelcomeActivity">
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="224dp"
-        android:layout_height="397dp"
-        android:contentDescription="@string/logo_image"
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/nav_host_welcome"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:defaultNavHost="true"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo" />
-
-    <Button
-        android:id="@+id/loginButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="116dp"
-        android:layout_marginBottom="240dp"
-        android:background="?colorSecondary"
-        android:backgroundTint="?colorSecondary"
-        android:backgroundTintMode="?colorSecondary"
-        android:text="@string/log_in"
-        android:textAllCaps="false"
-        android:textColorLink="?colorSecondary"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-
-        android:onClick="loginActivity"/>
-
-    <Button
-        android:id="@+id/registerButton"
-        android:layout_width="184dp"
-        android:layout_height="52dp"
-        android:layout_marginEnd="112dp"
-        android:layout_marginBottom="156dp"
-        android:text="@string/register"
-        android:textAllCaps="false"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-
-        android:onClick="ResgisterActivity"/>
+        app:navGraph="@navigation/nav_welcome" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

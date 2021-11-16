@@ -18,4 +18,8 @@ public interface ApiUserService {
 
     @GET("users/current")
     LiveData<ApiResponse<UserModel>> getCurrentUser();
+
+    @POST("users")
+    LiveData<ApiResponse<UserModel>> register(@Body UserModel user);
+    
 }

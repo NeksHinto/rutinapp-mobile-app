@@ -44,14 +44,14 @@ public class MainNavActivity extends AppCompatActivity {
                     getSupportFragmentManager().findFragmentById(R.id.navigationView);
             NavController navController = navHostFragment.getNavController();
 
-            HomeFragmentDirections.ActionHomeFragmentToSecondaryFragment action = HomeFragmentDirections.actionHomeFragmentToSecondaryFragment(10);
-            navController.navigate(action);
+//            HomeFragmentDirections.ActionHomeFragmentToSecondaryFragment action = HomeFragmentDirections.actionHomeFragmentToSecondaryFragment(10);
+//            navController.navigate(action);
         });
 
-        binding.to.setNavigationOnClickListener {
-            // Handle navigation icon press
-        }
-
+//        binding.to.setNavigationOnClickListener {
+//            // Handle navigation icon press
+//        }
+//
 
 
     }
