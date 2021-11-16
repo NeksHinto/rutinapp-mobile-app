@@ -78,7 +78,7 @@ public class ProfileFragment extends Fragment {
     }
 
     private void seedProfile() {
-        userViewModel.getUserInfo().observe(getViewLifecycleOwner(), userInfo -> {
+        userViewModel.getUserData().observe(getViewLifecycleOwner(), userInfo -> {
             if (userInfo != null) {
                 if (!userInfo.getAvatarUrl().equals("")) {
                 }

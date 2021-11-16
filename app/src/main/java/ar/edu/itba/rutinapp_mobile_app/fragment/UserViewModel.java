@@ -7,9 +7,9 @@ import ar.edu.itba.rutinapp_mobile_app.api.model.UserModel;
 
 public class UserViewModel extends ViewModel {
     // TODO: Implement the ViewModel
-    private MutableLiveData<UserModel> userInfo = new MutableLiveData<>();
+    private MutableLiveData<UserModel> userData = new MutableLiveData<>();
 
-    public MutableLiveData<UserModel> getUserInfo() {
-        return userInfo;
+    public MutableLiveData<UserModel> getUserData() {
+        return userData;
     }
 }
