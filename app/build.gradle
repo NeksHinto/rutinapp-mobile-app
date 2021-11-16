@@ -2,6 +2,8 @@ plugins {
     id 'com.android.application'
 }
 
+apply plugin: "androidx.navigation.safeargs"
+
 android {
     compileSdk 31
 
@@ -52,7 +54,7 @@ dependencies {
     //Navigation
     implementation 'androidx.navigation:navigation-fragment:2.3.5'
     implementation 'androidx.navigation:navigation-ui:2.3.5'
-    implementation 'androidx.navigation:navigation-dynamic-festures:2.3.5'
+//    implementation 'androidx.navigation:navigation-dynamic-features:2.3.5'
     //Api
     implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
     implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
