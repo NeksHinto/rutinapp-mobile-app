@@ -10,6 +10,7 @@
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Contraseña</string>
     <string name="action_sign_in_short">Iniciar Sesión</string>
+    <string name="register">Registrarse</string>
 
 
     <!-- strings del menu -->
