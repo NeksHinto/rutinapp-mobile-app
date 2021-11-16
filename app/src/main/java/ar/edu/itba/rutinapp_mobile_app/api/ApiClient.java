@@ -8,9 +8,11 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import java.util.Date;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 import ar.edu.itba.rutinapp_mobile_app.BuildConfig;
+import ar.edu.itba.rutinapp_mobile_app.api.data.VerificationData;
 import ar.edu.itba.rutinapp_mobile_app.api.model.CredentialsModel;
 import ar.edu.itba.rutinapp_mobile_app.api.model.TokenModel;
 import ar.edu.itba.rutinapp_mobile_app.api.model.UserModel;
@@ -72,6 +74,21 @@ public class ApiClient extends ApiService implements ApiUserService{
 
     @Override
     public LiveData<ApiResponse<UserModel>> getCurrentUser() { return api.getCurrentUser(); }
+
+    @Override
+    public LiveData<ApiResponse<UserModel>> register(UserModel user) {
+        return null;
+    }
+
+    @Override
+    public LiveData<ApiResponse<Void>> verifyEmail(VerificationData data) {
+        return null;
+    }
+
+    @Override
+    public LiveData<ApiResponse<Void>> resendVerification(Map<String, String> data) {
+        return null;
+    }
 
 
 }
