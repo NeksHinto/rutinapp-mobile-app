@@ -44,7 +44,7 @@
             app:popupTheme="@style/Theme.Rutinappmobileapp.PopupOverlay" />
 -->
         <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/appBar"
+            android:id="@+id/toolBar_menu"
             app:title="@{navInfo.name}"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"

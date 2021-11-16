@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
 import androidx.annotation.NonNull;
@@ -15,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import org.jetbrains.annotations.NotNull;
 
+import ar.edu.itba.rutinapp_mobile_app.R;
 import ar.edu.itba.rutinapp_mobile_app.activity.MainNavActivity;
 import ar.edu.itba.rutinapp_mobile_app.databinding.SearchRoutineFragmentBinding;
 
@@ -26,6 +28,8 @@ public class SearchRoutinesFragment extends Fragment {
     private RecyclerView recyclerView;
     private Spinner sortSpinner;
     private Spinner orderSpinner;
+
+    boolean searching = false; //si estoy scrolleando
 
     public SearchRoutinesFragment() {
     }
@@ -40,7 +44,31 @@ public class SearchRoutinesFragment extends Fragment {
 
         ((MainNavActivity) getActivity()).setNavigationVisibility(true);
 
+        nestedScrollView.setOnScrollChangeListener(
+                (NestedScrollView.OnScrollChangeListener) (v, scrollX, scrollY, oldScrollX, oldScrollY) -> {
+                    if (!searching && !nestedScrollView.canScrollVertically(1)) {
+                        searching = true;
+                        //viewModel.updateData();
+                    }
+                });
+
         return view;
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        //viewModel = new ViewModelProvider(getActivity()).get(RoutinesViewModel.class);
+
+        setSpinners(view);
+    }
+
+    private void setSpinners(View view) {
+        sortSpinner = view.findViewById(R.id.sortDiscoverSpinner);
+
+        orderSpinner = view.findViewById(R.id.orderDiscoverSpinner);
+
     }
 
 

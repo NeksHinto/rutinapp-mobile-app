@@ -47,6 +47,11 @@ public class MainNavActivity extends AppCompatActivity {
             navController.navigate(action);
         });
 
+        binding.to.setNavigationOnClickListener {
+            // Handle navigation icon press
+        }
+
+
 
     }
 
