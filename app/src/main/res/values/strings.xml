@@ -32,8 +32,10 @@
     <string name="name">Name</string>
     <string name="lastname">Last Name</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
+    <!-- strings de configuracion -->
     <string name="modo_oscuro">Dark mode</string>
+    <string name="information">Information</string>
+    <string name="log_out">Log Out</string>
 
 
 </resources>

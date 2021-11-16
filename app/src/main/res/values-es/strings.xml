@@ -38,5 +38,7 @@
     <string name="lastname">Apellido</string>
 
     <!-- strings de configuracion -->
-    <string name="modo_oscuro">Dark mode</string>
+    <string name="modo_oscuro">Modo Oscuro</string>
+    <string name="information">Información</string>
+    <string name="log_out">Cerrar Sesión</string>
 </resources>
