@@ -81,7 +81,7 @@
         android:id="@+id/settings_fragment"
         android:name="ar.edu.itba.rutinapp_mobile_app.fragment.SettingsFragment"
         android:label="Setting"
-        tools:layout="@layout/fragment_settings">>
+        tools:layout="@layout/fragment_settings">
         <action
             android:id="@+id/action_settings_fragment_to_homeFragment"
             app:destination="@id/homeFragment" />

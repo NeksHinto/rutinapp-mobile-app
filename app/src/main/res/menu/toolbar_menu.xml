@@ -5,7 +5,7 @@
     <item
         android:id="@+id/profileBottom"
         android:tint="?attr/colorControlNormal"
-        android:icon="@drawable/empty_user"
+        android:icon="@drawable/logo"
         android:title="@string/profile"
         app:showAsAction="ifRoom"
         android:visible="true"
