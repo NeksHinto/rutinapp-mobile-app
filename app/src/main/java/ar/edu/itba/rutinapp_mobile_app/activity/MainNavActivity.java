@@ -18,6 +18,7 @@ import androidx.navigation.NavDirections;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import ar.edu.itba.rutinapp_mobile_app.fragment.HomeFragment;
+import ar.edu.itba.rutinapp_mobile_app.fragment.HomeFragmentDirections;
 import ar.edu.itba.rutinapp_mobile_app.fragment.UserViewModel;
 import ar.edu.itba.rutinapp_mobile_app.R;
 import ar.edu.itba.rutinapp_mobile_app.databinding.ActivityMainBinding;
