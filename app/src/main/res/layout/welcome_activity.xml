@@ -17,7 +17,7 @@
         app:srcCompat="@drawable/logo" />
 
     <Button
-        android:id="@+id/login"
+        android:id="@+id/loginButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="116dp"
@@ -25,7 +25,7 @@
         android:background="?colorSecondary"
         android:backgroundTint="?colorSecondary"
         android:backgroundTintMode="?colorSecondary"
-        android:text="Log In"
+        android:text="@string/log_in"
         android:textAllCaps="false"
         android:textColorLink="?colorSecondary"
         android:textSize="20sp"
@@ -33,12 +33,12 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/registerButton"
         android:layout_width="184dp"
         android:layout_height="52dp"
         android:layout_marginEnd="112dp"
         android:layout_marginBottom="156dp"
-        android:text="Registrarse"
+        android:text="@string/register"
         android:textAllCaps="false"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
