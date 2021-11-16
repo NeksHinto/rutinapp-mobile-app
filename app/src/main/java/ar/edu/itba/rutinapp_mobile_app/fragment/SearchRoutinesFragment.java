@@ -65,8 +65,10 @@ public class SearchRoutinesFragment extends Fragment {
     }
 
     private void setSpinners(View view) {
-        sortSpinner = view.findViewById(R.id.sortDiscoverSpinner);
-
+        sortSpinner = (Spinner) view.findViewById(R.id.sortDiscoverSpinner);
+        //ArrayAdapter<CharSequence> apapter = ArrayAdapter.createFromResource(getActivity(), R.array.sort, android.R.layout.simple_spinner_item);
+        //https://developer.android.com/guide/topics/ui/controls/spinner
+        
         orderSpinner = view.findViewById(R.id.orderDiscoverSpinner);
 
     }
