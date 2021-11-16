@@ -65,10 +65,8 @@ public class HomeFragment extends Fragment {
             NavController navController = Navigation.findNavController(v);
             Intent firstCat = new Intent( getActivity() ,SearchRoutinesFragment.class);
             startActivity(firstCat);
-            SearchRoutinesFragment firstC = new SearchRoutinesFragment();
             getActivity().getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.searchRoutine_fragment, firstC)
-                    .addToBackStack(null)
+                    .replace(R.id.searchRoutine_fragment, new SearchRoutinesFragment())
                     .commit();
 
         });
