@@ -35,7 +35,26 @@ public class ApiClient extends ApiService implements ApiUserService{
 
     private ApiUserService api;
 
-    private ApiClient() {
+    private ApiClient(Context context) {
+        HttpLoggingInterceptor httpLoggingInterceptor = new HttpLoggingInterceptor()
+                .setLevel(HttpLoggingInterceptor.Level.BODY);
+        OkHttpClient okHttpClient = new OkHttpClient.Builder()
+                .addInterceptor(httpLoggingInterceptor)
+                .addInterceptor(new AuthInterceptor(context))
+                .connectTimeout(CONNECT_TIMEOUT, TimeUnit.SECONDS)
+                .writeTimeout(WRITE_TIMEOUT, TimeUnit.SECONDS)
+                .readTimeout(READ_TIMEOUT, TimeUnit.SECONDS)
+                .build();
+        Gson gson = new GsonBuilder()
+                .registerTypeAdapter(Date.class, new ApiDateTypeAdapter())
+                .create();
+        api = new Retrofit.Builder()
+                .baseUrl(BASE_URL)
+                .client(okHttpClient)
+                .addConverterFactory(GsonConverterFactory.create())
+                .addCallAdapterFactory(new LiveDataCallAdapterFactory())
+                .build()
+                .create(ApiUserService.class);
     }
 
     public static <S> S create(Context context, Class<S> serviceClass) {
@@ -76,19 +95,13 @@ public class ApiClient extends ApiService implements ApiUserService{
     public LiveData<ApiResponse<UserModel>> getCurrentUser() { return api.getCurrentUser(); }
 
     @Override
-    public LiveData<ApiResponse<UserModel>> register(UserModel user) {
-        return null;
-    }
+    public LiveData<ApiResponse<UserModel>> register(UserModel user) { return api.register(user); }
 
     @Override
-    public LiveData<ApiResponse<Void>> verifyEmail(VerificationData data) {
-        return null;
-    }
+    public LiveData<ApiResponse<Void>> verifyEmail(VerificationData data) { return api.verifyEmail(data); }
 
     @Override
-    public LiveData<ApiResponse<Void>> resendVerification(Map<String, String> data) {
-        return null;
-    }
+    public LiveData<ApiResponse<Void>> resendVerification(Map<String, String> data) { return api.resendVerification(data); }
 
 
 }
