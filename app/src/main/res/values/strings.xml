@@ -23,10 +23,12 @@
 
     <!-- strings de buscador de rutinas -->
     <string name="search">Search</string>
+    <string name="filter">Filter</string>
     <string name="sort_title">Sort Routines</string>
     <string name="order_title">Order Routines</string>
 
     <!-- strings de perfil -->
+    <string name="profile">Profile</string>
     <string name="name">Name</string>
     <string name="lastname">Last Name</string>
 

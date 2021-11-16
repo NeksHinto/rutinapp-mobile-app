@@ -28,10 +28,12 @@
 
     <!-- strings del buscador -->
     <string name="search">Buscar</string>
+    <string name="filter">Filtrar</string>
     <string name="sort_title">Filtrar Rutinas</string>
     <string name="order_title">Ordenar Rutinas</string>
 
     <!-- strings del perfil -->
+    <string name="profile">Perfil</string>
     <string name="name">Nombre</string>
     <string name="lastname">Apellido</string>
 
