@@ -40,7 +40,7 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/filterRoutines"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-        android:layout_width="350dp"
+        android:layout_width="310dp"
         android:layout_height="48dp"
         android:autofillHints="@string/filter"
         android:background="@drawable/rounded_edit_text"
@@ -64,6 +64,17 @@
             android:spinnerMode="dialog"
             android:layout_weight="1" />
 
+    </com.google.android.material.textfield.TextInputLayout>
+<!--
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floating_action_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|right"
+        android:layout_margin="16dp"
+        android:contentDescription="@string/sort_title"
+        app:srcCompat="@drawable/ic_sort"
+        tools:ignore="MissingConstraints">
         <Spinner
             android:id="@+id/orderDiscoverSpinner"
             android:layout_width="match_parent"
@@ -72,9 +83,26 @@
             android:prompt="@string/order_title"
             android:spinnerMode="dialog"
             android:layout_weight="1" />
+    </com.google.android.material.floatingactionbutton.FloatingActionButton>
+-->
 
-    </com.google.android.material.textfield.TextInputLayout>
+    <ImageButton
+        android:id="@+id/button"
+        android:layout_width="52dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="100dp"
+        android:adjustViewBounds="true"
+        android:background="@color/green_app"
+        android:contentDescription="@string/order_title"
+        android:gravity="center_vertical|left"
+        android:scaleType="centerInside"
+        app:layout_constraintStart_toEndOf="@+id/filterRoutines"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_sort">
 
+
+    </ImageButton>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         app:layout_constraintTop_toBottomOf="@+id/filterRoutines"

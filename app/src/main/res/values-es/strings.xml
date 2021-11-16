@@ -33,6 +33,18 @@
     <string name="sort_title">Filtrar Rutinas</string>
     <string name="order_title">Ordenar Rutinas</string>
 
+    <string-array name="sort">
+        <item>Aerobico</item>
+        <item>Fuerza</item>
+        <item>Resistencia</item>
+    </string-array>
+
+    <string-array name="order">
+        <item>Descendiente</item>
+        <item>Ascendente</item>
+    </string-array>
+
+
     <!-- strings del perfil -->
     <string name="profile">Perfil</string>
     <string name="name">Nombre</string>

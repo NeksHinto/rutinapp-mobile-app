@@ -10,17 +10,35 @@
         android:name="ar.edu.itba.rutinapp_mobile_app.fragment.HomeFragment"
         android:label="Home"
         tools:layout="@layout/home_fragment">
+        <action
+            android:id="@+id/action_homeFragment_to_searchRoutine_fragmentFragment"
+            app:destination="@id/searchRoutine_fragmentFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_settings_fragment2"
+            app:destination="@id/settings_fragment" />
     </fragment>
     <fragment
         android:id="@+id/searchRoutine_fragmentFragment"
         android:name="ar.edu.itba.rutinapp_mobile_app.fragment.SearchRoutinesFragment"
         android:label="Search Routine"
         tools:layout="@layout/search_routine_fragment">
+        <action
+            android:id="@+id/action_searchRoutine_fragmentFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_searchRoutine_fragmentFragment_to_settings_fragment"
+            app:destination="@id/settings_fragment" />
     </fragment>
     <fragment
-        android:id="@+id/setting_fragment"
-        android:name="ar.edu.itba.rutinapp_mobile_app.fragment.HomeFragment"
+        android:id="@+id/settings_fragment"
+        android:name="ar.edu.itba.rutinapp_mobile_app.fragment.SettingsFragment"
         android:label="Setting" >
+        <action
+            android:id="@+id/action_settings_fragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_settings_fragment_to_searchRoutine_fragmentFragment"
+            app:destination="@id/searchRoutine_fragmentFragment" />
     </fragment>
 
 </navigation>

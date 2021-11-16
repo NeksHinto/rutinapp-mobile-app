@@ -27,6 +27,16 @@
     <string name="filter">Filter</string>
     <string name="sort_title">Sort Routines</string>
     <string name="order_title">Order Routines</string>
+    <string-array name="sort">
+        <item>Aerobics</item>
+        <item>Strength</item>
+        <item>Resistence</item>
+    </string-array>
+
+    <string-array name="order">
+        <item>Descending</item>
+        <item>Ascending</item>
+    </string-array>
 
     <!-- strings de perfil -->
     <string name="profile">Profile</string>
