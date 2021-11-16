@@ -40,7 +40,7 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/filterRoutines"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-        android:layout_width="310dp"
+        android:layout_width="300dp"
         android:layout_height="48dp"
         android:autofillHints="@string/filter"
         android:background="@drawable/rounded_edit_text"
