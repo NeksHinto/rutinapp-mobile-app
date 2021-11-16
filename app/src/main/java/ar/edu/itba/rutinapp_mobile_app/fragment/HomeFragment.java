@@ -56,9 +56,9 @@ public class HomeFragment extends Fragment {
 
         View rootView = inflater.inflate(R.layout.home_fragment, container, false);
 
-        Button firstCategory = rootView.findViewById(R.id.search_button);
-        Button secondCategory = rootView.findViewById(R.id.search_button);
-        Button thirdCategory = rootView.findViewById(R.id.search_button);
+        Button firstCategory = rootView.findViewById(R.id.category1);
+        Button secondCategory = rootView.findViewById(R.id.category2);
+        Button thirdCategory = rootView.findViewById(R.id.category3);
 
         firstCategory.setOnClickListener((v) -> {
 

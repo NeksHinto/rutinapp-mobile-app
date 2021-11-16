@@ -9,7 +9,7 @@
 
 
     <ImageButton
-        android:id="@+id/imageView"
+        android:id="@+id/category1"
         android:layout_width="390dp"
         android:layout_height="210dp"
         android:layout_marginTop="24dp"
@@ -23,7 +23,7 @@
         app:srcCompat="@drawable/categoria2" />
 
     <ImageButton
-        android:id="@+id/imageView2"
+        android:id="@+id/category2"
         android:layout_width="417dp"
         android:layout_height="224dp"
         android:layout_marginStart="4dp"
@@ -51,7 +51,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
-        android:id="@+id/imageView3"
+        android:id="@+id/category3"
         android:layout_width="412dp"
         android:layout_height="253dp"
         android:layout_marginStart="4dp"
