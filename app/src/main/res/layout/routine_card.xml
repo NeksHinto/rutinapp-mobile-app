@@ -19,8 +19,8 @@
             android:onClick="@{clickListener::onClick}">
 
 
-            <ImageView
-                android:id="@+id/routineImg"
+            <ImageButton
+                android:id="@+id/favoriteButton"
                 android:layout_width="406dp"
                 android:layout_height="126dp"
                 android:scaleType="centerCrop"

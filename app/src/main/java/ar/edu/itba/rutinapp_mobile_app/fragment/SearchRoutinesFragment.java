@@ -1,6 +1,7 @@
 package ar.edu.itba.rutinapp_mobile_app.fragment;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,7 +15,11 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.snackbar.Snackbar;
+
 import org.jetbrains.annotations.NotNull;
+
+import java.util.stream.Collectors;
 
 import ar.edu.itba.rutinapp_mobile_app.R;
 import ar.edu.itba.rutinapp_mobile_app.activity.MainNavActivity;
@@ -30,6 +35,8 @@ public class SearchRoutinesFragment extends Fragment {
     private Spinner orderSpinner;
 
     boolean searching = false; //si estoy scrolleando
+    private String orderBy = "categoryId";
+    private String direction = "asc";
 
     public SearchRoutinesFragment() {
     }
@@ -60,8 +67,35 @@ public class SearchRoutinesFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         //viewModel = new ViewModelProvider(getActivity()).get(RoutinesViewModel.class);
-
         setSpinners(view);
+        if(savedInstanceState != null) {
+            direction = savedInstanceState.getString("direction");
+        }
+        if(direction.equals("asc")) {
+            binding.orderButton.setImageResource(R.drawable.ic_sort_asc);
+        } else {
+            binding.orderButton.setImageResource(R.drawable.ic_sort_desc);
+        }
+
+        getRoutines();
+
+        binding.orderButton.setOnClickListener(v -> {
+            if(direction.equals("asc")) {
+                direction = "desc";
+                binding.orderButton.setImageResource(R.drawable.ic_sort_desc);
+            } else {
+                direction = "asc";
+                binding.orderButton.setImageResource(R.drawable.ic_sort_asc);
+            }
+            getRoutines();
+        });
+
+        View.OnClickListener favoriteClickListener = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //aca seria con cada rutina en especifica
+            }
+        };
     }
 
     private void setSpinners(View view) {
@@ -72,5 +106,7 @@ public class SearchRoutinesFragment extends Fragment {
 
     }
 
+    public void getRoutines() {
+    }
 
 }
