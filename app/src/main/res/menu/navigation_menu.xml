@@ -20,14 +20,14 @@
             android:title="@string/navRoutines" />
 
     <item
-            android:id="@+id/myActivity_fragment"
-            android:icon="@drawable/ic_my_activity"
+            android:id="@+id/profile_fragment"
+            android:icon="@drawable/ic_profile"
             android:orderInCategory="3"
             app:labelVisibilityMode="labeled"
-            android:title="@string/navMyActivity" />
+            android:title="My Profile" />
 
     <item
-            android:id="@+id/fav_fragment"
+            android:id="@+id/favorite_fragment"
             android:icon="@drawable/ic_fav"
             android:orderInCategory="4"
             app:labelVisibilityMode="labeled"
