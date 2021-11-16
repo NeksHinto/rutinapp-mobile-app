@@ -30,7 +30,9 @@
         android:textColorLink="?colorSecondary"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+
+        android:onClick="loginActivity"/>
 
     <Button
         android:id="@+id/registerButton"
@@ -42,6 +44,8 @@
         android:textAllCaps="false"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+
+        android:onClick="ResgisterActivity"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
