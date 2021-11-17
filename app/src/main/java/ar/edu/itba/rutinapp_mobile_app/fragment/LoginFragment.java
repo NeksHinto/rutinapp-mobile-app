@@ -23,7 +23,7 @@ public class LoginFragment extends Fragment {
 
     private TextInputLayout username;
     private TextInputLayout password;
-    private TextView error;
+    private TextView errorMsg;
 
     public static LoginFragment newInstance() {
         return new LoginFragment();
@@ -37,6 +37,8 @@ public class LoginFragment extends Fragment {
         LoginFragmentBinding binding = LoginFragmentBinding.inflate(getLayoutInflater());
 
         username = binding.loginUsername;
+        password = binding.loginPassword;
+        errorMsg = binding.loginErrorMsg;
 
         return inflater.inflate(R.layout.login_fragment, container, false);
     }
