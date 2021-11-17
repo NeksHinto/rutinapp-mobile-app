@@ -48,7 +48,7 @@ public class InformationFragment extends DialogFragment {
     }
 
     private void cancelar() {
-        
+
     }
 
     @Override

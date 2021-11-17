@@ -8,7 +8,7 @@
     android:background="@color/green_app">
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/imageView1"
         android:layout_width="224dp"
         android:layout_height="397dp"
         android:contentDescription="@string/logo_image"
@@ -31,7 +31,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"/>
+        app:layout_constraintTop_toBottomOf="@+id/imageView1"/>
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/registerButton"
