@@ -47,17 +47,14 @@
     <string name="modo_oscuro">Dark mode</string>
     <string name="information">Information</string>
     <string name="log_out">Log Out</string>
-<<<<<<< HEAD
     <string name="close">Close</string>
 
-=======
 
     <!-- strings de verificación de usuario -->
     <string name="enter_the_verification_code">Enter the verification code</string>
     <string name="verification_code">Verification code</string>
     <string name="verify_code">Verify</string>
     <string name="resend_email_message">If you did not receive the verification code, enter your email below</string>
->>>>>>> 9dbf3c941f31c3fa5b0099d392ef37c0cc87df60
 
 
 </resources>
