@@ -6,20 +6,14 @@ import android.view.View;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatDelegate;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.NavigationUI;
-import androidx.navigation.NavDirections;
 
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import ar.edu.itba.rutinapp_mobile_app.fragment.HomeFragment;
-import ar.edu.itba.rutinapp_mobile_app.fragment.HomeFragmentDirections;
-import ar.edu.itba.rutinapp_mobile_app.fragment.UserViewModel;
 import ar.edu.itba.rutinapp_mobile_app.R;
 import ar.edu.itba.rutinapp_mobile_app.databinding.ActivityMainBinding;
 

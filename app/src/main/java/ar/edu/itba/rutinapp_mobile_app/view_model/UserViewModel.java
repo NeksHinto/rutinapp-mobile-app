@@ -1,4 +1,4 @@
-package ar.edu.itba.rutinapp_mobile_app.fragment;
+package ar.edu.itba.rutinapp_mobile_app.view_model;
 
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
