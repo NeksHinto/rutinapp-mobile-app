@@ -18,7 +18,7 @@ public class Resource<T> {
     private final Status status;
 
     @Nullable
-    private final Error error;
+    private final ErrorModel error;
 
     @Nullable
     private final T data;
@@ -29,7 +29,7 @@ public class Resource<T> {
     }
 
     @Nullable
-    public Error getError() {
+    public ErrorModel getError() {
         return error;
     }
 
@@ -38,7 +38,7 @@ public class Resource<T> {
         return data;
     }
 
-    public Resource(@NonNull Status status, @Nullable T data, @Nullable Error error) {
+    public Resource(@NonNull Status status, @Nullable T data, @Nullable ErrorModel error) {
         this.status = status;
         this.data = data;
         this.error = error;

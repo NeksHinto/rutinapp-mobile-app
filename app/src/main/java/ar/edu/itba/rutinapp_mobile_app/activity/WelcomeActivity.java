@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
+import ar.edu.itba.rutinapp_mobile_app.AppPreferences;
 import ar.edu.itba.rutinapp_mobile_app.R;
 import ar.edu.itba.rutinapp_mobile_app.fragment.LoginFragment;
 
@@ -21,21 +22,13 @@ public class WelcomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.welcome_activity);
 
-        Button buttonLogin = (Button) findViewById(R.id.loginButton);
-        buttonLogin.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                // Do something in response to button click
-            }
-        });
-
-        Button buttonRegister = (Button) findViewById(R.id.registerButton);
-        buttonRegister.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                // Do something in response to button click
-            }
-        });
-
+        AppPreferences preferences = new AppPreferences(this.getApplication());
     }
 
+    @Override
+    protected void onPostCreate(@Nullable Bundle savedInstanceState) {
+        super.onPostCreate(savedInstanceState);
+        Intent intent = getIntent();
 
+    }
 }
