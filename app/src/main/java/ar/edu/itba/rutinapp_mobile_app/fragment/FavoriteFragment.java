@@ -66,13 +66,7 @@ public class FavoriteFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Routine routine = (Routine) v.getTag();
-                if(routine.getFavorite()) {
-                    app.getRoutineRepository().addFavorite(routine.getId()).observe(getViewLifecycleOwner(), r->{});
-                    Snackbar.make(v, getResources().getString(R.string.fav_added), Snackbar.LENGTH_LONG).show();
-                } else {
-                    app.getRoutineRepository().deleteFavorite(routine.getId()).observe(getViewLifecycleOwner(), r->{});
-                    Snackbar.make(v, getResources().getString(R.string.fav_removed), Snackbar.LENGTH_LONG).show();
-                }
+                //hacer get de favoritos en las rutinas
             }
         };
 
