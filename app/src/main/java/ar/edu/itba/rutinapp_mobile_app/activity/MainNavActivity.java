@@ -25,7 +25,6 @@ import ar.edu.itba.rutinapp_mobile_app.databinding.ActivityMainBinding;
 
 public class MainNavActivity extends AppCompatActivity {
     private BottomNavigationView bottomNavigationView;
-    private UserViewModel userviewModel;
     ActivityMainBinding binding;
 
     @Override
