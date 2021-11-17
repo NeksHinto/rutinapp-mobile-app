@@ -22,7 +22,7 @@ import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class ApiClient extends ApiService implements ApiUserService{
+public class ApiClient {
 
     public static final int CONNECT_TIMEOUT = 60;
     public static final int READ_TIMEOUT = 60;
@@ -33,28 +33,9 @@ public class ApiClient extends ApiService implements ApiUserService{
     // de host del mismo es usando la IP 10.0.2.2.
     public static final String BASE_URL = "http://10.0.2.2:8080/api/";
 
-    private ApiUserService api;
+//    private ApiUserService api;
 
-    private ApiClient(Context context) {
-        HttpLoggingInterceptor httpLoggingInterceptor = new HttpLoggingInterceptor()
-                .setLevel(HttpLoggingInterceptor.Level.BODY);
-        OkHttpClient okHttpClient = new OkHttpClient.Builder()
-                .addInterceptor(httpLoggingInterceptor)
-                .addInterceptor(new AuthInterceptor(context))
-                .connectTimeout(CONNECT_TIMEOUT, TimeUnit.SECONDS)
-                .writeTimeout(WRITE_TIMEOUT, TimeUnit.SECONDS)
-                .readTimeout(READ_TIMEOUT, TimeUnit.SECONDS)
-                .build();
-        Gson gson = new GsonBuilder()
-                .registerTypeAdapter(Date.class, new ApiDateTypeAdapter())
-                .create();
-        api = new Retrofit.Builder()
-                .baseUrl(BASE_URL)
-                .client(okHttpClient)
-                .addConverterFactory(GsonConverterFactory.create())
-                .addCallAdapterFactory(new LiveDataCallAdapterFactory())
-                .build()
-                .create(ApiUserService.class);
+    private ApiClient() {
     }
 
     public static <S> S create(Context context, Class<S> serviceClass) {
@@ -83,25 +64,25 @@ public class ApiClient extends ApiService implements ApiUserService{
         return retrofit.create(serviceClass);
     }
 
-    public ApiUserService getApi() { return api; }
-
-    @Override
-    public LiveData<TokenModel> login(CredentialsModel credentials) { return api.login(credentials); }
-
-    @Override
-    public LiveData<ApiResponse<Void>> logout() { return api.logout();}
-
-    @Override
-    public LiveData<ApiResponse<UserModel>> getCurrentUser() { return api.getCurrentUser(); }
-
-    @Override
-    public LiveData<ApiResponse<UserModel>> register(UserModel user) { return api.register(user); }
-
-    @Override
-    public LiveData<ApiResponse<Void>> verifyEmail(VerificationData data) { return api.verifyEmail(data); }
-
-    @Override
-    public LiveData<ApiResponse<Void>> resendVerification(Map<String, String> data) { return api.resendVerification(data); }
+//    public ApiUserService getApi() { return api; }
+//
+//    @Override
+//    public LiveData<TokenModel> login(CredentialsModel credentials) { return api.login(credentials); }
+//
+//    @Override
+//    public LiveData<ApiResponse<Void>> logout() { return api.logout();}
+//
+//    @Override
+//    public LiveData<ApiResponse<UserModel>> getCurrentUser() { return api.getCurrentUser(); }
+//
+//    @Override
+//    public LiveData<ApiResponse<UserModel>> register(UserModel user) { return api.register(user); }
+//
+//    @Override
+//    public LiveData<ApiResponse<Void>> verifyEmail(VerificationData data) { return api.verifyEmail(data); }
+//
+//    @Override
+//    public LiveData<ApiResponse<Void>> resendVerification(Map<String, String> data) { return api.resendVerification(data); }
 
 
 }

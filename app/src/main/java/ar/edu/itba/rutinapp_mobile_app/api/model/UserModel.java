@@ -40,7 +40,11 @@ public class UserModel {
     @Expose
     private String avatarUrl;
 
-    public UserModel(String username, String password, String firstName, String lastName, String gender, Long birthdate, String email, String phone, String avatarUrl) {
+    @SerializedName("verified")
+    @Expose
+    private boolean verified;
+
+    public UserModel(String username, String password, String firstName, String lastName, String gender, Long birthdate, String email, String phone, String avatarUrl, boolean verified) {
         super();
         this.username = username;
         this.password = password;
@@ -51,6 +55,7 @@ public class UserModel {
         this.email = email;
         this.phone = phone;
         this.avatarUrl = avatarUrl;
+        this.verified = verified;
     }
 
     public String getUsername() {
@@ -123,5 +128,13 @@ public class UserModel {
 
     public void setAvatarUrl(String avatarUrl) {
         this.avatarUrl = avatarUrl;
+    }
+
+    public boolean isVerified() {
+        return verified;
+    }
+
+    public void setVerified(boolean verified) {
+        this.verified = verified;
     }
 }

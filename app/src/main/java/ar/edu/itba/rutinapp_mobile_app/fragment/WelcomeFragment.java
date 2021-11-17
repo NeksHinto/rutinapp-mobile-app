@@ -36,17 +36,17 @@ public class WelcomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View rootWelcome = inflater.inflate(R.layout.fragment_welcome, container, false);
+        return inflater.inflate(R.layout.fragment_welcome, container, false);
 
-        MaterialButton logInBtn = rootWelcome.findViewById(R.id.loginButton);
-        MaterialButton registerBtn = rootWelcome.findViewById(R.id.registerButton);
-
-        logInBtn.setOnClickListener(view -> {
-            NavController welcomeNavController = Navigation.findNavController(view);
-//            WelcomeFragmentDirections.
-        });
-
-        // Despues cambiarlo
-        return rootWelcome;
+//        MaterialButton logInBtn = rootWelcome.findViewById(R.id.loginButton);
+//        MaterialButton registerBtn = rootWelcome.findViewById(R.id.registerButton);
+//
+//        logInBtn.setOnClickListener(view -> {
+//            NavController welcomeNavController = Navigation.findNavController(view);
+////            WelcomeFragmentDirections.
+//        });
+//
+//        // Despues cambiarlo
+//        return rootWelcome;
     }
 }

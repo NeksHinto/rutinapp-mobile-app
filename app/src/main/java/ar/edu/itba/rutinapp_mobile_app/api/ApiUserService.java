@@ -14,7 +14,7 @@ import retrofit2.http.POST;
 
 public interface ApiUserService {
     @POST("users/login")
-    LiveData<TokenModel> login(@Body CredentialsModel credentials);
+    LiveData<ApiResponse<TokenModel>> login(@Body CredentialsModel credentials);
 
     @POST("users/logout")
     LiveData<ApiResponse<Void>> logout();
@@ -23,7 +23,7 @@ public interface ApiUserService {
     LiveData<ApiResponse<UserModel>> getCurrentUser();
 
     @POST("users")
-    LiveData<ApiResponse<UserModel>> register(@Body UserModel user);
+    LiveData<ApiResponse<UserModel>> register(@Body CredentialsModel credentials);
 
     @POST("users/verify_email")
     LiveData<ApiResponse<Void>> verifyEmail(@Body VerificationData data);
