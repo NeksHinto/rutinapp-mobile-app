@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment.InformationFragment"
+    android:background="@color/green_app">
+
+    <LinearLayout
+        android:layout_width="209dp"
+        android:layout_height="135dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/backgrounfText"
+            android:hint="@string/information"
+            android:gravity="center"
+            android:scaleType="center"
+            app:icon="@drawable/info_icon" />
+
+        <TextView
+            android:id="@+id/username"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="4dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="4dp"
+            android:layout_marginBottom="4dp"
+            android:hint="RutinApp es una app donde podras encontrar rutinas para ejercitarte!" />
+
+        <TextView
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="4dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginRight="4dp"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="sans-serif"
+            android:hint="Para mas informacion, ingresar a la pag rutinapp.com.ar" />
+    </LinearLayout>
+
+</RelativeLayout>
