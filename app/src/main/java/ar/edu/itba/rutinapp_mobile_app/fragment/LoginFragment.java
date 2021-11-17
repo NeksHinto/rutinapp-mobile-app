@@ -2,6 +2,7 @@ package ar.edu.itba.rutinapp_mobile_app.fragment;
 
 import androidx.lifecycle.ViewModelProvider;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
@@ -14,9 +15,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputLayout;
 
 import ar.edu.itba.rutinapp_mobile_app.R;
+import ar.edu.itba.rutinapp_mobile_app.activity.MainNavActivity;
 import ar.edu.itba.rutinapp_mobile_app.databinding.LoginFragmentBinding;
 
 public class LoginFragment extends Fragment {
@@ -40,7 +43,16 @@ public class LoginFragment extends Fragment {
         password = binding.loginPassword;
         errorMsg = binding.loginErrorMsg;
 
+        View view = binding.getRoot();
+        MaterialButton loginBtn = view.findViewById(R.id.login);
+        loginBtn.setOnClickListener(v -> tryLogin());
+
         return inflater.inflate(R.layout.login_fragment, container, false);
+    }
+
+    private void tryLogin() {
+        Intent intent = new Intent(getActivity(), MainNavActivity.class);
+        startActivity(intent);
     }
 
     // User validation
