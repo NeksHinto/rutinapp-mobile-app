@@ -16,27 +16,31 @@
             app:enterAnim="@animator/nav_default_enter_anim"
             app:exitAnim="@animator/nav_default_exit_anim"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-            app:popExitAnim="@anim/nav_default_pop_exit_anim"/>
+            app:popExitAnim="@anim/nav_default_pop_exit_anim">
+            <argument
+                android:name="Welcome"
+                app:argType="string"
+                app:nullable="true"
+                android:defaultValue="@null"/>
+        </action>
         <action
-            android:id="@+id/action_welcomeFragment_to_registerFragment2"
-            app:destination="@id/registerFragment" />
+            android:id="@+id/action_welcomeFragment_to_registerFragment"
+            app:destination="@id/registerFragment">
+            <argument
+                android:name="Welcome"
+                app:argType="string"
+                app:nullable="true"
+                android:defaultValue="@null"/>
+        </action>
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
         android:name="ar.edu.itba.rutinapp_mobile_app.fragment.LoginFragment"
         android:label="login_fragment"
-        tools:layout="@layout/login_fragment" >
-        <action
-            android:id="@+id/action_loginFragment_to_welcomeFragment2"
-            app:destination="@id/welcomeFragment" />
-    </fragment>
+        tools:layout="@layout/login_fragment"/>
     <fragment
         android:id="@+id/registerFragment"
         android:name="ar.edu.itba.rutinapp_mobile_app.fragment.RegisterFragment"
         android:label="RegisterFragment"
-        tools:layout="@layout/fragment_register">
-        <action
-            android:id="@+id/action_registerFragment_to_welcomeFragment2"
-            app:destination="@id/welcomeFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_register"/>
 </navigation>
