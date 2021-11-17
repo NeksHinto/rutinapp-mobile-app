@@ -18,13 +18,12 @@
         app:srcCompat="@drawable/logo" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/loginButton"
+        android:id="@+id/welcomeLoginButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="start"
         android:layout_marginTop="60dp"
         android:backgroundTint="?colorSecondary"
-        android:enabled="false"
         android:fontFamily="@font/poppins"
         android:text="@string/action_sign_in_short"
         android:textColor="@color/white"
@@ -32,9 +31,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-
-        android:onClick="loginActivity"/>
+        app:layout_constraintTop_toBottomOf="@+id/imageView"/>
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/registerButton"
@@ -43,9 +40,7 @@
         android:layout_gravity="start"
         android:layout_marginBottom="108dp"
         android:backgroundTint="@color/purple_app"
-        android:enabled="false"
         android:fontFamily="@font/poppins"
-        android:onClick="RegisterActivity"
         android:text="@string/sign_up"
         android:textColor="@color/white"
         app:cornerRadius="10dp"
@@ -53,6 +48,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/loginButton" />
+        app:layout_constraintTop_toBottomOf="@+id/welcomeLoginButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

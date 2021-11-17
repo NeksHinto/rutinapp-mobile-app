@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,7 +39,7 @@ public class WelcomeFragment extends Fragment {
         // Inflate the layout for this fragment
         View rootWelcome = inflater.inflate(R.layout.fragment_welcome, container, false);
 
-        MaterialButton logInBtn = rootWelcome.findViewById(R.id.loginButton);
+        MaterialButton logInBtn = rootWelcome.findViewById(R.id.welcomeLoginButton);
         MaterialButton registerBtn = rootWelcome.findViewById(R.id.registerButton);
 
         logInBtn.setOnClickListener(view -> {
