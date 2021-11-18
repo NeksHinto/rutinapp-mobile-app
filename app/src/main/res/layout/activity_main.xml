@@ -32,7 +32,7 @@
         android:id="@+id/navigationView"
         android:layout_width="251dp"
         android:layout_height="735dp"
-        android:background="?colorPrimary"
+        android:background="@color/green_menu"
         app:headerLayout="@layout/header_navigation_menu"
         app:menu="@menu/navigation_menu"
         tools:ignore="MissingConstraints"

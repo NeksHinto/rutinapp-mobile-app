@@ -12,4 +12,6 @@
     <color name="backgrounfText">#2D000000</color>
     <color name="red">#FF0000</color>
     <color name="grey">#696969</color>
+    <color name="green_menu">#86E8B3</color>
+
 </resources>
