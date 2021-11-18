@@ -12,13 +12,14 @@ import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.NavigationUI;
 
 
-import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationView;
 
 import ar.edu.itba.rutinapp_mobile_app.R;
 import ar.edu.itba.rutinapp_mobile_app.databinding.ActivityMainBinding;
+import ar.edu.itba.rutinapp_mobile_app.fragment.HomeFragmentDirections;
 
 public class MainNavActivity extends AppCompatActivity {
-    private BottomNavigationView bottomNavigationView;
+    private NavigationView navigationView;
     ActivityMainBinding binding;
 
     @Override
@@ -30,8 +31,8 @@ public class MainNavActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
 
-        binding.bottomNav.setOnClickListener(view -> {
-            binding.bottomNav.setEnabled(false);
+        binding.buttonNav.setOnClickListener(view -> {
+            binding.buttonNav.setEnabled(false);
 
             NavHostFragment navHostFragment = (NavHostFragment)
                     getSupportFragmentManager().findFragmentById(R.id.navigationView);
@@ -56,19 +57,19 @@ public class MainNavActivity extends AppCompatActivity {
     }
 
     public void setUpBottomNavigation() {
-        bottomNavigationView = findViewById(R.id.bottomNav);
+        navigationView = findViewById(R.id.buttonNav);
 
         NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.navigationView);
         assert navHostFragment != null;
-        NavigationUI.setupWithNavController(bottomNavigationView,
+        NavigationUI.setupWithNavController(navigationView,
                 navHostFragment.getNavController());
     }
 
     public void setNavigationVisibility(boolean b) {
         if (b) {
-            bottomNavigationView.setVisibility(View.VISIBLE);
+            navigationView.setVisibility(View.VISIBLE);
         } else {
-            bottomNavigationView.setVisibility(View.GONE);
+            navigationView.setVisibility(View.GONE);
         }
     }
 
