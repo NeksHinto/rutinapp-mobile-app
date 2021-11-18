@@ -56,7 +56,7 @@ public class ProfileFragment extends Fragment {
         lastName = binding.lastName;
         profilePic = binding.profileImage;
 
-        ((MainNavActivity) getActivity()).setNavigationVisibility(true);
+//        ((MainNavActivity) getActivity()).setNavigationVisibility(true);
 
         return view;
     }

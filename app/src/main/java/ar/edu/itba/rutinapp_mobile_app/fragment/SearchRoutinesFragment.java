@@ -49,7 +49,7 @@ public class SearchRoutinesFragment extends Fragment {
         nestedScrollView = binding.scrollView;
         recyclerView = binding.recyclerView;
 
-        ((MainNavActivity) getActivity()).setNavigationVisibility(true);
+//        ((MainNavActivity) getActivity()).setNavigationVisibility(true);
 
         nestedScrollView.setOnScrollChangeListener(
                 (NestedScrollView.OnScrollChangeListener) (v, scrollX, scrollY, oldScrollX, oldScrollY) -> {
