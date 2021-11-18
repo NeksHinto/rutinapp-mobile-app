@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
+import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 
@@ -19,6 +20,8 @@ import ar.edu.itba.rutinapp_mobile_app.databinding.ActivityMainBinding;
 import ar.edu.itba.rutinapp_mobile_app.fragment.HomeFragmentDirections;
 
 public class MainNavActivity extends AppCompatActivity {
+
+    private AppBarConfiguration appBarConfiguration;
     private NavigationView navigationView;
     ActivityMainBinding binding;
 
@@ -30,17 +33,25 @@ public class MainNavActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        navigationView = findViewById(R.id.navigationView);
+        appBarConfiguration = new AppBarConfiguration.Builder(R.id.home_fragment, R.id.searchRoutine_fragment,
+                R.id.profile_fragment, R.id.favorite_fragment, R.id.settings_fragment)
+                .build();
 
-        binding.buttonNav.setOnClickListener(view -> {
-            binding.buttonNav.setEnabled(false);
+        NavController navController = Navigation.findNavController(this, R.id.nav_fragment_content);
+        NavigationUI.setupActionBarWithNavController(this, navController,appBarConfiguration);
+        NavigationUI.setupWithNavController(navigationView, navController);
 
-            NavHostFragment navHostFragment = (NavHostFragment)
-                    getSupportFragmentManager().findFragmentById(R.id.navigationView);
-            NavController navController = navHostFragment.getNavController();
-
+//        binding.buttonNav.setOnClickListener(view -> {
+//            binding.buttonNav.setEnabled(false);
+//
+//            NavHostFragment navHostFragment = (NavHostFragment)
+//                    getSupportFragmentManager().findFragmentById(R.id.navigationView);
+//            NavController navController = navHostFragment.getNavController();
+//
 //            HomeFragmentDirections.ActionHomeFragmentToSecondaryFragment action = HomeFragmentDirections.actionHomeFragmentToSecondaryFragment(10);
 //            navController.navigate(action);
-        });
+//        });
 
 //        binding.to.setNavigationOnClickListener {
 //            // Handle navigation icon press
