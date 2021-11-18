@@ -6,6 +6,7 @@ apply plugin: "androidx.navigation.safeargs"
 
 android {
     compileSdk 31
+    buildToolsVersion "30.0.3"
 
     defaultConfig {
         applicationId "ar.edu.itba.rutinapp_mobile_app"
@@ -65,6 +66,7 @@ dependencies {
 
     implementation "io.reactivex.rxjava3:rxandroid:$rxJava_version"
     implementation "io.reactivex.rxjava3:rxjava:$rxJava_version"
+    implementation "com.squareup.retrofit2:adapter-rxjava3:$retrofit_version"
 
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
