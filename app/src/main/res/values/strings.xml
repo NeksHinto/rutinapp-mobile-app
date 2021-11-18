@@ -58,6 +58,7 @@
     <string name="verification_code">Verification code</string>
     <string name="verify_code">Verify</string>
     <string name="resend_email_message">If you did not receive the verification code, enter your email below</string>
+    <string name="resend">Resend</string>
 
 
 </resources>

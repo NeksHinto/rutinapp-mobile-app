@@ -63,5 +63,6 @@
     <string name="verification_code">Código de verificación</string>
     <string name="verify_code">Verificar</string>
     <string name="resend_email_message">Si no recibiste el código, ingresá tu email abajo</string>
+    <string name="resend">Reenviar</string>
 
 </resources>

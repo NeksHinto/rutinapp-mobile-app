@@ -63,6 +63,10 @@
         android:label="fragment_email_verification"
         tools:layout="@layout/fragment_email_verification" >
         <action
+            app:enterAnim="@animator/nav_default_enter_anim"
+            app:exitAnim="@animator/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
             android:id="@+id/action_emailVerificationFragment_to_welcomeFragment"
             app:destination="@id/welcomeFragment" />
     </fragment>

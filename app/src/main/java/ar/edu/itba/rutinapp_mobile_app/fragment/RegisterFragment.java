@@ -110,7 +110,7 @@ public class RegisterFragment extends Fragment {
     }
 
     private void tryRegister() {
-        if(!isEmailValide() | !isUsernameValide() | !isPasswordValidate()) { return; }
+        if(!isEmailValid() | !isUsernameValid() | !isPasswordValid()) { return; }
 
         UserModel userData = new UserModel(username.getEditText().getText().toString(),
                 password.getEditText().getText().toString(),
@@ -126,7 +126,7 @@ public class RegisterFragment extends Fragment {
         viewModel.trySignUp(userData);
     }
 
-    private boolean isEmailValide() {
+    private boolean isEmailValid() {
         String toValidate = email.getEditText().getText().toString().trim();
         String checkEmail = "[^@ \\t\\r\\n]+@[^@ \\t\\r\\n]+\\.[^@ \\t\\r\\n]+";
 
@@ -143,7 +143,7 @@ public class RegisterFragment extends Fragment {
         }
     }
 
-    private boolean isUsernameValide() {
+    private boolean isUsernameValid() {
         String toValidate = username.getEditText().getText().toString().trim();
         // No puede tener espacios en el usuario
         // Máximo 20 caracteres
@@ -165,7 +165,7 @@ public class RegisterFragment extends Fragment {
         }
     }
 
-    private boolean isPasswordValidate() {
+    private boolean isPasswordValid() {
         String toValidate = password.getEditText().getText().toString().trim();
         String checkPassword = confirmPassword.getEditText().getText().toString().trim();
 
