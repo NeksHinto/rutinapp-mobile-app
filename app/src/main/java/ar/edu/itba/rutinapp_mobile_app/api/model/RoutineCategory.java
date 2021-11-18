@@ -3,6 +3,10 @@ package ar.edu.itba.rutinapp_mobile_app.api.model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+//GET
+///categories/{categoryId}
+//Retrieve category
+
 public class RoutineCategory {
     @SerializedName("id")
     @Expose
