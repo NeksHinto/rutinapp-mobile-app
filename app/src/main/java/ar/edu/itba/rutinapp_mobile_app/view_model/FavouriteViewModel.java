@@ -8,20 +8,20 @@ import androidx.lifecycle.ViewModel;
 import java.util.List;
 
 import ar.edu.itba.rutinapp_mobile_app.api.model.PagedListModel;
-import ar.edu.itba.rutinapp_mobile_app.api.model.Routine;
+import ar.edu.itba.rutinapp_mobile_app.api.model.RoutineModel;
 import ar.edu.itba.rutinapp_mobile_app.repository.Resource;
 
 public class FavouriteViewModel extends ViewModel {
     private int routinePage = 0;
 
-    private final MediatorLiveData<Resource<PagedListModel<Routine>>> favorites = new MediatorLiveData<>();
+    private final MediatorLiveData<Resource<PagedListModel<RoutineModel>>> favorites = new MediatorLiveData<>();
     private final MutableLiveData<Integer> routineId = new MutableLiveData<>();
-    private final LiveData<Resource<Routine>> favorite;
+    private final LiveData<Resource<RoutineModel>> favorite;
 
-    public FavouriteViewModel(LiveData<Resource<Routine>> favorite) {
+    public FavouriteViewModel(LiveData<Resource<RoutineModel>> favorite) {
         this.favorite = favorite;
     }
-    public LiveData<Resource<PagedListModel<Routine>>> getFavorites() {
+    public LiveData<Resource<PagedListModel<RoutineModel>>> getFavorites() {
         return favorites;
     }
 }

@@ -236,10 +236,6 @@ public class UserViewModel extends AndroidViewModel {
 
     public void setSignUpError(ErrorModel error) { signUpError.setValue(error); }
 
-//    public MutableLiveData<UserModel> getUserData() {
-//        return userData;
-//    }
-
 //    public LiveData<Resource<Void>> logOut(){
 //        return repository.logout();
 //    }

@@ -22,7 +22,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
 
 import ar.edu.itba.rutinapp_mobile_app.R;
-import ar.edu.itba.rutinapp_mobile_app.api.model.Routine;
+import ar.edu.itba.rutinapp_mobile_app.api.model.RoutineModel;
 import ar.edu.itba.rutinapp_mobile_app.databinding.FragmentFavoriteBinding;
 
 public class FavoriteFragment extends Fragment {
@@ -65,7 +65,7 @@ public class FavoriteFragment extends Fragment {
         View.OnClickListener favoriteClickListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Routine routine = (Routine) v.getTag();
+                RoutineModel routine = (RoutineModel) v.getTag();
                 //hacer get de favoritos en las rutinas
             }
         };
