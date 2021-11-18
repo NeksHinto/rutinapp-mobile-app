@@ -1,5 +1,7 @@
 package ar.edu.itba.rutinapp_mobile_app.api.model;
 
+//GET
+// /cycles/{cycleId}/exercises/{exerciseId}
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
