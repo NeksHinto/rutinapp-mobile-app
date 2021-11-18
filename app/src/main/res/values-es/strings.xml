@@ -11,7 +11,9 @@
     <string name="prompt_password">Contraseña</string>
     <string name="action_sign_in_short">Iniciar Sesión</string>
     <string name="register">Registrarse</string>
-
+    <string name="confirm_password">Confirmar contraseña</string>
+    <string name="user_exists">¡Usuario ya existe! Vuelva a intentar</string>
+    <string name="error_default">¡Ocurrió un error! Vuelva a intentar</string>
 
     <!-- strings del menu -->
     <string name="navHome">Inicio</string>
@@ -61,4 +63,5 @@
     <string name="verification_code">Código de verificación</string>
     <string name="verify_code">Verificar</string>
     <string name="resend_email_message">Si no recibiste el código, ingresá tu email abajo</string>
+
 </resources>

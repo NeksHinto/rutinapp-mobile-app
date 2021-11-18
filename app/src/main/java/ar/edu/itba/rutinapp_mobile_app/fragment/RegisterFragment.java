@@ -2,65 +2,183 @@ package ar.edu.itba.rutinapp_mobile_app.fragment;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
 
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import android.widget.TextView;
+
+import com.google.android.material.button.MaterialButton;
+import com.google.android.material.textfield.TextInputLayout;
 
 import ar.edu.itba.rutinapp_mobile_app.R;
+import ar.edu.itba.rutinapp_mobile_app.api.model.UserModel;
+import ar.edu.itba.rutinapp_mobile_app.databinding.FragmentRegisterBinding;
+import ar.edu.itba.rutinapp_mobile_app.view_model.UserViewModel;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link RegisterFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class RegisterFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    private TextInputLayout email;
+    private TextInputLayout username;
+    private TextInputLayout password;
+    private TextInputLayout confirmPassword;
+    private TextView errorMsg;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    private FragmentRegisterBinding binding;
+    private UserViewModel viewModel;
+    private FrameLayout progressLoading;
 
     public RegisterFragment() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment RegisterFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static RegisterFragment newInstance(String param1, String param2) {
-        RegisterFragment fragment = new RegisterFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        binding = FragmentRegisterBinding.inflate(getLayoutInflater());
+
+        email = binding.registerEmail;
+        username = binding.registerUsername;
+        password = binding.registerPassword;
+        confirmPassword = binding.registerConfirmPassword;
+        progressLoading = binding.loadingContainer2;
+
+        View view = binding.getRoot();
+
+        MaterialButton signUpBtn = binding.registerBtn;
+        signUpBtn.setOnClickListener(v -> tryRegister());
+
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_register, container, false);
+        return view;
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        viewModel = new ViewModelProvider(getActivity()).get(UserViewModel.class);
+
+        viewModel.getLoading().observe(getViewLifecycleOwner(), isLoading -> {
+            if(isLoading != null) {
+                if(isLoading) {
+                    if(isLoading) {
+                        progressLoading.setVisibility(View.VISIBLE);
+                    } else {
+                        progressLoading.setVisibility(View.GONE);
+                    }
+                }
+            }
+        });
+
+        viewModel.getSignUpError().observe(getViewLifecycleOwner(), error -> {
+            if (error != null) {
+                if (error.getCode() == 2) {
+                    errorMsg.setText(R.string.user_exists);
+                    password.setError(" ");
+                    username.setError(" ");
+                    email.setError(" ");
+                    new Handler().postDelayed(() -> {
+                        password.setError(null);
+                        username.setError(null);
+                        email.setError(null);
+                        errorMsg.setText("");
+                    }, 5000);
+                    viewModel.setSignUpError(null);
+                } else {
+                    errorMsg.setText(R.string.error_default);
+                    new Handler().postDelayed(() -> {
+                        errorMsg.setText("");
+                    }, 3000);
+                    viewModel.setSignUpError(null);
+                }
+            }
+        });
+
+        viewModel.getUserData().observe(getViewLifecycleOwner(), userData -> {
+            if (userData != null) {
+                Navigation.findNavController(getView()).navigate(RegisterFragmentDirections.actionRegisterFragmentToEmailVerificationFragment());
+            }
+        });
+    }
+
+    private void tryRegister() {
+        if(!isEmailValide() | !isUsernameValide() | !isPasswordValidate()) { return; }
+
+        UserModel userData = new UserModel(username.getEditText().getText().toString(),
+                password.getEditText().getText().toString(),
+                "",
+                "",
+                "other",
+                (long) 0,
+                email.getEditText().getText().toString(),
+                "",
+                ""
+        );
+
+        viewModel.trySignUp(userData);
+    }
+
+    private boolean isEmailValide() {
+        String toValidate = email.getEditText().getText().toString().trim();
+        String checkEmail = "[^@ \\t\\r\\n]+@[^@ \\t\\r\\n]+\\.[^@ \\t\\r\\n]+";
+
+        if(toValidate.isEmpty()) {
+            email.setError("Email cannot be empty!");
+            return false;
+        } else if(!toValidate.matches(checkEmail)) {
+            email.setError("Invalid email!");
+            return false;
+        } else {
+            email.setError(null);
+            email.setErrorEnabled(false);
+            return true;
+        }
+    }
+
+    private boolean isUsernameValide() {
+        String toValidate = username.getEditText().getText().toString().trim();
+        // No puede tener espacios en el usuario
+        // Máximo 20 caracteres
+        String checkspaces = "^[a-zA-Z0-9\\-_]{1,20}$";
+
+        if (toValidate.isEmpty()) {
+            username.setError("Field can not be empty");
+            return false;
+        } else if (toValidate.length() > 20) {
+            username.setError("Username is too large!");
+            return false;
+        } else if (!toValidate.matches(checkspaces)) {
+            username.setError("No white spaces are allowed!");
+            return false;
+        } else {
+            username.setError(null);
+            username.setErrorEnabled(false);
+            return true;
+        }
+    }
+
+    private boolean isPasswordValidate() {
+        String toValidate = password.getEditText().getText().toString().trim();
+        String checkPassword = confirmPassword.getEditText().getText().toString().trim();
+
+        if (toValidate.isEmpty()) {
+            password.setError("Field can not be empty");
+            return false;
+        } else if (!toValidate.matches(checkPassword)) {
+            password.setError("Password should contain at least 8 characters!");
+            return false;
+        } else {
+            password.setError(null);
+            password.setErrorEnabled(false);
+            return true;
+        }
     }
 }
