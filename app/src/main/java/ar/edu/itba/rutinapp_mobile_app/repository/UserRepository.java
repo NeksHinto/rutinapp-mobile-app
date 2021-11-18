@@ -20,59 +20,59 @@ public class UserRepository {
         this.api = ApiClient.create(app, ApiUserService.class);
     }
 
-    public LiveData<Resource<TokenModel>> login(CredentialsModel credentials) {
-        return new NetworkBoundResource<TokenModel, TokenModel>() {
-            @NonNull
-            @Override
-            protected LiveData<ApiResponse<TokenModel>> createCall() {
-                return api.login(credentials);
-            }
-        }.asLiveData();
-    }
-
-    public LiveData<Resource<Void>> logout() {
-        return new NetworkBoundResource<Void, Void>()
-        {
-            @NonNull
-            @Override
-            protected LiveData<ApiResponse<Void>> createCall() {
-                return api.logout();
-            }
-        }.asLiveData();
-    }
-
-    public LiveData<Resource<UserModel>> register(CredentialsModel credentials) {
-        return new NetworkBoundResource<UserModel, UserModel>()
-        {
-            @NonNull
-            @Override
-            protected LiveData<ApiResponse<UserModel>> createCall() {
-                return api.register(credentials);
-            }
-        }.asLiveData();
-    }
-
-    public LiveData<Resource<Void>> verifyEmail(VerificationData data) {
-        return new NetworkBoundResource<Void, Void>()
-        {
-            @NonNull
-            @Override
-            protected LiveData<ApiResponse<Void>> createCall() {
-                return api.verifyEmail(data);
-            }
-        }.asLiveData();
-    }
-
-    public LiveData<Resource<UserModel>> getCurrentUser() {
-        return new NetworkBoundResource<UserModel, UserModel>()
-        {
-            @NonNull
-            @Override
-            protected LiveData<ApiResponse<UserModel>> createCall() {
-                return api.getCurrentUser();
-            }
-        }.asLiveData();
-    }
+//    public LiveData<Resource<TokenModel>> login(CredentialsModel credentials) {
+//        return new NetworkBoundResource<TokenModel, TokenModel>() {
+//            @NonNull
+//            @Override
+//            protected LiveData<ApiResponse<TokenModel>> createCall() {
+//                return api.login(credentials);
+//            }
+//        }.asLiveData();
+//    }
+//
+//    public LiveData<Resource<Void>> logout() {
+//        return new NetworkBoundResource<Void, Void>()
+//        {
+//            @NonNull
+//            @Override
+//            protected LiveData<ApiResponse<Void>> createCall() {
+//                return api.logout();
+//            }
+//        }.asLiveData();
+//    }
+//
+//    public LiveData<Resource<UserModel>> register(CredentialsModel credentials) {
+//        return new NetworkBoundResource<UserModel, UserModel>()
+//        {
+//            @NonNull
+//            @Override
+//            protected LiveData<ApiResponse<UserModel>> createCall() {
+//                return api.register(credentials);
+//            }
+//        }.asLiveData();
+//    }
+//
+//    public LiveData<Resource<Void>> verifyEmail(VerificationData data) {
+//        return new NetworkBoundResource<Void, Void>()
+//        {
+//            @NonNull
+//            @Override
+//            protected LiveData<ApiResponse<Void>> createCall() {
+//                return api.verifyEmail(data);
+//            }
+//        }.asLiveData();
+//    }
+//
+//    public LiveData<Resource<UserModel>> getCurrentUser() {
+//        return new NetworkBoundResource<UserModel, UserModel>()
+//        {
+//            @NonNull
+//            @Override
+//            protected LiveData<ApiResponse<UserModel>> createCall() {
+//                return api.getCurrentUser();
+//            }
+//        }.asLiveData();
+//    }
 
 
 }

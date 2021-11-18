@@ -8,26 +8,27 @@ import ar.edu.itba.rutinapp_mobile_app.api.data.VerificationData;
 import ar.edu.itba.rutinapp_mobile_app.api.model.CredentialsModel;
 import ar.edu.itba.rutinapp_mobile_app.api.model.TokenModel;
 import ar.edu.itba.rutinapp_mobile_app.api.model.UserModel;
+import io.reactivex.rxjava3.core.Single;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 
 public interface ApiUserService {
     @POST("users/login")
-    LiveData<ApiResponse<TokenModel>> login(@Body CredentialsModel credentials);
+    Single<TokenModel> login(@Body CredentialsModel credentials);
 
     @POST("users/logout")
-    LiveData<ApiResponse<Void>> logout();
+    Single<ApiResponse<Void>> logout();
 
     @GET("users/current")
-    LiveData<ApiResponse<UserModel>> getCurrentUser();
+    Single<UserModel> getCurrentUser();
 
     @POST("users")
-    LiveData<ApiResponse<UserModel>> register(@Body CredentialsModel credentials);
+    Single<UserModel> register(@Body UserModel userData);
 
     @POST("users/verify_email")
-    LiveData<ApiResponse<Void>> verifyEmail(@Body VerificationData data);
+    Single<ApiResponse<Void>> verifyEmail(@Body VerificationData data);
 
     @POST("users/resend_verification")
-    LiveData<ApiResponse<Void>> resendVerification(@Body Map<String, String> data);
+    Single<ApiResponse<Void>> resendVerification(@Body Map<String, String> data);
 }
