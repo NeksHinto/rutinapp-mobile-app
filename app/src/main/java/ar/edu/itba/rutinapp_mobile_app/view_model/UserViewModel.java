@@ -37,8 +37,8 @@ public class UserViewModel extends AndroidViewModel {
 
     private MutableLiveData<Boolean> loading = new MutableLiveData<>();
 
-    private MutableLiveData<ErrorModel> loginError = new MutableLiveData<>();
-    private MutableLiveData<ErrorModel> registerError = new MutableLiveData<>();
+    private MutableLiveData<ErrorModel> signInError = new MutableLiveData<>();
+    private MutableLiveData<ErrorModel> signUpError = new MutableLiveData<>();
 
     private CompositeDisposable disposable = new CompositeDisposable();
 
@@ -68,7 +68,7 @@ public class UserViewModel extends AndroidViewModel {
                     token.setValue(authToken);
                     ApiService.setAuthToken(authToken.getToken());
                     AppPreferences myPreferences = new AppPreferences(app);
-                    loginError.setValue(null);
+                    signInError.setValue(null);
                     loading.setValue(false);
                 }
 
@@ -115,7 +115,7 @@ public class UserViewModel extends AndroidViewModel {
                             ErrorModel error;
                             error = gson.fromJson(exception.response().errorBody().string(), new TypeToken<ErrorModel>() {
                             }.getType());
-                            registerError.setValue(error);
+                            signUpError.setValue(error);
                         } catch (IOException ioException) {
                             ioException.printStackTrace();
                         }
@@ -222,21 +222,19 @@ public class UserViewModel extends AndroidViewModel {
         return loading;
     }
 
-    public MutableLiveData<ErrorModel> getLoginError() {
-        return loginError;
+    public MutableLiveData<ErrorModel> getSignInError() {
+        return signInError;
     }
 
-    public MutableLiveData<ErrorModel> getRegisterError() {
-        return registerError;
+    public MutableLiveData<ErrorModel> getSignUpError() {
+        return signUpError;
     }
 
-    public void setLoginErrorCode(ErrorModel error) {
-        loginError.setValue(error);
+    public void setSignInError(ErrorModel error) {
+        signInError.setValue(error);
     }
 
-    public void setRegisterError(ErrorModel error) {
-        registerError.setValue(error);
-    }
+    public void setSignUpError(ErrorModel error) { signUpError.setValue(error); }
 
 //    public MutableLiveData<UserModel> getUserData() {
 //        return userData;

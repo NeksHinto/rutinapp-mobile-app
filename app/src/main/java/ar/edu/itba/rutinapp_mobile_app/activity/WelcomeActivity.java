@@ -31,12 +31,12 @@ public class WelcomeActivity extends AppCompatActivity {
     protected void onPostCreate(@Nullable Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
         Intent intent = getIntent();
-        String id = intent.getStringExtra("Welcome");
+        String id = intent.getStringExtra("RoutineId");
 
         if(id != null) {
             NavController controller = Navigation.findNavController(this, R.id.nav_host_welcome);
             WelcomeFragmentDirections.ActionWelcomeFragmentToLoginFragment action = WelcomeFragmentDirections.actionWelcomeFragmentToLoginFragment();
-            controller.navigate(action.setWelcome(getIntent().getStringExtra("Welcome")));
+            controller.navigate(action.setRoutineId(getIntent().getStringExtra("RoutineId")));
         }
     }
 }

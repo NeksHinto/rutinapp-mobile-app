@@ -9,10 +9,14 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavDeepLinkBuilder;
+import androidx.navigation.Navigation;
 
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.google.android.material.button.MaterialButton;
@@ -21,12 +25,16 @@ import com.google.android.material.textfield.TextInputLayout;
 import ar.edu.itba.rutinapp_mobile_app.R;
 import ar.edu.itba.rutinapp_mobile_app.activity.MainNavActivity;
 import ar.edu.itba.rutinapp_mobile_app.databinding.LoginFragmentBinding;
+import ar.edu.itba.rutinapp_mobile_app.view_model.UserViewModel;
 
 public class LoginFragment extends Fragment {
 
     private TextInputLayout username;
     private TextInputLayout password;
     private TextView errorMsg;
+
+    private UserViewModel viewModel;
+    private FrameLayout loadingContainer;
 
     public static LoginFragment newInstance() {
         return new LoginFragment();
@@ -42,6 +50,7 @@ public class LoginFragment extends Fragment {
         username = binding.loginUsername;
         password = binding.loginPassword;
         errorMsg = binding.loginErrorMsg;
+        loadingContainer = binding.loadingContainer;
 
         View view = binding.getRoot();
         MaterialButton loginBtn = view.findViewById(R.id.login);
@@ -51,8 +60,53 @@ public class LoginFragment extends Fragment {
     }
 
     private void tryLogin() {
-        Intent intent = new Intent(getActivity(), MainNavActivity.class);
-        startActivity(intent);
+        if(!isUsernameValid() || !isPasswordValid()) { return; }
+
+        viewModel.trySignIn(username.getEditText().toString(), password.getEditText().getText().toString());
+
+        viewModel.getSignInError().observe(getViewLifecycleOwner(), errorModel -> {
+            if(errorModel != null) {
+                switch (errorModel.getCode()) {
+                    case 4:
+                        errorMsg.setText("Invalid username or password, try again.");
+                        password.setError(" ");
+                        username.setError(" ");
+                        new Handler().postDelayed(() -> {
+                            password.setError(null);
+                            username.setError(null);
+                            errorMsg.setText("");
+                        }, 3000);
+                        viewModel.setSignInError(null);
+                        break;
+                    case 8:
+                        errorMsg.setText("Your account is not verified, redirecting to verification screen.");
+                        new Handler().postDelayed(() -> Navigation.findNavController(getView()).navigate(LoginFragmentDirections.actionLoginFragmentToEmailVerificationFragment()), 3000);
+                        viewModel.setUserData();
+                        viewModel.setSignInError(null);
+                        break;
+                    default:
+                        errorMsg.setText("Something went wrong, try again.");
+                        new Handler().postDelayed(() -> errorMsg.setText(""), 3000);
+                        break;
+                }
+            }
+        });
+
+        viewModel.getToken().observe(getViewLifecycleOwner(), authToken -> {
+            if (authToken != null) {
+                Intent intent = new Intent(getActivity(), MainNavActivity.class);
+                Bundle aux = getArguments();
+                if (aux.get("RoutineId") != null) {
+                    Bundle bundle = new Bundle();
+                    bundle.putInt("routineId", Integer.parseInt(aux.getString("RoutineId")));
+                    new NavDeepLinkBuilder(getActivity()).setComponentName(MainNavActivity.class).setGraph(R.navigation.nav_graph).setArguments(bundle).createTaskStackBuilder().startActivities();
+                } else {
+                    startActivity(intent);
+                }
+                getActivity().overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+                getActivity().finish();
+            }
+        });
     }
 
     // User validation
