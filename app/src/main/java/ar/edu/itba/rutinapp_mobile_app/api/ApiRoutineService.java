@@ -17,12 +17,9 @@ import retrofit2.http.Query;
 import retrofit2.http.QueryMap;
 
 public interface ApiRoutineService {
-    //direction lo necesitamos por el order
     @GET("routines")
     Single<ApiResponse<PagedListModel<RoutineModel>>> getRoutines(
-            @Query("page") int page, @Query("size") int size,
-            @Query("orderBy") String orderBy,
-            @Query("direction") String direction);
+            @QueryMap Map<String, String> options);
 
     @GET("routines/{routineId}")
     Single<ApiResponse<RoutineModel>> getRoutine(
@@ -34,26 +31,27 @@ public interface ApiRoutineService {
 
     @GET("routines/{routineId}/cycles/{cycleId}")
     Single<ApiResponse<RoutineCycle>> getRoutineCycle(
-            @Path("routineId") int routineId, @Path("cycleId") int cycleId);
+            @Path("routineId") int routineId,
+            @Path("cycleId") int cycleId);
 
-    //creo que nos sirve para el historial
-    @GET("users/current/routines/executions")
-    Single<ApiResponse<PagedListModel<RoutineModel>>> getCurrentUserRoutines(
+    //trae las rutinas ejecutadas para el historial
+    @GET("users/current/executions")
+    Single<ApiResponse<PagedListModel<RoutineModel>>> getUserExecutionsRoutines(
             @QueryMap Map<String, String> options
     );
 
-    //para traer y actualizar los favoritos
-    @GET("user/current/routines/favourites")
+    //traer y actualizar los favoritos
+    @GET("favourites")
     Single<PagedListModel<RoutineModel>> getFavouriteRoutines(
             @QueryMap Map<String, String> options
     );
 
-    @POST("user/current/routines/{routineId}/favourites")
+    @POST("favourites/{routineId}")
     Single<Response<Void>> favRoutine(
             @Path("routineId") Integer routineId
     );
 
-    @DELETE("user/current/routines/{routineId}/favourites")
+    @DELETE("favourites/{routineId}")
     Single<Response<Void>> unfavRoutine(
             @Path("routineId") Integer routineId
     );

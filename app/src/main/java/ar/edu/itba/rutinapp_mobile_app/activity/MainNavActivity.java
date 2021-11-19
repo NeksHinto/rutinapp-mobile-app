@@ -35,7 +35,7 @@ public class MainNavActivity extends AppCompatActivity {
 
         navigationView = findViewById(R.id.navigationView);
         appBarConfiguration = new AppBarConfiguration.Builder(R.id.home_fragment, R.id.searchRoutine_fragment,
-                R.id.profile_fragment, R.id.favorite_fragment, R.id.settings_fragment)
+                R.id.profile_fragment, R.id.favourite_fragment, R.id.settings_fragment)
                 .build();
 
         NavController navController = Navigation.findNavController(this, R.id.nav_fragment_content);

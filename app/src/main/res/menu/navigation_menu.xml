@@ -27,7 +27,7 @@
             android:title="My Profile" />
 
     <item
-            android:id="@+id/favorite_fragment"
+            android:id="@+id/favourite_fragment"
             android:icon="@drawable/ic_fav"
             android:orderInCategory="4"
             app:labelVisibilityMode="labeled"

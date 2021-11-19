@@ -6,7 +6,6 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -15,29 +14,24 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.google.android.material.snackbar.Snackbar;
-
 import org.jetbrains.annotations.NotNull;
 
-import java.util.ArrayList;
-
-import ar.edu.itba.rutinapp_mobile_app.R;
 import ar.edu.itba.rutinapp_mobile_app.api.model.RoutineModel;
 import ar.edu.itba.rutinapp_mobile_app.databinding.FragmentFavoriteBinding;
 
-public class FavoriteFragment extends Fragment {
+public class FavouriteFragment extends Fragment {
 
     private FragmentFavoriteBinding binding;
     private RecyclerView recyclerView;
     //private FavoritesViewModel favoritesViewModel;
 
 
-    public FavoriteFragment() {
+    public FavouriteFragment() {
         // Required empty public constructor
     }
 
-    public static FavoriteFragment newInstance(String param1, String param2) {
-        FavoriteFragment fragment = new FavoriteFragment();
+    public static FavouriteFragment newInstance(String param1, String param2) {
+        FavouriteFragment fragment = new FavouriteFragment();
         Bundle args = new Bundle();
 
         fragment.setArguments(args);

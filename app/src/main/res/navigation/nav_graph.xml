@@ -35,7 +35,7 @@
             android:id="@+id/action_searchRoutine_fragmentFragment_to_settings_fragment"
             app:destination="@id/settings_fragment" />
         <action
-            android:id="@+id/action_searchRoutine_fragmentFragment_to_favoriteFragment"
+            android:id="@+id/action_searchRoutine_fragmentFragment_to_favouriteFragment"
             app:destination="@id/favoriteFragment" />
         <action
             android:id="@+id/action_searchRoutine_fragmentFragment_to_profileFragment"
@@ -47,7 +47,7 @@
         android:label="Home"
         tools:layout="@layout/profile_fragment">
         <action
-            android:id="@+id/action_profileFragment_to_favoriteFragment"
+            android:id="@+id/action_profileFragment_to_favouriteFragment"
             app:destination="@id/favoriteFragment" />
         <action
             android:id="@+id/action_profileFragment_to_settings_fragment"
@@ -61,20 +61,20 @@
     </fragment>
     <fragment
         android:id="@+id/favoriteFragment"
-        android:name="ar.edu.itba.rutinapp_mobile_app.fragment.FavoriteFragment"
+        android:name="ar.edu.itba.rutinapp_mobile_app.fragment.FavouriteFragment"
         android:label="Home"
-        tools:layout="@layout/fragment_favorite">
+        tools:layout="@layout/fragment_favourite">
         <action
-            android:id="@+id/action_favoriteFragment_to_profileFragment"
+            android:id="@+id/action_favouriteFragment_to_profileFragment"
             app:destination="@id/profileFragment" />
         <action
-            android:id="@+id/action_favoriteFragment_to_searchRoutine_fragmentFragment"
+            android:id="@+id/action_favouriteFragment_to_searchRoutine_fragmentFragment"
             app:destination="@id/searchRoutine_fragmentFragment" />
         <action
-            android:id="@+id/action_favoriteFragment_to_settings_fragment"
+            android:id="@+id/action_favouriteFragment_to_settings_fragment"
             app:destination="@id/settings_fragment" />
         <action
-            android:id="@+id/action_favoriteFragment_to_homeFragment"
+            android:id="@+id/action_favouriteFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
     </fragment>
     <fragment
@@ -92,7 +92,7 @@
             android:id="@+id/action_settings_fragment_to_profileFragment"
             app:destination="@id/profileFragment" />
         <action
-            android:id="@+id/action_settings_fragment_to_favoriteFragment"
+            android:id="@+id/action_settings_fragment_to_favouriteFragment"
             app:destination="@id/favoriteFragment" />
     </fragment>
 
