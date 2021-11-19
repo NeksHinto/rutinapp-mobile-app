@@ -19,24 +19,28 @@ import retrofit2.http.QueryMap;
 public interface ApiRoutineService {
     //direction lo necesitamos por el order
     @GET("routines")
-    LiveData<ApiResponse<PagedListModel<RoutineModel>>> getRoutines(
-            @Query("page") int page, @Query("size") int size, @Query("orderBy") String orderBy, @Query("direction") String direction);
+    Single<ApiResponse<PagedListModel<RoutineModel>>> getRoutines(
+            @Query("page") int page, @Query("size") int size,
+            @Query("orderBy") String orderBy,
+            @Query("direction") String direction);
 
     @GET("routines/{routineId}")
-    LiveData<ApiResponse<RoutineModel>> getRoutine(
+    Single<ApiResponse<RoutineModel>> getRoutine(
             @Path("routineId") int routineId);
 
     @GET("routines/{routineId}/cycles")
-    LiveData<ApiResponse<PagedListModel<RoutineCycle>>> getRoutineCycles(
+    Single<ApiResponse<PagedListModel<RoutineCycle>>> getRoutineCycles(
             @Path("routineId") int routineId);
 
     @GET("routines/{routineId}/cycles/{cycleId}")
-    LiveData<ApiResponse<RoutineCycle>> getRoutineCycle(
+    Single<ApiResponse<RoutineCycle>> getRoutineCycle(
             @Path("routineId") int routineId, @Path("cycleId") int cycleId);
 
     //creo que nos sirve para el historial
-    @GET("users/current/routines/")
-    Single<ApiResponse<PagedListModel<RoutineModel>>> getCurrentUserRoutines();
+    @GET("users/current/routines/executions")
+    Single<ApiResponse<PagedListModel<RoutineModel>>> getCurrentUserRoutines(
+            @QueryMap Map<String, String> options
+    );
 
     //para traer y actualizar los favoritos
     @GET("user/current/routines/favourites")
