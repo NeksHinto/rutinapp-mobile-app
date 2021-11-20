@@ -18,6 +18,7 @@ import androidx.navigation.ui.NavigationUI;
 
 
 import com.google.android.material.navigation.NavigationView;
+import com.google.android.material.snackbar.Snackbar;
 
 import ar.edu.itba.rutinapp_mobile_app.R;
 import ar.edu.itba.rutinapp_mobile_app.databinding.ActivityMainBinding;
@@ -35,10 +36,13 @@ public class MainNavActivity extends AppCompatActivity implements NavigationView
         super.onCreate(savedInstanceState);
 
         //binding = ActivityMainBinding.inflate(getLayoutInflater());
-        setContentView(R.layout.activity_main);
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
-        toolbar = findViewById(R.id.Toolbar_menu);
-        setSupportActionBar(toolbar);
+        setSupportActionBar(binding.appBarMain.ToolbarMenu);
+
+        //toolbar = findViewById(R.id.Toolbar_menu);
+        //setSupportActionBar(toolbar);
 
         drawer = findViewById(R.id.main);
         navigationView = findViewById(R.id.navigationView);
