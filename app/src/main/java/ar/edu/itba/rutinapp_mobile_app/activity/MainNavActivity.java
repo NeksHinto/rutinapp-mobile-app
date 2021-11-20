@@ -37,7 +37,7 @@ public class MainNavActivity extends AppCompatActivity implements NavigationView
         //binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(R.layout.activity_main);
 
-        toolbar = findViewById(R.id.toolBar_menu);
+        toolbar = findViewById(R.id.Toolbar_menu);
         setSupportActionBar(toolbar);
 
         drawer = findViewById(R.id.main);
@@ -52,12 +52,12 @@ public class MainNavActivity extends AppCompatActivity implements NavigationView
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
         navigationView.setCheckedItem(R.id.main);
-/*
+
 
         NavController navController = Navigation.findNavController(this, R.id.nav_fragment_content);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
-*/
+
 
 //        binding.buttonNav.setOnClickListener(view -> {
 //            binding.buttonNav.setEnabled(false);

@@ -49,36 +49,27 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-//        HomeFragmentBinding binding = HomeFragmentBinding.inflate(getLayoutInflater());
-//        View view = binding.getRoot();
-
-        ((MainNavActivity) getActivity()).setNavigationVisibility(true);
+        HomeFragmentBinding binding = HomeFragmentBinding.inflate(getLayoutInflater());
+        View view = binding.getRoot();
 
         View rootView = inflater.inflate(R.layout.home_fragment, container, false);
 
-//        Button firstCategory = rootView.findViewById(R.id.category1);
+        Button firstCategory = rootView.findViewById(R.id.category1);
 //        Button secondCategory = rootView.findViewById(R.id.category2);
 //        Button thirdCategory = rootView.findViewById(R.id.category3);
-//
-//        firstCategory.setOnClickListener((v) -> {
-//
-//            NavController navController = Navigation.findNavController(v);
-//            Intent firstCat = new Intent( getActivity() ,SearchRoutinesFragment.class);
-//            startActivity(firstCat);
-//            getActivity().getSupportFragmentManager().beginTransaction()
-//                    .replace(R.id.searchRoutine_fragment, new SearchRoutinesFragment())
-//                    .commit();
-//
-//        });
 
-//            NavController navController = Navigation.findNavController(v);
-//            Intent firstCat = new Intent( getActivity() ,SearchRoutinesFragment.class);
-//            startActivity(firstCat);
-//            getActivity().getSupportFragmentManager().beginTransaction()
-//                    .replace(R.id.searchRoutine_fragment, new SearchRoutinesFragment())
-//                    .commit();
+        firstCategory.setOnClickListener((v) -> {
 
-        return rootView;
+            NavController navController = Navigation.findNavController(v);
+            Intent firstCat = new Intent( getActivity() ,SearchRoutinesFragment.class);
+            startActivity(firstCat);
+            getActivity().getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.searchRoutine_fragment, new SearchRoutinesFragment())
+                    .commit();
+
+        });
+
+        return view;
         //return inflater.inflate(R.layout.home_fragment, container, false);
     }
 }

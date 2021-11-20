@@ -8,12 +8,15 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import ar.edu.itba.rutinapp_mobile_app.activity.MainNavActivity;
+import ar.edu.itba.rutinapp_mobile_app.databinding.ActivityMainBinding;
 import ar.edu.itba.rutinapp_mobile_app.databinding.ProfileFragmentBinding;
 import ar.edu.itba.rutinapp_mobile_app.view_model.UserViewModel;
 
@@ -41,6 +44,7 @@ public class ProfileFragment extends Fragment {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
     }
 
@@ -56,6 +60,8 @@ public class ProfileFragment extends Fragment {
         lastName = binding.lastName;
         profilePic = binding.profileImage;
 
+
+
 //        ((MainNavActivity) getActivity()).setNavigationVisibility(true);
 
         return view;
@@ -66,16 +72,21 @@ public class ProfileFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         userViewModel = new ViewModelProvider(getActivity()).get(UserViewModel.class);
-        seedProfile();
+        seeProfile();
     }
 
-    private void seedProfile() {
+    private void seeProfile() {
         userViewModel.getUserData().observe(getViewLifecycleOwner(), userInfo -> {
             if (userInfo != null) {
                 if (!userInfo.getAvatarUrl().equals("")) {
+
                 }
             }
         });
     }
 
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+    }
 }
