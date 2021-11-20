@@ -25,7 +25,7 @@
         android:layout_marginTop="60dp"
         android:backgroundTint="?colorSecondary"
         android:fontFamily="@font/poppins"
-        android:text="@string/action_sign_in_short"
+        android:text="@string/log_in"
         android:textColor="@color/white"
         app:cornerRadius="10dp"
         app:layout_constraintEnd_toEndOf="parent"

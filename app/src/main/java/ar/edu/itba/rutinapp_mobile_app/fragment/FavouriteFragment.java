@@ -17,11 +17,11 @@ import android.view.ViewGroup;
 import org.jetbrains.annotations.NotNull;
 
 import ar.edu.itba.rutinapp_mobile_app.api.model.RoutineModel;
-import ar.edu.itba.rutinapp_mobile_app.databinding.FragmentFavoriteBinding;
+import ar.edu.itba.rutinapp_mobile_app.databinding.FragmentFavouriteBinding;
 
 public class FavouriteFragment extends Fragment {
 
-    private FragmentFavoriteBinding binding;
+    private FragmentFavouriteBinding binding;
     private RecyclerView recyclerView;
     //private FavoritesViewModel favoritesViewModel;
 
