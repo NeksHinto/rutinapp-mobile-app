@@ -1,51 +1,43 @@
 package ar.edu.itba.rutinapp_mobile_app.activity;
 
-import android.graphics.PorterDuff;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.content.ContextCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
-import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 
 import com.google.android.material.navigation.NavigationView;
 
-import java.io.FileNotFoundException;
-
 import ar.edu.itba.rutinapp_mobile_app.R;
 import ar.edu.itba.rutinapp_mobile_app.databinding.ActivityMainBinding;
-import ar.edu.itba.rutinapp_mobile_app.fragment.HomeFragmentDirections;
 
 public class MainNavActivity extends AppCompatActivity {
 
     private AppBarConfiguration appBarConfiguration;
     private NavigationView navigationView;
     ActivityMainBinding binding;
+    DrawerLayout drawer;
+    Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        //binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(R.layout.activity_main);
 
-        binding = ActivityMainBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
-
-        Toolbar toolbar = findViewById(R.id.toolBar_menu);
+        toolbar = findViewById(R.id.toolBar_menu);
         setSupportActionBar(toolbar);
 
-        DrawerLayout drawer = findViewById(R.id.main);
+        drawer = findViewById(R.id.main);
         navigationView = findViewById(R.id.navigationView);
         appBarConfiguration = new AppBarConfiguration.Builder(R.id.home_fragment, R.id.searchRoutine_fragment,
                 R.id.profile_fragment, R.id.favourite_fragment, R.id.settings_fragment)
@@ -91,7 +83,7 @@ public class MainNavActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);
-        getMenuInflater().inflate(R.menu.toolbar_menu, menu);
+        getMenuInflater().inflate(R.menu.appbar_menu, menu);
         ActionBar actionBar = getSupportActionBar();
         assert actionBar != null;
         actionBar.setDisplayShowTitleEnabled(false);

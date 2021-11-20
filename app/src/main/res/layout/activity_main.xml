@@ -8,7 +8,7 @@
     android:layout_height="match_parent"
     tools:context=".activity.MainNavActivity">
 
-    <com.google.android.material.appbar.AppBarLayout
+<!--    <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
@@ -37,7 +37,10 @@
             app:navGraph="@navigation/nav_graph"
             />
     </com.google.android.material.appbar.AppBarLayout>
+-->
 
+    <include
+        layout="@layout/main_toolbar" />
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/navigationView"
@@ -46,7 +49,6 @@
         android:background="@color/green_menu"
         app:headerLayout="@layout/header_navigation_menu"
         app:menu="@menu/navigation_menu"
-        tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteY="2dp" />
 
 </androidx.drawerlayout.widget.DrawerLayout>
