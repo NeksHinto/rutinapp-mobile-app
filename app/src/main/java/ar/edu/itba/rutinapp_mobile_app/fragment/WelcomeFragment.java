@@ -27,7 +27,7 @@ public class WelcomeFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            arg = getArguments().getString("Welcome");
+            arg = getArguments().getString("RoutineId");
         } else {
             arg = null;
         }
@@ -45,14 +45,14 @@ public class WelcomeFragment extends Fragment {
         logInBtn.setOnClickListener(view -> {
             NavController welcomeNavController = Navigation.findNavController(view);
             WelcomeFragmentDirections.ActionWelcomeFragmentToLoginFragment action = WelcomeFragmentDirections.actionWelcomeFragmentToLoginFragment();
-            action.setWelcome(arg);
+            action.setRoutineId(arg);
             welcomeNavController.navigate(action);
         });
 
         registerBtn.setOnClickListener(view -> {
             NavController welcomeNavController = Navigation.findNavController(view);
             WelcomeFragmentDirections.ActionWelcomeFragmentToRegisterFragment action = WelcomeFragmentDirections.actionWelcomeFragmentToRegisterFragment();
-            action.setWelcome(arg);
+            action.setRoutineId(arg);
             welcomeNavController.navigate(action);
         });
 
