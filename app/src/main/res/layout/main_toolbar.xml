@@ -11,17 +11,17 @@
         android:layout_height="wrap_content"
         android:layout_width="match_parent">
 
-        <com.google.android.material.appbar.MaterialToolbar
+        <androidx.appcompat.widget.Toolbar
             android:id="@+id/Toolbar_menu"
             app:title="@{navInfo.name}"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            app:menu="@menu/appbar_menu"
-            android:scaleType="centerInside"
-            app:navigationIcon="@drawable/ic_menu_24"
-            style="@style/Widget.MaterialComponents.Toolbar.Primary"
-            />
+            app:menu="@menu/appbar_menu" >
+
+        </androidx.appcompat.widget.Toolbar>
     </com.google.android.material.appbar.AppBarLayout>
+    <!-- app:menu="@menu/appbar_menu"
+        app:navigationIcon="@drawable/ic_menu_24"-->
 
     <include
         layout="@layout/content_main" />
