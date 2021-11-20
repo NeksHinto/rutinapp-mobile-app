@@ -58,7 +58,7 @@ public class MainNavActivity extends AppCompatActivity implements NavigationView
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
 */
-        
+
 //        binding.buttonNav.setOnClickListener(view -> {
 //            binding.buttonNav.setEnabled(false);
 //

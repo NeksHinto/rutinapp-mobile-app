@@ -10,6 +10,7 @@
         android:name="ar.edu.itba.rutinapp_mobile_app.fragment.HomeFragment"
         android:label="Home"
         tools:layout="@layout/home_fragment">
+        <!--
         <action
             android:id="@+id/action_homeFragment_to_searchRoutine_fragmentFragment"
             app:destination="@id/searchRoutine_fragmentFragment" />
@@ -22,12 +23,14 @@
         <action
             android:id="@+id/action_homeFragment_to_profileFragment"
             app:destination="@id/profileFragment" />
+            -->
     </fragment>
     <fragment
         android:id="@+id/searchRoutine_fragmentFragment"
         android:name="ar.edu.itba.rutinapp_mobile_app.fragment.SearchRoutinesFragment"
         android:label="Search Routine"
         tools:layout="@layout/search_routine_fragment">
+        <!--
         <action
             android:id="@+id/action_searchRoutine_fragmentFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
@@ -40,12 +43,14 @@
         <action
             android:id="@+id/action_searchRoutine_fragmentFragment_to_profileFragment"
             app:destination="@id/profileFragment" />
+            -->
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
         android:name="ar.edu.itba.rutinapp_mobile_app.fragment.ProfileFragment"
         android:label="Home"
         tools:layout="@layout/profile_fragment">
+        <!--
         <action
             android:id="@+id/action_profileFragment_to_favouriteFragment"
             app:destination="@id/favoriteFragment" />
@@ -58,12 +63,14 @@
         <action
             android:id="@+id/action_profileFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
+            -->
     </fragment>
     <fragment
         android:id="@+id/favoriteFragment"
         android:name="ar.edu.itba.rutinapp_mobile_app.fragment.FavouriteFragment"
         android:label="Home"
         tools:layout="@layout/fragment_favourite">
+        <!--
         <action
             android:id="@+id/action_favouriteFragment_to_profileFragment"
             app:destination="@id/profileFragment" />
@@ -76,12 +83,14 @@
         <action
             android:id="@+id/action_favouriteFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
+            -->
     </fragment>
     <fragment
         android:id="@+id/settings_fragment"
         android:name="ar.edu.itba.rutinapp_mobile_app.fragment.SettingsFragment"
         android:label="Setting"
         tools:layout="@layout/fragment_settings">
+        <!--
         <action
             android:id="@+id/action_settings_fragment_to_homeFragment"
             app:destination="@id/homeFragment" />
@@ -94,6 +103,7 @@
         <action
             android:id="@+id/action_settings_fragment_to_favouriteFragment"
             app:destination="@id/favoriteFragment" />
+            -->
     </fragment>
 
 </navigation>
