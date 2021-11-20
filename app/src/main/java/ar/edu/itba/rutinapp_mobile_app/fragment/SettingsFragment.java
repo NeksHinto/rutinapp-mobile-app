@@ -13,7 +13,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import ar.edu.itba.rutinapp_mobile_app.AppPreferences;
-import ar.edu.itba.rutinapp_mobile_app.R;
 import ar.edu.itba.rutinapp_mobile_app.activity.MainNavActivity;
 import ar.edu.itba.rutinapp_mobile_app.databinding.FragmentSettingsBinding;
 import ar.edu.itba.rutinapp_mobile_app.view_model.UserViewModel;
@@ -29,22 +28,10 @@ public class SettingsFragment extends Fragment {
 
     private MainNavActivity main;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
 
     public SettingsFragment() {
         // Required empty public constructor
     }
-
-//    public static SettingsFragment newInstance(String param1, String param2) {
-//        SettingsFragment fragment = new SettingsFragment();
-//        Bundle args = new Bundle();
-//        args.putString(ARG_PARAM1, param1);
-//        args.putString(ARG_PARAM2, param2);
-//        fragment.setArguments(args);
-//        return fragment;
-//    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
