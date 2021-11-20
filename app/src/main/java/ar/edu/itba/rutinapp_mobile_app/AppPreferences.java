@@ -21,4 +21,14 @@ public class AppPreferences {
     public String getAuthToken() {
         return sharedPreferences.getString(AUTH_TOKEN, null);
     }
+
+    public void switchToDarkMode(Boolean state){
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putBoolean("NightMode",state);
+        editor.apply();
+    }
+
+    public Boolean loadNightModeState(){
+        return sharedPreferences.getBoolean("NightMode",false);
+    }
 }
