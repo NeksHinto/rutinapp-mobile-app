@@ -22,4 +22,7 @@
     <style name="Theme.Rutinappmobileapp.AppBarOverlay"
         parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
     <style name="Theme.Rutinappmobileapp.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimaryVariant">@color/green_menu</item>
+    </style>
 </resources>

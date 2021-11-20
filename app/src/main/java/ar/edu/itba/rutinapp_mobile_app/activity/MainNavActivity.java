@@ -2,9 +2,12 @@ package ar.edu.itba.rutinapp_mobile_app.activity;
 
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -19,7 +22,7 @@ import com.google.android.material.navigation.NavigationView;
 import ar.edu.itba.rutinapp_mobile_app.R;
 import ar.edu.itba.rutinapp_mobile_app.databinding.ActivityMainBinding;
 
-public class MainNavActivity extends AppCompatActivity {
+public class MainNavActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private AppBarConfiguration appBarConfiguration;
     private NavigationView navigationView;
@@ -44,10 +47,18 @@ public class MainNavActivity extends AppCompatActivity {
                 .setOpenableLayout(drawer)
                 .build();
 
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.header_title, R.string.header_title);
+        drawer.addDrawerListener(toggle);
+        toggle.syncState();
+        navigationView.setNavigationItemSelectedListener(this);
+        navigationView.setCheckedItem(R.id.main);
+/*
+
         NavController navController = Navigation.findNavController(this, R.id.nav_fragment_content);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
-
+*/
+        
 //        binding.buttonNav.setOnClickListener(view -> {
 //            binding.buttonNav.setEnabled(false);
 //
@@ -99,4 +110,13 @@ public class MainNavActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(false);
     }
 
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item){
+        return false;
+    }
+
+    @Override
+    public void onPointerCaptureChanged(boolean hasCapture) {
+
+    }
 }

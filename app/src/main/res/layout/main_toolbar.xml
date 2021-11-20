@@ -12,7 +12,7 @@
         android:layout_width="match_parent">
 
         <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/toolBar_menu"
+            android:id="@+id/Toolbar_menu"
             app:title="@{navInfo.name}"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
