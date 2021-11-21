@@ -105,6 +105,9 @@
         <action
             android:id="@+id/action_settings_fragment_to_informationFragment"
             app:destination="@id/informationFragment" />
+        <action
+            android:id="@+id/action_settings_fragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
     </fragment>
     <dialog
         android:id="@+id/informationFragment"
