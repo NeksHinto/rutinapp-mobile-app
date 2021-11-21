@@ -3,6 +3,8 @@
     package="ar.edu.itba.rutinapp_mobile_app">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -33,9 +35,6 @@
                     android:scheme="http" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".activity.MainActivity"
-            android:exported="true"></activity>
         <activity
             android:name=".activity.MainNavActivity"
             android:launchMode="singleTop"></activity>
