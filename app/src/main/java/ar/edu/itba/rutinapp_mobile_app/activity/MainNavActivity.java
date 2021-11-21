@@ -8,27 +8,27 @@ import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
+import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
-import com.google.android.material.snackbar.Snackbar;
 
 import ar.edu.itba.rutinapp_mobile_app.AppPreferences;
 import ar.edu.itba.rutinapp_mobile_app.R;
 import ar.edu.itba.rutinapp_mobile_app.databinding.ActivityMainBinding;
 import ar.edu.itba.rutinapp_mobile_app.view_model.UserViewModel;
 
-public class MainNavActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class MainNavActivity extends AppCompatActivity {
 
     private AppBarConfiguration appBarConfiguration;
     private NavigationView navigationView;
@@ -37,18 +37,30 @@ public class MainNavActivity extends AppCompatActivity implements NavigationView
     DrawerLayout drawer;
     Toolbar toolbar;
     AppPreferences preferences;
+    private BottomNavigationView bottomNavigationView;
+    private UserViewModel userviewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        preferences = new AppPreferences(this.getApplication());
+        setAppMode();
+
+        setContentView(R.layout.activity_main);
+
+        setUpBottomNavigation();
+
+        setSupportActionBar(findViewById(R.id.main_toolbar));
+
+        userviewModel = new ViewModelProvider(this).get(UserViewModel.class);
+        userviewModel.setUserData();
 
 //        preferences = new AppPreferences(this.getApplication());
 
-        Log.e("HOME", "Intento de crear HOME");
 
 //        binding = ActivityMainBinding.inflate(getLayoutInflater());
 //        setContentView(binding.getRoot());
-        setContentView(R.layout.activity_main);
+/*        setContentView(R.layout.activity_main_nav);
         Log.e("HOME", "binding");
 
         setSupportActionBar(findViewById(R.id.Toolbar_menu));
@@ -79,12 +91,12 @@ public class MainNavActivity extends AppCompatActivity implements NavigationView
         navigationView.setNavigationItemSelectedListener(this);
         navigationView.setCheckedItem(R.id.main);
 
-*/
+
         NavController navController = Navigation.findNavController(this, R.id.nav_fragment_content);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
 
-
+*/
 //        binding.buttonNav.setOnClickListener(view -> {
 //            binding.buttonNav.setEnabled(false);
 //
@@ -103,6 +115,25 @@ public class MainNavActivity extends AppCompatActivity implements NavigationView
 
     }
 
+
+    public void setUpBottomNavigation() {
+        bottomNavigationView = findViewById(R.id.bottomNav);
+
+        NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.mainNavFragment);
+        assert navHostFragment != null;
+        NavigationUI.setupWithNavController(bottomNavigationView,
+                navHostFragment.getNavController());
+    }
+
+    public void setAppMode() {
+        if (preferences.loadNightModeState())
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+        else
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+    }
+
+
+
     @Override
     public boolean onSupportNavigateUp() {
         NavController navController = Navigation.findNavController(this, R.id.navigationView);
@@ -119,6 +150,7 @@ public class MainNavActivity extends AppCompatActivity implements NavigationView
             navigationView.setVisibility(View.GONE);
         }
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -137,11 +169,6 @@ public class MainNavActivity extends AppCompatActivity implements NavigationView
 
     public void hideUpButton() {
         getSupportActionBar().setDisplayHomeAsUpEnabled(false);
-    }
-
-    @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item){
-        return false;
     }
 
     @Override
