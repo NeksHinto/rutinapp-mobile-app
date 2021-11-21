@@ -88,8 +88,9 @@ public class MainNavActivity extends AppCompatActivity implements NavigationView
 
     @Override
     public boolean onSupportNavigateUp() {
-        NavController navController = Navigation.findNavController(this, R.id.navigationView);
-        return navController.navigateUp();
+        NavController navController = Navigation.findNavController(this, R.id.nav_fragment_content);
+        return NavigationUI.navigateUp(navController, appBarConfiguration)
+                || super.onSupportNavigateUp();
     }
 
     public void setNavigationVisibility(boolean b) {
@@ -103,10 +104,10 @@ public class MainNavActivity extends AppCompatActivity implements NavigationView
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);
-        getMenuInflater().inflate(R.menu.appbar_menu, menu);
         ActionBar actionBar = getSupportActionBar();
         assert actionBar != null;
         actionBar.setDisplayShowTitleEnabled(false);
+        getMenuInflater().inflate(R.menu.appbar_menu, menu);
 
         return true;
     }
