@@ -102,6 +102,18 @@
             android:id="@+id/action_settings_fragment_to_favouriteFragment"
             app:destination="@id/favoriteFragment" />
             -->
+        <action
+            android:id="@+id/action_settings_fragment_to_informationFragment"
+            app:destination="@id/informationFragment" />
     </fragment>
+    <dialog
+        android:id="@+id/informationFragment"
+        android:name="ar.edu.itba.rutinapp_mobile_app.fragment.InformationFragment"
+        android:label="fragment_information"
+        tools:layout="@layout/fragment_information" >
+        <action
+            android:id="@+id/action_informationFragment_to_settings_fragment"
+            app:destination="@id/settings_fragment" />
+    </dialog>
 
 </navigation>

@@ -9,12 +9,14 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
+import androidx.navigation.fragment.NavHostFragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import ar.edu.itba.rutinapp_mobile_app.AppPreferences;
+import ar.edu.itba.rutinapp_mobile_app.R;
 import ar.edu.itba.rutinapp_mobile_app.activity.MainNavActivity;
 import ar.edu.itba.rutinapp_mobile_app.databinding.FragmentSettingsBinding;
 import ar.edu.itba.rutinapp_mobile_app.view_model.UserViewModel;
@@ -52,6 +54,7 @@ public class SettingsFragment extends Fragment {
         binding.logout.setOnClickListener(v -> logout());
         binding.information.setOnClickListener(v -> {
 //            NavController navController = Navigation.findNavController(v);
+            NavHostFragment.findNavController(this).navigate(R.id.action_settings_fragment_to_informationFragment);
 
         });
         darkModeSwitch = binding.darkModeSwitch;
