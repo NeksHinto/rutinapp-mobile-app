@@ -1,7 +1,6 @@
 package ar.edu.itba.rutinapp_mobile_app.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
@@ -17,8 +16,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import ar.edu.itba.rutinapp_mobile_app.api.model.CycleExpandableListAdapter;
-import ar.edu.itba.rutinapp_mobile_app.ExpandableListDataPump;
 import ar.edu.itba.rutinapp_mobile_app.R;
 import ar.edu.itba.rutinapp_mobile_app.fragment.ActiveRoutineFragment;
 import ar.edu.itba.rutinapp_mobile_app.fragment.ViewRountineFragment;
@@ -32,16 +29,15 @@ public class RoutineActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Intent intent = getIntent();
-        String routineID = intent.getStringExtra("routineID");
-
-        Bundle bundle = new Bundle();
+//        Intent intent = getIntent();
+//        String routineID = intent.getStringExtra("routineID");
+//
+//        Bundle bundle = new Bundle();
 //        bundle.putInt("routineID", new Integer(routineID));
 
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
-                    .setReorderingAllowed(true)
-                    .add(R.id.routineViewFragment, ViewRountineFragment.class, bundle)
+                    .replace(R.id.routineViewFragment, new ActiveRoutineFragment())
                     .commit();
         }
 
