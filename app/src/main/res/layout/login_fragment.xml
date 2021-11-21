@@ -96,7 +96,6 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="20dp"
                 android:backgroundTint="?colorSecondary"
-                android:enabled="false"
                 android:fontFamily="@font/poppins"
                 android:text="@string/action_sign_in_short"
                 android:textColor="@color/white"

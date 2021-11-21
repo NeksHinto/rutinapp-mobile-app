@@ -13,6 +13,7 @@ import androidx.navigation.NavDeepLinkBuilder;
 import androidx.navigation.Navigation;
 
 import android.os.Handler;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -52,14 +53,37 @@ public class LoginFragment extends Fragment {
         errorMsg = binding.loginErrorMsg;
         loadingContainer = binding.loadingContainer;
 
+        Log.e("LOGIN", "EMPIEZO");
+
         View view = binding.getRoot();
         MaterialButton loginBtn = view.findViewById(R.id.login);
-        loginBtn.setOnClickListener(v -> tryLogin());
 
-        return inflater.inflate(R.layout.login_fragment, container, false);
+        loginBtn.setOnClickListener(v -> tryLogin());
+        Log.e("LOGIN", "A VER");
+
+        return view;
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        viewModel = new ViewModelProvider(getActivity()).get(UserViewModel.class);
+
+        viewModel.getLoading().observe(getViewLifecycleOwner(), isLoading -> {
+            if (isLoading != null) {
+                if (isLoading) {
+                    loadingContainer.setVisibility(View.VISIBLE);
+                } else {
+                    loadingContainer.setVisibility(View.GONE);
+                }
+            }
+        });
+
     }
 
     private void tryLogin() {
+        Log.e("LOGIN", "Intento de login");
         if(!isUsernameValid() || !isPasswordValid()) { return; }
 
         viewModel.trySignIn(username.getEditText().toString(), password.getEditText().getText().toString());
@@ -91,6 +115,8 @@ public class LoginFragment extends Fragment {
                 }
             }
         });
+
+        Log.e("LOGIN", "no saltaron errores");
 
         viewModel.getToken().observe(getViewLifecycleOwner(), authToken -> {
             if (authToken != null) {

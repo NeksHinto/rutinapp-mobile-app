@@ -21,10 +21,11 @@ import ar.edu.itba.rutinapp_mobile_app.fragment.WelcomeFragmentDirections;
 public class WelcomeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        AppPreferences preferences = new AppPreferences(this.getApplication());
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.welcome_activity);
 
-        AppPreferences preferences = new AppPreferences(this.getApplication());
     }
 
     @Override
