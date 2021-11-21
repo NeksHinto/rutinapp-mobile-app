@@ -86,7 +86,7 @@ public class LoginFragment extends Fragment {
         Log.e("LOGIN", "Intento de login");
         if(!isUsernameValid() || !isPasswordValid()) { return; }
 
-        viewModel.trySignIn(username.getEditText().toString(), password.getEditText().getText().toString());
+        viewModel.trySignIn(username.getEditText().getText().toString(), password.getEditText().getText().toString());
 
         viewModel.getSignInError().observe(getViewLifecycleOwner(), errorModel -> {
             if(errorModel != null) {
@@ -125,6 +125,7 @@ public class LoginFragment extends Fragment {
                 if (aux.get("RoutineId") != null) {
                     Bundle bundle = new Bundle();
                     bundle.putInt("routineId", Integer.parseInt(aux.getString("RoutineId")));
+                    Log.e("LOGIN", "Quiero ir a HOME");
                     new NavDeepLinkBuilder(getActivity()).setComponentName(MainNavActivity.class).setGraph(R.navigation.nav_graph).setArguments(bundle).createTaskStackBuilder().startActivities();
                 } else {
                     startActivity(intent);

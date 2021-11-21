@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,7 +36,7 @@ public class HomeFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        Log.e("HOME_F", "Creando fragmento HOME");
         Bundle a = getArguments();
         if(a!=null){
             arg1 = a.getString("RoutineId");
@@ -52,22 +53,22 @@ public class HomeFragment extends Fragment {
         HomeFragmentBinding binding = HomeFragmentBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
 
-        View rootView = inflater.inflate(R.layout.home_fragment, container, false);
+//        View rootView = inflater.inflate(R.layout.home_fragment, container, false);
 
-        Button firstCategory = rootView.findViewById(R.id.category1);
+//        Button firstCategory = view.findViewById(R.id.category1);
 //        Button secondCategory = rootView.findViewById(R.id.category2);
 //        Button thirdCategory = rootView.findViewById(R.id.category3);
 
-        firstCategory.setOnClickListener((v) -> {
-
-            NavController navController = Navigation.findNavController(v);
-            Intent firstCat = new Intent( getActivity() ,SearchRoutinesFragment.class);
-            startActivity(firstCat);
-            getActivity().getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.searchRoutine_fragment, new SearchRoutinesFragment())
-                    .commit();
-
-        });
+//        firstCategory.setOnClickListener((v) -> {
+//
+//            NavController navController = Navigation.findNavController(v);
+//            Intent firstCat = new Intent( getActivity() ,SearchRoutinesFragment.class);
+//            startActivity(firstCat);
+//            getActivity().getSupportFragmentManager().beginTransaction()
+//                    .replace(R.id.searchRoutine_fragment, new SearchRoutinesFragment())
+//                    .commit();
+//
+//        });
 
         return view;
         //return inflater.inflate(R.layout.home_fragment, container, false);

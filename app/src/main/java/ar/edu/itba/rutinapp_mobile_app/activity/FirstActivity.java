@@ -1,4 +1,4 @@
-package ar.edu.itba.rutinapp_mobile_app;
+package ar.edu.itba.rutinapp_mobile_app.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
@@ -10,8 +10,8 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.WindowManager;
 
-import ar.edu.itba.rutinapp_mobile_app.activity.MainNavActivity;
-import ar.edu.itba.rutinapp_mobile_app.activity.WelcomeActivity;
+import ar.edu.itba.rutinapp_mobile_app.AppPreferences;
+import ar.edu.itba.rutinapp_mobile_app.R;
 
 public class FirstActivity extends AppCompatActivity {
 

@@ -1,6 +1,7 @@
 package ar.edu.itba.rutinapp_mobile_app.activity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -35,11 +36,15 @@ public class MainNavActivity extends AppCompatActivity implements NavigationView
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        Log.e("HOME", "Intento de crear HOME");
+
         //binding = ActivityMainBinding.inflate(getLayoutInflater());
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        Log.e("HOME", "binding");
 
         setSupportActionBar(binding.appBarMain.ToolbarMenu);
+        Log.e("HOME", "seteo action bar");
 
         //toolbar = findViewById(R.id.Toolbar_menu);
         //setSupportActionBar(toolbar);
