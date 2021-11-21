@@ -47,16 +47,19 @@ public class CycleExpandableListFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        return init(inflater.inflate(R.layout.fragment_view_routine, container, false));
+        return inflater.inflate(R.layout.fragment_view_routine, container, false);
     }
 
-    private View init(View inflate) {
-        expandableListView = inflate.findViewById(R.id.expandableListView);
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        expandableListView = view.findViewById(R.id.expandableListView);
         expandableListDetail = ExpandableListDataPump.getData();
         expandableListTitle = new ArrayList<String>(expandableListDetail.keySet());
-        expandableListAdapter = new CycleExpandableListAdapter(inflate.getContext(), expandableListTitle, expandableListDetail);
+        expandableListAdapter = new CycleExpandableListAdapter(view.getContext(), expandableListTitle, expandableListDetail);
         expandableListView.setAdapter(expandableListAdapter);
-        expandableListView.setOnGroupExpandListener(groupPosition -> Toast.makeText(inflate.getContext(),
+        expandableListView.setOnGroupExpandListener(groupPosition -> Toast.makeText(view.getContext(),
                 expandableListTitle.get(groupPosition) + " List Expanded.",
                 Toast.LENGTH_SHORT).show());
 
@@ -64,7 +67,7 @@ public class CycleExpandableListFragment extends Fragment {
 
             @Override
             public void onGroupCollapse(int groupPosition) {
-                Toast.makeText(inflate.getContext(),
+                Toast.makeText(view.getContext(),
                         expandableListTitle.get(groupPosition) + " List Collapsed.",
                         Toast.LENGTH_SHORT).show();
 
@@ -76,7 +79,7 @@ public class CycleExpandableListFragment extends Fragment {
             public boolean onChildClick(ExpandableListView parent, View v,
                                         int groupPosition, int childPosition, long id) {
                 Toast.makeText(
-                        inflate.getContext(),
+                        view.getContext(),
                         expandableListTitle.get(groupPosition)
                                 + " -> "
                                 + expandableListDetail.get(
@@ -86,7 +89,6 @@ public class CycleExpandableListFragment extends Fragment {
                 return false;
             }
         });
-
-        return expandableListView;
     }
+
 }
