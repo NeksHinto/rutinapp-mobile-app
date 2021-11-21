@@ -6,35 +6,33 @@
     android:layout_height="match_parent"
     tools:context=".activity.RoutineActivity">
 
-    <fragment
+    <androidx.fragment.app.FragmentContainerView
         android:id="@+id/routineViewFragment"
         android:name="ar.edu.itba.rutinapp_mobile_app.fragment.ViewRountineFragment"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginBottom="100dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"></fragment>
+        app:layout_constraintVertical_bias="0.37" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/startRountine"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:backgroundTint="?colorSecondary"
-        android:enabled="false"
-        android:fontFamily="@font/poppins"
-        android:text="INICIAR"
-        android:textColor="@color/white"
-        app:cornerRadius="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/routineViewFragment"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/routineViewFragment" />
+<!--    <com.google.android.material.button.MaterialButton-->
+<!--        android:id="@+id/startRountine"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_gravity="center"-->
+<!--        android:backgroundTint="?colorSecondary"-->
+<!--        android:enabled="false"-->
+<!--        android:fontFamily="@font/poppins"-->
+<!--        android:text="INICIAR"-->
+<!--        android:textColor="@color/white"-->
+<!--        app:cornerRadius="10dp"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="@+id/routineViewFragment"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/routineViewFragment" />-->
 
 
 
