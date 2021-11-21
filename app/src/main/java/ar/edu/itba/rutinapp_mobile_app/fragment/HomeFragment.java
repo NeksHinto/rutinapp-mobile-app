@@ -59,15 +59,16 @@ public class HomeFragment extends Fragment {
 
         binding.category1.setOnClickListener(view -> {
 
-            NavHostFragment.findNavController(this).navigate(R.id.action_homeFragment_to_searchRoutine_fragmentFragment);
+            NavHostFragment.findNavController(this).navigate(R.id.action_homeFragment_to_settings_fragment);
+        });
+
+        binding.category3.setOnClickListener(view -> {
+
+            NavHostFragment.findNavController(this).navigate(R.id.action_homeFragment_to_profileFragment);
         });
         binding.category2.setOnClickListener(view -> {
 
-            NavHostFragment.findNavController(this).navigate(R.id.action_homeFragment_to_searchRoutine_fragmentFragment);
-        });
-        binding.category3.setOnClickListener(view -> {
-
-            NavHostFragment.findNavController(this).navigate(R.id.action_homeFragment_to_searchRoutine_fragmentFragment);
+            NavHostFragment.findNavController(this).navigate(R.id.action_homeFragment_to_favoriteFragment);
         });
 
         return rootview;

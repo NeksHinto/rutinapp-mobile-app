@@ -13,6 +13,15 @@
         <action
             android:id="@+id/action_homeFragment_to_searchRoutine_fragmentFragment"
             app:destination="@id/searchRoutine_fragmentFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_settings_fragment"
+            app:destination="@id/settings_fragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_favoriteFragment"
+            app:destination="@id/favoriteFragment" />
     </fragment>
     <fragment
         android:id="@+id/searchRoutine_fragmentFragment"
