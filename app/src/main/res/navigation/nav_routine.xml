@@ -1,4 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/nav_routine"/>
+    android:id="@+id/nav_routine"
+    app:startDestination="@id/viewRountineFragment">
+    <fragment
+        android:id="@+id/viewRountineFragment"
+        android:name="ar.edu.itba.rutinapp_mobile_app.fragment.ViewRountineFragment"
+        android:label="ViewRountineFragment" >
+        <action
+            android:id="@+id/action_viewRountineFragment_to_activeRoutineFragment2"
+            app:destination="@id/activeRoutineFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/activeRoutineFragment2"
+        android:name="ar.edu.itba.rutinapp_mobile_app.fragment.ActiveRoutineFragment"
+        android:label="ActiveRoutineFragment" >
+        <action
+            android:id="@+id/action_activeRoutineFragment2_to_viewRountineFragment"
+            app:destination="@id/viewRountineFragment" />
+    </fragment>
+</navigation>
