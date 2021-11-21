@@ -3,6 +3,7 @@ package ar.edu.itba.rutinapp_mobile_app.fragment;
 import android.app.Fragment;
 import android.os.Bundle;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -46,6 +47,7 @@ public class CycleExpandableListFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        Log.e("TU_VIEJA", "Entró al onCreateView");
 
         return inflater.inflate(R.layout.fragment_view_routine, container, false);
     }
@@ -59,6 +61,7 @@ public class CycleExpandableListFragment extends Fragment {
         expandableListTitle = new ArrayList<String>(expandableListDetail.keySet());
         expandableListAdapter = new CycleExpandableListAdapter(view.getContext(), expandableListTitle, expandableListDetail);
         expandableListView.setAdapter(expandableListAdapter);
+        Log.e("TU_VIEJA", "Entró al onViewCreated");
         expandableListView.setOnGroupExpandListener(groupPosition -> Toast.makeText(view.getContext(),
                 expandableListTitle.get(groupPosition) + " List Expanded.",
                 Toast.LENGTH_SHORT).show());

@@ -156,7 +156,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
                 android:background="@color/backgrounfText"
-                android:orientation="horizontal"
+                android:orientation="vertical"
                 app:layout_constraintTop_toBottomOf="@id/category">
 
             <ExpandableListView
