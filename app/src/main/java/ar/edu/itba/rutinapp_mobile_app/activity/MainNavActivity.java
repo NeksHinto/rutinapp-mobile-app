@@ -58,6 +58,11 @@ public class MainNavActivity extends AppCompatActivity implements NavigationView
         //toolbar = findViewById(R.id.Toolbar_menu);
         //setSupportActionBar(toolbar);
 
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
+
         drawer = findViewById(R.id.main);
         navigationView = findViewById(R.id.navigationView);
         appBarConfiguration = new AppBarConfiguration.Builder(R.id.home_fragment, R.id.searchRoutine_fragment,
