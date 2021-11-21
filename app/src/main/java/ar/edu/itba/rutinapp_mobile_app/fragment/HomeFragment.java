@@ -3,8 +3,10 @@ package ar.edu.itba.rutinapp_mobile_app.fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
+import androidx.navigation.fragment.NavHostFragment;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -51,7 +53,7 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         HomeFragmentBinding binding = HomeFragmentBinding.inflate(getLayoutInflater());
-        View view = binding.getRoot();
+        View rootview = binding.getRoot();
 
 //        View rootView = inflater.inflate(R.layout.home_fragment, container, false);
 
@@ -69,8 +71,13 @@ public class HomeFragment extends Fragment {
 //                    .commit();
 //
 //        });
+        binding.category1.setOnClickListener(view -> {
 
-        return view;
+            NavHostFragment.findNavController(this).navigate(R.id.action_homeFragment_to_searchRoutine_fragmentFragment);
+        });
+
+        return rootview;
         //return inflater.inflate(R.layout.home_fragment, container, false);
     }
+
 }

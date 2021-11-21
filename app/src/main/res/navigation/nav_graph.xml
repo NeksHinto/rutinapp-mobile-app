@@ -10,20 +10,9 @@
         android:name="ar.edu.itba.rutinapp_mobile_app.fragment.HomeFragment"
         android:label="Home"
         tools:layout="@layout/home_fragment">
-        <!--
         <action
             android:id="@+id/action_homeFragment_to_searchRoutine_fragmentFragment"
             app:destination="@id/searchRoutine_fragmentFragment" />
-        <action
-            android:id="@+id/action_homeFragment_to_settings_fragment"
-            app:destination="@id/settings_fragment" />
-        <action
-            android:id="@+id/action_homeFragment_to_favoriteFragment"
-            app:destination="@id/favoriteFragment" />
-        <action
-            android:id="@+id/action_homeFragment_to_profileFragment"
-            app:destination="@id/profileFragment" />
-            -->
     </fragment>
     <fragment
         android:id="@+id/searchRoutine_fragmentFragment"
