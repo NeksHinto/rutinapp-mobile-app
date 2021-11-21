@@ -14,14 +14,15 @@
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/Toolbar_menu"
-            app:title="@{navInfo.name}"
+
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:fitsSystemWindows="true" >
+            app:popupTheme="@style/AppTheme.PopupOverlay" >
 
         </androidx.appcompat.widget.Toolbar>
     </com.google.android.material.appbar.AppBarLayout>
-    <!-- app:menu="@menu/appbar_menu"
+    <!-- app:title="@{navInfo.name}"
+    app:menu="@menu/appbar_menu"
         app:navigationIcon="@drawable/ic_menu_24"-->
 
     <include
