@@ -27,10 +27,19 @@ public class ExerciseMetadataModel {
     public ExerciseMetadataModel(Integer series, Integer duration, String difficulty, String image, String category) {
         this.series = series;
         this.duration = duration;
+        this.difficulty = difficulty;
         this.image = image;
         this.category = category;
     }
 
     public Integer getSeries() { return this.series; }
+
+    public Integer getDuration() { return this.duration; }
+
+    public String getDifficulty() { return this.difficulty; }
+
+    public String getImage() { return this.image; }
+
+    public String getCategory() { return this.category; }
     
 }

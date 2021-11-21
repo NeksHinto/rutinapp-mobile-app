@@ -50,7 +50,7 @@ public class MainNavActivity extends AppCompatActivity {
 
         setUpBottomNavigation();
 
-        setSupportActionBar(findViewById(R.id.main_toolbar));
+//        setSupportActionBar(findViewById(R.id.main_toolbar));
 
         userviewModel = new ViewModelProvider(this).get(UserViewModel.class);
         userviewModel.setUserData();
@@ -152,16 +152,16 @@ public class MainNavActivity extends AppCompatActivity {
     }
 
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        super.onCreateOptionsMenu(menu);
-        ActionBar actionBar = getSupportActionBar();
-        assert actionBar != null;
-        actionBar.setDisplayShowTitleEnabled(false);
-        getMenuInflater().inflate(R.menu.appbar_menu, menu);
-
-        return true;
-    }
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        super.onCreateOptionsMenu(menu);
+//        ActionBar actionBar = getSupportActionBar();
+//        assert actionBar != null;
+//        actionBar.setDisplayShowTitleEnabled(false);
+//        getMenuInflater().inflate(R.menu.appbar_menu, menu);
+//
+//        return true;
+//    }
 
     public void showUpButton() {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
