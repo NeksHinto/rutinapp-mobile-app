@@ -50,7 +50,7 @@ public class MainNavActivity extends AppCompatActivity implements NavigationView
                 R.id.profile_fragment, R.id.favourite_fragment, R.id.settings_fragment)
                 .setOpenableLayout(drawer)
                 .build();
-
+/*
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.header_title, R.string.header_title);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
@@ -62,7 +62,7 @@ public class MainNavActivity extends AppCompatActivity implements NavigationView
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
 
-
+*/
 //        binding.buttonNav.setOnClickListener(view -> {
 //            binding.buttonNav.setEnabled(false);
 //
