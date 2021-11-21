@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    tools:context=".activity.RoutineActivity">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/routine"
+        android:layout_gravity="center_horizontal"
+        android:layout_above="@id/expandableListView"
+        />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        >
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            />
+
+        <fragment
+            android:name="ar.edu.itba.rutinapp_mobile_app.fragment.LikeDislikeFragment"
+            android:id="@+id/likeDislikeFragment"
+            android:layout_width="120dp"
+            android:layout_height="50dp"
+            />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Descripción"></TextView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:background="@color/backgrounfText"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/descriptionText"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:text="On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through."></TextView>
+
+    </LinearLayout>
+
+
+    <TextView android:text="Dificultad: "
+        android:id="@+id/difficulty"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+    </TextView>
+
+    <TextView android:text="Categoría: "
+        android:id="@+id/category"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+    </TextView>
+
+
+    <fragment
+        android:name="ar.edu.itba.rutinapp_mobile_app.fragment.CycleExpandableListFragment"
+        android:id="@+id/expandableListView"
+        android:divider="@android:color/darker_gray"
+        android:dividerHeight="0.5dp"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        />
+
+</LinearLayout>

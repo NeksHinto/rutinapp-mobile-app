@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:context=".fragment.ManualModeRoutineFragment">
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Siguientes Ejercicios:" />
+
+    <ImageView
+        android:id="@+id/ImageExercise1"
+        android:layout_width="200dp"
+        android:layout_height="100dp"
+        android:src="@drawable/routine" />
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        tools:context=".fragment.ManualModeRoutineFragment">
+
+        <TextView
+            android:id="@+id/NameExercise1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="NombreEjercicio" />
+
+        <TextView
+            android:id="@+id/RepsExercise1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="x" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/ImageExercise2"
+        android:layout_width="200dp"
+        android:layout_height="100dp"
+        android:src="@drawable/routine" />
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        tools:context=".fragment.ManualModeRoutineFragment">
+
+        <TextView
+            android:id="@+id/NameExercise2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="NombreEjercicio" />
+
+        <TextView
+            android:id="@+id/RepsExercise2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="x" />
+    </LinearLayout>
+
+</LinearLayout>

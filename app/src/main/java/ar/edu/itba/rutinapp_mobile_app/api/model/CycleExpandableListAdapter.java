@@ -1,4 +1,4 @@
-package ar.edu.itba.rutinapp_mobile_app;
+package ar.edu.itba.rutinapp_mobile_app.api.model;
 
 import java.util.HashMap;
 import java.util.List;
@@ -9,6 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.TextView;
+
+import ar.edu.itba.rutinapp_mobile_app.R;
 
 public class CycleExpandableListAdapter extends BaseExpandableListAdapter {
 
