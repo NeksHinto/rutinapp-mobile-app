@@ -56,22 +56,16 @@ public class HomeFragment extends Fragment {
         View rootview = binding.getRoot();
 
 //        View rootView = inflater.inflate(R.layout.home_fragment, container, false);
-
-//        Button firstCategory = view.findViewById(R.id.category1);
-//        Button secondCategory = rootView.findViewById(R.id.category2);
-//        Button thirdCategory = rootView.findViewById(R.id.category3);
-
-//        firstCategory.setOnClickListener((v) -> {
-//
-//            NavController navController = Navigation.findNavController(v);
-//            Intent firstCat = new Intent( getActivity() ,SearchRoutinesFragment.class);
-//            startActivity(firstCat);
-//            getActivity().getSupportFragmentManager().beginTransaction()
-//                    .replace(R.id.searchRoutine_fragment, new SearchRoutinesFragment())
-//                    .commit();
-//
-//        });
+        
         binding.category1.setOnClickListener(view -> {
+
+            NavHostFragment.findNavController(this).navigate(R.id.action_homeFragment_to_searchRoutine_fragmentFragment);
+        });
+        binding.category2.setOnClickListener(view -> {
+
+            NavHostFragment.findNavController(this).navigate(R.id.action_homeFragment_to_searchRoutine_fragmentFragment);
+        });
+        binding.category3.setOnClickListener(view -> {
 
             NavHostFragment.findNavController(this).navigate(R.id.action_homeFragment_to_searchRoutine_fragmentFragment);
         });
