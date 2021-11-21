@@ -26,7 +26,7 @@ public class ExerciseModel {
     private long date;
     @SerializedName("metadata")
     @Expose
-    private Object metadata;
+    private ExerciseMetadataModel metadata;
 
     /**
      * No args constructor for use in serialization
@@ -44,7 +44,7 @@ public class ExerciseModel {
      * @param detail
      * @param type
      */
-    public ExerciseModel(int id, String name, String detail, String type, long date, Object metadata) {
+    public ExerciseModel(int id, String name, String detail, String type, long date, ExerciseMetadataModel metadata) {
         super();
         this.id = id;
         this.name = name;
@@ -94,11 +94,11 @@ public class ExerciseModel {
         this.date = date;
     }
 
-    public Object getMetadata() {
+    public ExerciseMetadataModel getMetadata() {
         return metadata;
     }
 
-    public void setMetadata(Object metadata) {
+    public void setMetadata(ExerciseMetadataModel metadata) {
         this.metadata = metadata;
     }
 

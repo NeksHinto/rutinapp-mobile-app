@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:orderInCategory="5">
+        xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
             android:id="@+id/homeFragment"
@@ -11,21 +10,21 @@
             android:title="@string/navHome" />
 
     <item
-            android:id="@+id/routinesFragment"
+            android:id="@+id/searchRoutine_fragmentFragment"
             android:icon="@drawable/ic_routine"
             android:orderInCategory="2"
             app:labelVisibilityMode="labeled"
-            android:title="@string/search" />
+            android:title="@string/navRoutines" />
 
     <item
             android:id="@+id/myFavouriteFragment"
-            android:icon="@drawable/ic_fav"
+            android:icon="@drawable/ic_favourite"
             android:orderInCategory="3"
             app:labelVisibilityMode="labeled"
             android:title="Favourite" />
 
     <item
-            android:id="@+id/meFragment"
+            android:id="@+id/profileFragment"
             android:icon="@drawable/ic_profile"
             android:orderInCategory="4"
             app:labelVisibilityMode="labeled"

@@ -6,15 +6,19 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
+import androidx.navigation.fragment.NavHostFragment;
 
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import ar.edu.itba.rutinapp_mobile_app.R;
 import ar.edu.itba.rutinapp_mobile_app.activity.MainNavActivity;
 import ar.edu.itba.rutinapp_mobile_app.databinding.ActivityMainBinding;
 import ar.edu.itba.rutinapp_mobile_app.databinding.ProfileFragmentBinding;
@@ -63,13 +67,10 @@ public class ProfileFragment extends Fragment {
         lastName = binding.lastName;
         profilePic = binding.profileImage;
 
+        binding.settingProfile.setOnClickListener(view -> {
 
-        main = (MainNavActivity) getActivity();
-
-        main.showUpButton();
-        main.setNavigationVisibility(false);
-
-//        ((MainNavActivity) getActivity()).setNavigationVisibility(true);
+            NavHostFragment.findNavController(this).navigate(R.id.action_profileFragment_to_settings_fragment);
+        });
 
         return view;
     }
@@ -97,5 +98,27 @@ public class ProfileFragment extends Fragment {
         super.onCreateOptionsMenu(menu, inflater);
     }
 
+ */
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        menu.findItem(R.id.app_bar_settings).setVisible(true);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+/*
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.app_bar_settings) {
+            settings();
+        } else {
+            return super.onOptionsItemSelected(item);
+        }
+        return true;
+    }
+
+    public void settings() {
+        Navigation.findNavController(view).navigate(ProfileFragmentDirections.actionProfileFragmentToSettingsFragment);
+    }
+    
  */
 }

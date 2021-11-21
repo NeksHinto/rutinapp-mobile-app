@@ -77,7 +77,7 @@ public class PagedListModel<T> {
         this.page = page;
     }
 
-    public Boolean getIsLastPage() {
+    public Boolean getLastPage() {
         return isLastPage;
     }
 

@@ -65,10 +65,10 @@ public class SettingsFragment extends Fragment {
             restartApp();
         });
 
-        main = (MainNavActivity) getActivity();
-
-        main.showUpButton();
-        main.setNavigationVisibility(false);
+//        main = (MainNavActivity) getActivity();
+//
+//        main.showUpButton();
+//        main.setNavigationVisibility(false);
         return view;
 
     }
@@ -92,7 +92,7 @@ public class SettingsFragment extends Fragment {
 
     @Override
     public void onDestroyView() {
-        main.hideUpButton();
+//        main.hideUpButton();
         super.onDestroyView();
     }
 }

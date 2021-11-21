@@ -23,7 +23,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="20dp"
-                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
 
@@ -41,9 +40,21 @@
                         android:layout_below="@id/profile_image"
                         android:layout_centerInParent="true"
                         android:layout_marginTop="10dp"
-
+                        android:background="@color/backgrounfText"
                         android:includeFontPadding="false"
                         android:text="@{userData.username}" />
+
+                    <ImageButton
+                        android:id="@+id/settingProfile"
+                        android:layout_width="29dp"
+                        android:layout_height="25dp"
+                        android:layout_alignEnd="@+id/profile_image"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="-120dp"
+                        android:background="@color/green_app"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/ic_setting" />
 
                 </RelativeLayout>
 

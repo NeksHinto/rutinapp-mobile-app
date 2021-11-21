@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/green_app"
     tools:context=".activity.MainNavActivity">
-
+<!--
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
@@ -24,7 +24,7 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-
+-->
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/mainNavFragment"
         android:name="androidx.navigation.fragment.NavHostFragment"
@@ -35,16 +35,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appBarLayout"
+        app:layout_constraintTop_toTopOf="parent"
         app:navGraph="@navigation/nav_graph" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNav"
-        android:layout_width="0dp"
-        android:layout_height="70dp"
-        android:background="@color/green_menu"
-
-        app:labelVisibilityMode="labeled"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?colorSecondary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

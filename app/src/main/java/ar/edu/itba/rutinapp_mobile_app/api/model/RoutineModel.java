@@ -34,12 +34,12 @@ public class RoutineModel {
     private RoutineCategory category;
     @SerializedName("metadata")
     @Expose
-    private Object metadata;
+    private RoutineMetadataModel metadata;
 
     public RoutineModel() {
     }
 
-    public RoutineModel(int id, String name, String detail, long date, int score, boolean isPublic, String difficulty, RoutineCategory category, Object metadata) {
+    public RoutineModel(int id, String name, String detail, long date, int score, boolean isPublic, String difficulty, RoutineCategory category, RoutineMetadataModel metadata) {
         super();
         this.id = id;
         this.name = name;
@@ -116,11 +116,11 @@ public class RoutineModel {
         this.category = category;
     }
 
-    public Object getMetadata() {
+    public RoutineMetadataModel getMetadata() {
         return metadata;
     }
 
-    public void setMetadata(Object metadata) {
+    public void setMetadata(RoutineMetadataModel metadata) {
         this.metadata = metadata;
     }
 

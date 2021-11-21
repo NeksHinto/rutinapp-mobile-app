@@ -4,13 +4,19 @@ import android.app.Application;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
-import androidx.lifecycle.MediatorLiveData;
 import androidx.lifecycle.MutableLiveData;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
+import ar.edu.itba.rutinapp_mobile_app.R;
+import ar.edu.itba.rutinapp_mobile_app.api.ApiResponse;
+import ar.edu.itba.rutinapp_mobile_app.api.ApiRoutine;
+import ar.edu.itba.rutinapp_mobile_app.api.model.PagedListModel;
+import ar.edu.itba.rutinapp_mobile_app.api.model.RoutineModel;
+import ar.edu.itba.rutinapp_mobile_app.api.model.RoutineRatingModel;
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.disposables.CompositeDisposable;
 import io.reactivex.rxjava3.observers.DisposableSingleObserver;
@@ -18,12 +24,12 @@ import io.reactivex.rxjava3.schedulers.Schedulers;
 import retrofit2.Response;
 
 public class RoutineViewModel extends AndroidViewModel {
-    private MediatorLiveData<List<RoutineData>> routineCards = new MediatorLiveData<>();
-    private MutableLiveData<List<RoutineData>> userRoutines = new MutableLiveData<>();
-    private MutableLiveData<List<RoutineData>> userRoutinesByDate = new MutableLiveData<>();
-    private MutableLiveData<List<RoutineData>> userFavourites = new MutableLiveData<>();
-    private MutableLiveData<List<RoutineData>> userHistory = new MutableLiveData<>();
-    private MutableLiveData<RoutineData> currentRoutine = new MutableLiveData<>();
+    private MutableLiveData<List<RoutineModel>> routineCards = new MutableLiveData<>();
+    private MutableLiveData<List<RoutineModel>> userRoutines = new MutableLiveData<>();
+    private MutableLiveData<List<RoutineModel>> userRoutinesByDate = new MutableLiveData<>();
+    private MutableLiveData<List<RoutineModel>> userFavourites = new MutableLiveData<>();
+    private MutableLiveData<List<RoutineModel>> userHistory = new MutableLiveData<>();
+    private MutableLiveData<RoutineModel> currentRoutine = new MutableLiveData<>();
     private MutableLiveData<Boolean> noMoreEntries = new MutableLiveData<>();
     private MutableLiveData<Boolean> loading = new MutableLiveData<>();
     private MutableLiveData<Boolean> routinesFirstLoad = new MutableLiveData<>(true);
@@ -37,8 +43,8 @@ public class RoutineViewModel extends AndroidViewModel {
     private int itemsPerRequest = 15;
     private boolean isLastPage = false;
     private String direction = "desc";
-    private Integer filter = null;
-    private String orderBy = "averageRating";
+    private String filter = null;
+    private String orderBy = "dateCreated";
     private int orderById = 0;
     private int directionId = 0;
     private int filterId = -1;
@@ -56,18 +62,18 @@ public class RoutineViewModel extends AndroidViewModel {
         updateData();
     }
 
+    public void updateData() {
+        if (!isLastPage) {
+            fetchFromRemote();
+        }
+    }
+
     public void resetDataFavs() {
         currentPage = 0;
         isLastPage = false;
         totalPages = 0;
         routineCards.setValue(new ArrayList<>());
         updateDataFavs();
-    }
-
-    public void updateData() {
-        if (!isLastPage) {
-            fetchFromRemote();
-        }
     }
 
     public void updateDataFavs() {
@@ -82,19 +88,18 @@ public class RoutineViewModel extends AndroidViewModel {
         options.put("orderBy", orderBy);
         options.put("direction", direction);
         options.put("size", String.valueOf(1000));
-        //TODO:el otro error que no entiendo
         disposable.add(
                 routinesService.getUserRoutines(options)
                         .subscribeOn(Schedulers.newThread())
                         .observeOn(AndroidSchedulers.mainThread())
-                        .subscribeWith(new DisposableSingleObserver<PagedList<RoutineData>>() {
+                        .subscribeWith(new DisposableSingleObserver<PagedListModel<RoutineModel>>() {
                             @Override
-                            public void onSuccess(@io.reactivex.rxjava3.annotations.NonNull PagedList<RoutineData> routinesEntries) {
+                            public void onSuccess(@NonNull PagedListModel<RoutineModel> routinesEntries) {
                                 userRoutines.setValue(routinesEntries.getContent());
                             }
 
                             @Override
-                            public void onError(@io.reactivex.rxjava3.annotations.NonNull Throwable e) {
+                            public void onError(@NonNull Throwable e) {
                                 e.printStackTrace();
                             }
                         })
@@ -112,14 +117,14 @@ public class RoutineViewModel extends AndroidViewModel {
                 routinesService.getRoutines(options)
                         .subscribeOn(Schedulers.newThread())
                         .observeOn(AndroidSchedulers.mainThread())
-                        .subscribeWith(new DisposableSingleObserver<PagedList<RoutineData>>() {
+                        .subscribeWith(new DisposableSingleObserver<PagedListModel<RoutineModel>>() {
                             @Override
-                            public void onSuccess(@io.reactivex.rxjava3.annotations.NonNull PagedList<RoutineData> routinesEntries) {
+                            public void onSuccess(@NonNull PagedListModel<RoutineModel> routinesEntries) {
                                 userRoutines.setValue(routinesEntries.getContent());
                             }
 
                             @Override
-                            public void onError(@io.reactivex.rxjava3.annotations.NonNull Throwable e) {
+                            public void onError(@NonNull Throwable e) {
                                 e.printStackTrace();
                             }
                         })
@@ -132,14 +137,13 @@ public class RoutineViewModel extends AndroidViewModel {
         options.put("orderBy", "date");
         options.put("direction", direction);
         options.put("size", String.valueOf(1000));
-        //TODO:el otro error que no entiendo
         disposable.add(
                 routinesService.getRoutines(options)
                         .subscribeOn(Schedulers.newThread())
                         .observeOn(AndroidSchedulers.mainThread())
-                        .subscribeWith(new DisposableSingleObserver<PagedList<RoutineData>>() {
+                        .subscribeWith(new DisposableSingleObserver<PagedListModel<RoutineModel>>() {
                             @Override
-                            public void onSuccess(@io.reactivex.rxjava3.annotations.NonNull PagedList<RoutineData> routinesEntries) {
+                            public void onSuccess(@io.reactivex.rxjava3.annotations.NonNull PagedListModel<RoutineModel> routinesEntries) {
                                 userRoutinesByDate.setValue(routinesEntries.getContent());
                             }
 
@@ -159,14 +163,14 @@ public class RoutineViewModel extends AndroidViewModel {
                 routinesService.getFavouriteRoutines(options)
                         .subscribeOn(Schedulers.newThread())
                         .observeOn(AndroidSchedulers.mainThread())
-                        .subscribeWith(new DisposableSingleObserver<PagedList<RoutineData>>() {
+                        .subscribeWith(new DisposableSingleObserver<PagedListModel<RoutineModel>>() {
                             @Override
-                            public void onSuccess(@io.reactivex.rxjava3.annotations.NonNull PagedList<RoutineData> routinesEntries) {
+                            public void onSuccess(@NonNull PagedListModel<RoutineModel> routinesEntries) {
                                 userFavourites.setValue(routinesEntries.getContent());
                             }
 
                             @Override
-                            public void onError(@io.reactivex.rxjava3.annotations.NonNull Throwable e) {
+                            public void onError(@NonNull Throwable e) {
                                 e.printStackTrace();
                             }
                         })
@@ -175,29 +179,35 @@ public class RoutineViewModel extends AndroidViewModel {
 
     public void getRoutineById(int id) {
         disposable.add(
-                routinesService.getRoutineById(id)
+                routinesService.getRoutine(id)
                         .subscribeOn(Schedulers.newThread())
                         .observeOn(AndroidSchedulers.mainThread())
-                        .subscribeWith(new DisposableSingleObserver<RoutineData>() {
+                        .subscribeWith(new DisposableSingleObserver<RoutineModel>() {
                             @Override
-                            public void onSuccess(@io.reactivex.rxjava3.annotations.NonNull RoutineData routine) {
+                            public void onSuccess(@NonNull RoutineModel routine) {
                                 int id = routine.getCategory().getId();
-                                switch (id) {
-                                    case 1:
-                                        routine.setImage(String.valueOf(R.drawable.encasa));
-                                        break;
-                                    case 2:
-                                        routine.setImage(String.valueOf(R.drawable.pesas));
-                                        break;
-                                    case 3:
-                                        routine.setImage(String.valueOf(R.drawable.running));
-                                        break;
-                                }
+//                                switch (id) {
+//                                    case 1:
+//
+//                                        routine.setImage(String.valueOf(R.drawable.p1));
+//                                        break;
+//
+//                                    case 2:
+//                                        routine.setImage(String.valueOf(R.drawable.p2));
+//
+//                                        break;
+//
+//                                    case 3:
+//                                        routine.setImage(String.valueOf(R.drawable.p3));
+//
+//                                        break;
+//                                }
+
                                 currentRoutine.setValue(routine);
                             }
 
                             @Override
-                            public void onError(@io.reactivex.rxjava3.annotations.NonNull Throwable e) {
+                            public void onError(@NonNull Throwable e) {
                                 e.printStackTrace();
                             }
                         })
@@ -221,7 +231,28 @@ public class RoutineViewModel extends AndroidViewModel {
 
     public void filterRoutines(Integer option) {
         filterId = option;
-        filter = (option != -1 ? option : null);
+        switch (option) {
+            case -1:
+                filter = null;
+                break;
+
+            case 0:
+                filter = "rookie";
+                break;
+
+            case 1:
+                filter = "beginner";
+                break;
+
+            case 2:
+                filter = "intermediate";
+                break;
+
+            case 3:
+                filter = "advanced";
+                break;
+        }
+
         applyChanges();
     }
 
@@ -229,7 +260,7 @@ public class RoutineViewModel extends AndroidViewModel {
         orderById = option;
         switch (option) {
             case 0:
-                orderBy = "date";
+                orderBy = "dateCreated";
                 break;
 
             case 1:
@@ -240,10 +271,13 @@ public class RoutineViewModel extends AndroidViewModel {
                 orderBy = "categoryId";
                 break;
 
+            case 3:
+                orderBy = "difficulty";
+                break;
+
             case 4:
                 orderBy = "name";
                 break;
-
         }
 
         applyChanges();
@@ -272,11 +306,11 @@ public class RoutineViewModel extends AndroidViewModel {
                 routinesService.getRoutines(options)
                         .subscribeOn(Schedulers.newThread())
                         .observeOn(AndroidSchedulers.mainThread())
-                        .subscribeWith(new DisposableSingleObserver<PagedList<RoutineData>>() {
-                            List<RoutineData> aux;
+                        .subscribeWith(new DisposableSingleObserver<PagedListModel<RoutineModel>>() {
+                            List<RoutineModel> aux;
                             boolean duplicate = false;
                             @Override
-                            public void onSuccess(@io.reactivex.rxjava3.annotations.NonNull PagedList<RoutineData> routinesEntries) {
+                            public void onSuccess(@NonNull PagedListModel<RoutineModel> routinesEntries) {
                                 isLastPage = routinesEntries.getLastPage();
                                 noMoreEntries.setValue(isLastPage);
                                 currentPage++;
@@ -297,7 +331,7 @@ public class RoutineViewModel extends AndroidViewModel {
                             }
 
                             @Override
-                            public void onError(@io.reactivex.rxjava3.annotations.NonNull Throwable e) {
+                            public void onError(@NonNull Throwable e) {
                                 loading.setValue(false);
                                 e.printStackTrace();
                             }
@@ -320,11 +354,11 @@ public class RoutineViewModel extends AndroidViewModel {
                 routinesService.getFavouriteRoutines(options)
                         .subscribeOn(Schedulers.newThread())
                         .observeOn(AndroidSchedulers.mainThread())
-                        .subscribeWith(new DisposableSingleObserver<PagedList<RoutineData>>() {
-                            List<RoutineData> aux;
+                        .subscribeWith(new DisposableSingleObserver<PagedListModel<RoutineModel>>() {
+                            List<RoutineModel> aux;
                             boolean duplicate = false;
                             @Override
-                            public void onSuccess(@io.reactivex.rxjava3.annotations.NonNull PagedList<RoutineData> routinesEntries) {
+                            public void onSuccess(@NonNull PagedListModel<RoutineModel> routinesEntries) {
                                 isLastPage = routinesEntries.getLastPage();
                                 noMoreEntries.setValue(isLastPage);
                                 currentPage++;
@@ -345,7 +379,7 @@ public class RoutineViewModel extends AndroidViewModel {
                             }
 
                             @Override
-                            public void onError(@io.reactivex.rxjava3.annotations.NonNull Throwable e) {
+                            public void onError(@NonNull Throwable e) {
                                 loading.setValue(false);
                                 e.printStackTrace();
                             }
@@ -357,14 +391,14 @@ public class RoutineViewModel extends AndroidViewModel {
         disposable.add(routinesService.favRoutine(routId)
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribeWith(new DisposableSingleObserver<Response<Void>>() {
+                .subscribeWith(new DisposableSingleObserver<ApiResponse<Void>>() {
                     @Override
-                    public void onSuccess(@io.reactivex.rxjava3.annotations.NonNull Response<Void> voidResponse) {
+                    public void onSuccess(@NonNull ApiResponse<Void> voidResponse) {
 
                     }
 
                     @Override
-                    public void onError(@io.reactivex.rxjava3.annotations.NonNull Throwable e) {
+                    public void onError(@NonNull Throwable e) {
                         e.printStackTrace();
                     }
                 })
@@ -375,14 +409,14 @@ public class RoutineViewModel extends AndroidViewModel {
         disposable.add(routinesService.unfavRoutine(routId)
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribeWith(new DisposableSingleObserver<Response<Void>>() {
+                .subscribeWith(new DisposableSingleObserver<ApiResponse<Void>>() {
                     @Override
-                    public void onSuccess(@io.reactivex.rxjava3.annotations.NonNull Response<Void> voidResponse) {
+                    public void onSuccess(@NonNull ApiResponse<Void> voidResponse) {
 
                     }
 
                     @Override
-                    public void onError(@io.reactivex.rxjava3.annotations.NonNull Throwable e) {
+                    public void onError(@NonNull Throwable e) {
                         e.printStackTrace();
                     }
                 })
@@ -395,11 +429,11 @@ public class RoutineViewModel extends AndroidViewModel {
         disposable.clear();
     }
 
-    public MutableLiveData<List<RoutineData>> getRoutineCards() {
+    public MutableLiveData<List<RoutineModel>> getRoutineCards() {
         return routineCards;
     }
 
-    public MutableLiveData<List<RoutineData>> getUserHistory() {
+    public MutableLiveData<List<RoutineModel>> getUserHistory() {
         return userHistory;
     }
 
@@ -410,6 +444,7 @@ public class RoutineViewModel extends AndroidViewModel {
     public MutableLiveData<Boolean> getRoutinesFirstLoad() {
         return routinesFirstLoad;
     }
+
     public MutableLiveData<Boolean> getRoutinesFirstLoadFavs() {
         return routinesFavFirstLoad;
     }
@@ -423,17 +458,17 @@ public class RoutineViewModel extends AndroidViewModel {
         return loading;
     }
 
-    public MutableLiveData<List<RoutineData>> getUserRoutines() {
+    public MutableLiveData<List<RoutineModel>> getUserRoutines() {
         return userRoutines;
     }
 
-    public MutableLiveData<List<RoutineData>> getRoutinesByDate() {
+    public MutableLiveData<List<RoutineModel>> getRoutinesByDate() {
         return userRoutinesByDate;
     }
 
-    public MutableLiveData<List<RoutineData>> getUserFavouriteRoutines() { return userFavourites; }
+    public MutableLiveData<List<RoutineModel>> getUserFavouriteRoutines() { return userFavourites; }
 
-    public MutableLiveData<RoutineData> getCurrentRoutine() {
+    public MutableLiveData<RoutineModel> getCurrentRoutine() {
         return currentRoutine;
     }
 
@@ -441,7 +476,7 @@ public class RoutineViewModel extends AndroidViewModel {
         return direction;
     }
 
-    public Integer getFilter() {
+    public String getFilter() {
         return filter;
     }
 
@@ -486,14 +521,14 @@ public class RoutineViewModel extends AndroidViewModel {
     }
 
     public void rateRoutine(int routineId, int value) {
-        RoutineRating rating = new RoutineRating(value, "");
+        RoutineRatingModel rating = new RoutineRatingModel(value, "");
         disposable.add(
                 routinesService.rateRoutine(routineId, rating)
                         .subscribeOn(Schedulers.newThread())
                         .observeOn(AndroidSchedulers.mainThread())
-                        .subscribeWith(new DisposableSingleObserver<RoutineData>() {
+                        .subscribeWith(new DisposableSingleObserver<RoutineModel>() {
                             @Override
-                            public void onSuccess(@io.reactivex.rxjava3.annotations.NonNull RoutineData routineData) {
+                            public void onSuccess(@io.reactivex.rxjava3.annotations.NonNull RoutineModel routineData) {
                             }
                             @Override
                             public void onError(@io.reactivex.rxjava3.annotations.NonNull Throwable e) {

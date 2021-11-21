@@ -8,7 +8,7 @@ import ar.edu.itba.rutinapp_mobile_app.api.model.ExerciseCycle;
 import ar.edu.itba.rutinapp_mobile_app.api.model.PagedListModel;
 import ar.edu.itba.rutinapp_mobile_app.api.model.RoutineCycle;
 import ar.edu.itba.rutinapp_mobile_app.api.model.RoutineModel;
-import ar.edu.itba.rutinapp_mobile_app.api.model.RoutineRating;
+import ar.edu.itba.rutinapp_mobile_app.api.model.RoutineRatingModel;
 import io.reactivex.rxjava3.core.Single;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
@@ -57,40 +57,35 @@ public class ApiRoutine extends ApiService implements ApiRoutineService{
         return api.getFavouriteRoutines(options);
     }
 
-    @Override
-    public Single<RoutineModel> rateRoutine(Integer routineId, RoutineRating rating) {
-        return api.rateRoutine(routineId, rating);
-    }
+//    @Override
+//    public Single<RoutineModel> rateRoutine(Integer routineId, RoutineRating rating) {
+//        return api.rateRoutine(routineId, rating);
+//    }
 
     @Override
-    public Single<Response<Void>> favRoutine(Integer routineId) {
+    public Single<ApiResponse<Void>> favRoutine(Integer routineId) {
         return api.favRoutine(routineId);
     }
 
     @Override
-    public Single<Response<Void>> unfavRoutine(Integer routineId) {
+    public Single<ApiResponse<Void>> unfavRoutine(Integer routineId) {
         return api.unfavRoutine(routineId);
     }
 
-    @Override
-    public Single<PagedListModel<ExerciseCycle>> getExercises(Integer cycleId, Map<String, String> options) {
-        return api.getExercises(cycleId, options);
-    }
+//    @Override
+//    public Single<ApiResponse<PagedListModel<RoutineModel>>> getUserExecutionsRoutines(Map<String, String> options) {
+//        return api.getUserRoutines(options);
+//    }
 
     @Override
-    public Single<PagedListModel<RoutineModel>> getUserExecutionsRoutines(Map<String, String> options) {
-        return api.getUserRoutines(options);
-    }
-
-    @Override
-    public Single<PagedListModel<RoutineCycle>> getRoutineCycles(Integer routineId, Map<String, String> options) {
+    public Single<ApiResponse<PagedListModel<RoutineCycle>>> getRoutineCycles(Integer routineId, Map<String, String> options) {
         return api.getRoutineCycles(routineId, options);
     }
 
-    @Override
-    public Single<RoutineCycle> getRoutineCycle(int routineId, int cycleId) {
-        return null;
-    }
+//    @Override
+//    public Single<ApiResponse<RoutineCycle>> getRoutineCycle(int routineId, int cycleId) {
+//        return null;
+//    }
 
 //    @Override
 //    public Single<RoutineData> addRoutineExecution(Integer routineId, RoutineExecution routineExecution) {
@@ -98,7 +93,12 @@ public class ApiRoutine extends ApiService implements ApiRoutineService{
 //    }
 
     @Override
-    public Single<RoutineModel> getRoutineById(Integer routineId) {
-        return api.getRoutineById(routineId);
+    public Single<RoutineModel> getRoutine(Integer routineId) {
+        return api.getRoutine(routineId);
+    }
+
+    @Override
+    public Single<RoutineModel> rateRoutine(Integer routineId, RoutineRatingModel rating) {
+        return api.rateRoutine(routineId, rating);
     }
 }
