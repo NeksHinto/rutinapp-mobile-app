@@ -23,7 +23,9 @@ import java.util.stream.Collectors;
 
 import ar.edu.itba.rutinapp_mobile_app.R;
 import ar.edu.itba.rutinapp_mobile_app.activity.MainNavActivity;
+import ar.edu.itba.rutinapp_mobile_app.api.model.RoutineModel;
 import ar.edu.itba.rutinapp_mobile_app.databinding.SearchRoutineFragmentBinding;
+import ar.edu.itba.rutinapp_mobile_app.view_model.FavouriteViewModel;
 
 public class SearchRoutinesFragment extends Fragment {
 
@@ -90,10 +92,16 @@ public class SearchRoutinesFragment extends Fragment {
             getRoutines();
         });
 
-        View.OnClickListener favoriteClickListener = new View.OnClickListener() {
+        FavouriteViewModel favouriteViewModel = new FavouriteViewModel(getActivity().getApplication());
+        View.OnClickListener favouriteClickListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //aca seria con cada rutina en especifica
+                RoutineModel routine = (RoutineModel) v.getTag();
+                if (routine.getFavorite()) {
+                    favouriteViewModel.favRoutine(routine.getId());
+                } else {
+                    favouriteViewModel.unfavRoutine(routine.getId());
+                }
             }
         };
     }

@@ -11,9 +11,15 @@ import androidx.lifecycle.ViewModel;
 
 import java.util.List;
 
+import ar.edu.itba.rutinapp_mobile_app.api.ApiRoutineService;
 import ar.edu.itba.rutinapp_mobile_app.api.model.PagedListModel;
 import ar.edu.itba.rutinapp_mobile_app.api.model.RoutineModel;
 import ar.edu.itba.rutinapp_mobile_app.repository.Resource;
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
+import io.reactivex.rxjava3.disposables.CompositeDisposable;
+import io.reactivex.rxjava3.observers.DisposableSingleObserver;
+import io.reactivex.rxjava3.schedulers.Schedulers;
+import retrofit2.Response;
 
 public class FavouriteViewModel extends AndroidViewModel {
     private int routinePage = 0;
@@ -28,6 +34,43 @@ public class FavouriteViewModel extends AndroidViewModel {
 
     public MutableLiveData<Resource<PagedListModel<RoutineModel>>> getFavorites() {
         return favorites;
+    }
+
+    private ApiRoutineService routinesService;
+    private CompositeDisposable disposable = new CompositeDisposable();
+
+    public void favRoutine(int routineId) {
+        disposable.add(routinesService.favRoutine(routineId)
+                .subscribeOn(Schedulers.newThread())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeWith(new DisposableSingleObserver<Response<Void>>() {
+                    @Override
+                    public void onSuccess(@io.reactivex.rxjava3.annotations.NonNull Response<Void> voidResponse) {
+
+                    }
+
+                    @Override
+                    public void onError(@io.reactivex.rxjava3.annotations.NonNull Throwable e) {
+                        e.printStackTrace();
+                    }
+                }));
+    }
+
+    public void unfavRoutine(int routineId) {
+        disposable.add(routinesService.unfavRoutine(routineId)
+                .subscribeOn(Schedulers.newThread())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeWith(new DisposableSingleObserver<Response<Void>>() {
+                    @Override
+                    public void onSuccess(@io.reactivex.rxjava3.annotations.NonNull Response<Void> voidResponse) {
+
+                    }
+
+                    @Override
+                    public void onError(@io.reactivex.rxjava3.annotations.NonNull Throwable e) {
+                        e.printStackTrace();
+                    }
+                }));
     }
 
 }

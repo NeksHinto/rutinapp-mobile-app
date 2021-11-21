@@ -124,4 +124,16 @@ public class RoutineModel {
         this.metadata = metadata;
     }
 
+
+    private boolean isFavourite;
+
+    public boolean getFavorite() {
+        return isFavourite;
+    }
+
+    public void setFavorite(boolean favorite) {
+        isFavourite = favorite;
+    }
+
+
 }

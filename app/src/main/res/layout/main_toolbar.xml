@@ -16,8 +16,7 @@
             app:title="@{navInfo.name}"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:fitsSystemWindows="true"
-            app:menu="@menu/appbar_menu" >
+            android:fitsSystemWindows="true" >
 
         </androidx.appcompat.widget.Toolbar>
     </com.google.android.material.appbar.AppBarLayout>

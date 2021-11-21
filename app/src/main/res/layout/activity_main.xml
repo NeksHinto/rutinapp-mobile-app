@@ -60,6 +60,7 @@
         android:layout_height="match_parent"
         android:background="@color/green_menu"
         android:layout_gravity="start"
+        android:fitsSystemWindows="true"
         app:headerLayout="@layout/header_navigation_menu"
         app:menu="@menu/navigation_menu" />
 

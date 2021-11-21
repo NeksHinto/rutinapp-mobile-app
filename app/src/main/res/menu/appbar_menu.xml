@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/profileBottom"
+        android:id="@+id/logoAppBar"
         android:tint="?attr/colorControlNormal"
         android:icon="@drawable/logo"
         android:title="RutinApp"
