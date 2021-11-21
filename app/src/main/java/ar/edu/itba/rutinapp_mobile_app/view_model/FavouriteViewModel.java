@@ -11,6 +11,7 @@ import androidx.lifecycle.ViewModel;
 
 import java.util.List;
 
+import ar.edu.itba.rutinapp_mobile_app.api.ApiResponse;
 import ar.edu.itba.rutinapp_mobile_app.api.ApiRoutineService;
 import ar.edu.itba.rutinapp_mobile_app.api.model.PagedListModel;
 import ar.edu.itba.rutinapp_mobile_app.api.model.RoutineModel;
@@ -43,14 +44,14 @@ public class FavouriteViewModel extends AndroidViewModel {
         disposable.add(routinesService.favRoutine(routineId)
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribeWith(new DisposableSingleObserver<Response<Void>>() {
+                .subscribeWith(new DisposableSingleObserver<ApiResponse<Void>>() {
                     @Override
-                    public void onSuccess(@io.reactivex.rxjava3.annotations.NonNull Response<Void> voidResponse) {
+                    public void onSuccess(@NonNull ApiResponse<Void> voidResponse) {
 
                     }
 
                     @Override
-                    public void onError(@io.reactivex.rxjava3.annotations.NonNull Throwable e) {
+                    public void onError(@NonNull Throwable e) {
                         e.printStackTrace();
                     }
                 }));
@@ -60,14 +61,14 @@ public class FavouriteViewModel extends AndroidViewModel {
         disposable.add(routinesService.unfavRoutine(routineId)
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribeWith(new DisposableSingleObserver<Response<Void>>() {
+                .subscribeWith(new DisposableSingleObserver<ApiResponse<Void>>() {
                     @Override
-                    public void onSuccess(@io.reactivex.rxjava3.annotations.NonNull Response<Void> voidResponse) {
+                    public void onSuccess(@NonNull ApiResponse<Void> voidResponse) {
 
                     }
 
                     @Override
-                    public void onError(@io.reactivex.rxjava3.annotations.NonNull Throwable e) {
+                    public void onError(@NonNull Throwable e) {
                         e.printStackTrace();
                     }
                 }));

@@ -9,6 +9,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import ar.edu.itba.rutinapp_mobile_app.api.ApiResponse;
 import ar.edu.itba.rutinapp_mobile_app.api.ApiRoutine;
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.annotations.NonNull;
@@ -29,9 +30,9 @@ public class FavouritesModel extends AndroidViewModel {
         disposable.add(routinesService.favRoutine(routineId)
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribeWith(new DisposableSingleObserver<Response<Void>>() {
+                .subscribeWith(new DisposableSingleObserver<ApiResponse<Void>>() {
                     @Override
-                    public void onSuccess(@NonNull Response<Void> voidResponse) {
+                    public void onSuccess(@NonNull ApiResponse<Void> voidResponse) {
 
                     }
 
@@ -47,9 +48,9 @@ public class FavouritesModel extends AndroidViewModel {
         disposable.add(routinesService.unfavRoutine(routineId)
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribeWith(new DisposableSingleObserver<Response<Void>>() {
+                .subscribeWith(new DisposableSingleObserver<ApiResponse<Void>>() {
                     @Override
-                    public void onSuccess(@NonNull Response<Void> voidResponse) {
+                    public void onSuccess(@NonNull ApiResponse<Void> voidResponse) {
 
                     }
 
