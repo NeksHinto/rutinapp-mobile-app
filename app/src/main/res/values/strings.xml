@@ -60,5 +60,8 @@
     <string name="resend_email_message">If you did not receive the verification code, enter your email below</string>
     <string name="resend">Resend</string>
 
+    <!-- strings de primera actividad-->
+    <string name="loading_logo">Loading logo</string>
+
 
 </resources>

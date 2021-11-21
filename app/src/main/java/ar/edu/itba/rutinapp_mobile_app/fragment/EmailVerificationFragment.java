@@ -56,7 +56,7 @@ public class EmailVerificationFragment extends Fragment {
         resendCodeButton.setOnClickListener(v -> resendCode());
 
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_email_verification, container, false);
+        return view;
     }
 
     @Override

@@ -65,4 +65,7 @@
     <string name="resend_email_message">Si no recibiste el código, ingresá tu email abajo</string>
     <string name="resend">Reenviar</string>
 
+    <!-- strings de primera actividad-->
+    <string name="loading_logo">Cargando logo</string>
+
 </resources>
