@@ -34,6 +34,9 @@ public class ProfileFragment extends Fragment {
     private ImageView profilePic;
     private View view;
 
+    private MainNavActivity main;
+
+
 
     public static ProfileFragment newInstance(String param1, String param2) {
         ProfileFragment fragment = new ProfileFragment();
@@ -61,6 +64,10 @@ public class ProfileFragment extends Fragment {
         profilePic = binding.profileImage;
 
 
+        main = (MainNavActivity) getActivity();
+
+        main.showUpButton();
+        main.setNavigationVisibility(false);
 
 //        ((MainNavActivity) getActivity()).setNavigationVisibility(true);
 
