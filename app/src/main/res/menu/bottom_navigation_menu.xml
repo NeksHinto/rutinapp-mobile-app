@@ -14,11 +14,11 @@
             android:icon="@drawable/ic_routine"
             android:orderInCategory="2"
             app:labelVisibilityMode="labeled"
-            android:title="@string/search" />
+            android:title="@string/navRoutines" />
 
     <item
             android:id="@+id/myFavouriteFragment"
-            android:icon="@drawable/ic_fav"
+            android:icon="@drawable/ic_favourite"
             android:orderInCategory="3"
             app:labelVisibilityMode="labeled"
             android:title="Favourite" />
