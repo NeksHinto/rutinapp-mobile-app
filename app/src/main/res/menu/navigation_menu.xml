@@ -5,7 +5,7 @@
         tools:showIn="navigation_view"
         android:theme="@style/AppTheme.ActionBar"
         android:orderInCategory="5">
-    
+
     <group android:checkableBehavior="single">
 
     <item
