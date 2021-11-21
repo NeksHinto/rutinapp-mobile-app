@@ -7,8 +7,10 @@ import ar.edu.itba.rutinapp_mobile_app.api.ApiResponse;
 import ar.edu.itba.rutinapp_mobile_app.api.model.PagedListModel;
 import ar.edu.itba.rutinapp_mobile_app.api.model.RoutineCycle;
 import ar.edu.itba.rutinapp_mobile_app.api.model.RoutineModel;
+import ar.edu.itba.rutinapp_mobile_app.api.model.RoutineRatingModel;
 import io.reactivex.rxjava3.core.Single;
 import retrofit2.Response;
+import retrofit2.http.Body;
 import retrofit2.http.DELETE;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
@@ -18,16 +20,16 @@ import retrofit2.http.QueryMap;
 
 public interface ApiRoutineService {
     @GET("routines")
-    Single<ApiResponse<PagedListModel<RoutineModel>>> getRoutines(
+    Single<PagedListModel<RoutineModel>> getRoutines(
             @QueryMap Map<String, String> options);
 
     @GET("users/current/routines")
-    Single<ApiResponse<PagedListModel<RoutineModel>>> getUserRoutines(
+    Single<PagedListModel<RoutineModel>> getUserRoutines(
             @QueryMap Map<String, String> options
     );
 
     @GET("routines/{routineId}")
-    Single<ApiResponse<RoutineModel>> getRoutine(
+    Single<RoutineModel> getRoutine(
             @Path("routineId") Integer routineId);
 
     @GET("routines/{routineId}/cycles")
@@ -52,12 +54,18 @@ public interface ApiRoutineService {
     );
 
     @POST("favourites/{routineId}")
-    Single<Response<Void>> favRoutine(
+    Single<ApiResponse<Void>> favRoutine(
             @Path("routineId") Integer routineId
     );
 
     @DELETE("favourites/{routineId}")
-    Single<Response<Void>> unfavRoutine(
+    Single<ApiResponse<Void>> unfavRoutine(
             @Path("routineId") Integer routineId
+    );
+
+    @POST("reviews/{routineId}")
+    Single<RoutineModel> rateRoutine(
+            @Path("routineId") Integer routineId,
+            @Body RoutineRatingModel rating
     );
 }
