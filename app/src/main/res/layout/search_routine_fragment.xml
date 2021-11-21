@@ -21,7 +21,7 @@
 
         <com.google.android.material.textfield.TextInputEditText
 
-            android:id="@+id/textInputEditText"
+            android:id="@+id/textInputSearch"
             app:actionViewClass="androidx.appcompat.widget.SearchView"
             android:layout_width="350dp"
             android:layout_height="48dp"
@@ -45,7 +45,8 @@
         android:autofillHints="@string/filter"
         android:background="@drawable/rounded_edit_text"
         android:hint="@string/filter"
-        tools:ignore="MissingConstraints"
+        app:layout_constraintStart_toEndOf="@+id/textInputSearch"
+        tools:ignore="MissingConstraints,NotSibling"
         tools:layout_editor_absoluteX="32dp"
         tools:layout_editor_absoluteY="100dp">
 
