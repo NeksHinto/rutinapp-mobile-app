@@ -10,19 +10,18 @@
 
 
     <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
         android:background="@android:color/transparent"
         app:endIconDrawable="@drawable/ic_search_24"
         app:endIconMode="custom"
-        tools:ignore="MissingConstraints"
->
+        tools:ignore="MissingConstraints">
 
         <com.google.android.material.textfield.TextInputEditText
 
-            android:id="@+id/textInputSearch"
-            app:actionViewClass="androidx.appcompat.widget.SearchView"
+            android:id="@+id/textInputEditText"
             android:layout_width="350dp"
             android:layout_height="48dp"
             android:layout_marginStart="32dp"
@@ -30,6 +29,7 @@
             android:background="@drawable/rounded_edit_text"
             android:hint="@string/search"
             android:inputType="text"
+            app:actionViewClass="androidx.appcompat.widget.SearchView"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="MissingConstraints" />
@@ -37,36 +37,7 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/filterRoutines"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-        android:layout_width="300dp"
-        android:layout_height="48dp"
-        android:autofillHints="@string/filter"
-        android:background="@drawable/rounded_edit_text"
-        android:hint="@string/filter"
-        app:layout_constraintStart_toEndOf="@+id/textInputSearch"
-        tools:ignore="MissingConstraints,NotSibling"
-        tools:layout_editor_absoluteX="32dp"
-        tools:layout_editor_absoluteY="100dp">
-
-        <AutoCompleteTextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:inputType="none"
-            tools:ignore="MissingConstraints,TouchTargetSizeCheck" />
-
-        <Spinner
-            android:id="@+id/sortDiscoverSpinner"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="20dp"
-            android:prompt="@string/sort_title"
-            android:spinnerMode="dialog"
-            android:layout_weight="1" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-<!--
+    <!--
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/floating_action_button"
         android:layout_width="wrap_content"
@@ -86,6 +57,36 @@
             android:layout_weight="1" />
     </com.google.android.material.floatingactionbutton.FloatingActionButton>
 -->
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/filterRoutines"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        android:layout_width="231dp"
+        android:layout_height="49dp"
+        android:layout_marginEnd="140dp"
+        android:autofillHints="@string/filter"
+        android:background="@drawable/rounded_edit_text"
+        android:hint="@string/filter"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="95dp">
+        <!--
+        <AutoCompleteTextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="none"
+            tools:ignore="MissingConstraints,TouchTargetSizeCheck" />
+-->
+        <Spinner
+            android:id="@+id/sortDiscoverSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="20dp"
+            android:prompt="@string/sort_title"
+            android:spinnerMode="dialog" />
+
+    </com.google.android.material.textfield.TextInputLayout>
 
     <ImageButton
         android:id="@+id/orderButton"
