@@ -19,9 +19,6 @@
         <action
             android:id="@+id/action_homeFragment_to_favoriteFragment"
             app:destination="@id/favoriteFragment" />
-        <action
-            android:id="@+id/action_homeFragment_to_settings_fragment"
-            app:destination="@id/settings_fragment" />
     </fragment>
     <fragment
         android:id="@+id/searchRoutine_fragmentFragment"
@@ -63,7 +60,7 @@
             app:destination="@id/homeFragment" />
             -->
         <action
-            android:id="@+id/action_profileFragment_to_settings_fragment2"
+            android:id="@+id/action_profileFragment_to_settings_fragment"
             app:destination="@id/settings_fragment" />
     </fragment>
     <fragment

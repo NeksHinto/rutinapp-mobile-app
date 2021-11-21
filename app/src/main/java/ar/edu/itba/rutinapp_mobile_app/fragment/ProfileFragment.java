@@ -7,6 +7,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
+import androidx.navigation.fragment.NavHostFragment;
 
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -66,13 +67,10 @@ public class ProfileFragment extends Fragment {
         lastName = binding.lastName;
         profilePic = binding.profileImage;
 
+        binding.settingProfile.setOnClickListener(view -> {
 
-//        main = (MainNavActivity) getActivity();
-//
-//        main.showUpButton();
-//        main.setNavigationVisibility(false);
-
-        ((MainNavActivity) getActivity()).setNavigationVisibility(true);
+            NavHostFragment.findNavController(this).navigate(R.id.action_profileFragment_to_settings_fragment);
+        });
 
         return view;
     }
@@ -106,7 +104,7 @@ public class ProfileFragment extends Fragment {
         menu.findItem(R.id.app_bar_settings).setVisible(true);
         super.onCreateOptionsMenu(menu, inflater);
     }
-
+/*
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
@@ -119,6 +117,8 @@ public class ProfileFragment extends Fragment {
     }
 
     public void settings() {
-        Navigation.findNavController(view).navigate(ProfileFragmentDirections.actionProfileFragmentToSettingsFragment2());
+        Navigation.findNavController(view).navigate(ProfileFragmentDirections.actionProfileFragmentToSettingsFragment);
     }
+    
+ */
 }
