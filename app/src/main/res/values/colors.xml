@@ -14,4 +14,9 @@
     <color name="grey">#696969</color>
     <color name="green_menu">#86E8B3</color>
 
+    <!-- Switch color -->
+    <color name="switchActivated">@color/white</color>
+    <color name="switchForeground">?colorSecondary</color>
+    <color name="switchNormal">@color/white</color>
+
 </resources>
