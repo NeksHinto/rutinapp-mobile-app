@@ -9,7 +9,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="115dp"
+        android:layout_height="128dp"
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="0dp"
         android:orientation="vertical">
@@ -41,6 +41,7 @@
             android:layout_marginTop="4dp"
             android:layout_marginRight="4dp"
             android:layout_marginBottom="10dp"
+            android:paddingBottom="10dp"
             android:fontFamily="sans-serif"
             android:hint="Para mas informacion, ingresar a la pag rutinapp.com.ar" />
     </LinearLayout>
