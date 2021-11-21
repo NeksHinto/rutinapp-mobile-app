@@ -31,13 +31,14 @@ public class RoutineActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 //        Intent intent = getIntent();
 //        String routineID = intent.getStringExtra("routineID");
-//
+
 //        Bundle bundle = new Bundle();
 //        bundle.putInt("routineID", new Integer(routineID));
 
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.routineViewFragment, new ActiveRoutineFragment())
+                    .setReorderingAllowed(true)
+                    .add(R.id.routineViewFragment, ViewRountineFragment.class, null)
                     .commit();
         }
 
