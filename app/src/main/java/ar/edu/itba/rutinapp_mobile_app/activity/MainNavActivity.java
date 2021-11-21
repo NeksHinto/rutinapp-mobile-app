@@ -57,12 +57,12 @@ public class MainNavActivity extends AppCompatActivity implements NavigationView
         navigationView.setNavigationItemSelectedListener(this);
         navigationView.setCheckedItem(R.id.main);
 
-
+*/
         NavController navController = Navigation.findNavController(this, R.id.nav_fragment_content);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
 
-*/
+
 //        binding.buttonNav.setOnClickListener(view -> {
 //            binding.buttonNav.setEnabled(false);
 //
