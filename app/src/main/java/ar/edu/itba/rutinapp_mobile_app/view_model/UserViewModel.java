@@ -68,6 +68,7 @@ public class UserViewModel extends AndroidViewModel {
                     token.setValue(authToken);
                     ApiService.setAuthToken(authToken.getToken());
                     AppPreferences myPreferences = new AppPreferences(app);
+                    myPreferences.setAuthToken(authToken.getToken());
                     signInError.setValue(null);
                     loading.setValue(false);
                 }
@@ -81,6 +82,7 @@ public class UserViewModel extends AndroidViewModel {
                             ErrorModel error;
                             error = gson.fromJson(exception.response().errorBody().string(), new TypeToken<ErrorModel>(){
                             }.getType());
+                            signInError.setValue(error);
                         } catch (IOException ioException) {
                             ioException.printStackTrace();
                         }
