@@ -151,8 +151,15 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/difficulty"/>
 
+            <LinearLayout
+                android:id="@+id/linearLayout3"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:background="@color/backgrounfText"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@id/category">
 
-            <androidx.fragment.app.FragmentContainerView
+            <ExpandableListView
                 android:id="@+id/expandableListView"
                 android:name="ar.edu.itba.rutinapp_mobile_app.fragment.CycleExpandableListFragment"
                 android:layout_width="match_parent"
@@ -160,6 +167,8 @@
                 android:divider="@android:color/darker_gray"
                 android:dividerHeight="0.5dp"
                 app:layout_constraintTop_toBottomOf="@id/category" />
+
+            </LinearLayout>
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/startRoutine"
@@ -176,7 +185,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/expandableListView" />
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
