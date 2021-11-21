@@ -36,11 +36,6 @@
         <item>Resistence</item>
     </string-array>
 
-    <string-array name="order">
-        <item>Descending</item>
-        <item>Ascending</item>
-    </string-array>
-
     <!-- strings de perfil -->
     <string name="profile">Profile</string>
     <string name="name">Name</string>

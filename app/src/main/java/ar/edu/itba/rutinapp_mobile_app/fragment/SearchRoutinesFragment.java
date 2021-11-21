@@ -5,6 +5,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
@@ -107,10 +108,12 @@ public class SearchRoutinesFragment extends Fragment {
     }
 
     private void setSpinners(View view) {
-        sortSpinner = (Spinner) view.findViewById(R.id.sortDiscoverSpinner);
-        ArrayAdapter<CharSequence> adapterSort = ArrayAdapter.createFromResource(getActivity(), R.array.sort, android.R.layout.simple_spinner_item);
+        sortSpinner = view.findViewById(R.id.sortDiscoverSpinner);
+        ArrayAdapter<CharSequence> adapterSort = ArrayAdapter.createFromResource(this.getContext(), R.array.sort, android.R.layout.simple_spinner_item);
         adapterSort.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         sortSpinner.setAdapter(adapterSort);
+        sortSpinner.setSelection(0, false);
+        sortSpinner.setOnItemSelectedListener((AdapterView.OnItemSelectedListener) this);
 
     }
 

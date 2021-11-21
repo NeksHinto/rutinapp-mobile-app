@@ -56,7 +56,7 @@ public class HomeFragment extends Fragment {
         View rootview = binding.getRoot();
 
 //        View rootView = inflater.inflate(R.layout.home_fragment, container, false);
-        
+
         binding.category1.setOnClickListener(view -> {
 
             NavHostFragment.findNavController(this).navigate(R.id.action_homeFragment_to_searchRoutine_fragmentFragment);
