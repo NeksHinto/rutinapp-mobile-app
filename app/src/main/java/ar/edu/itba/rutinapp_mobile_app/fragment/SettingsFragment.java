@@ -7,6 +7,8 @@ import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.SwitchCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -48,6 +50,10 @@ public class SettingsFragment extends Fragment {
 
         preferences = new AppPreferences(getActivity().getApplication());
         binding.logout.setOnClickListener(v -> logout());
+        binding.information.setOnClickListener(v -> {
+//            NavController navController = Navigation.findNavController(v);
+
+        });
         darkModeSwitch = binding.darkModeSwitch;
         if (AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES)
             darkModeSwitch.setChecked(true);

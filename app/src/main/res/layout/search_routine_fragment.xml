@@ -59,7 +59,7 @@
     </com.google.android.material.floatingactionbutton.FloatingActionButton>
 -->
 
-    <com.google.android.material.textfield.TextInputLayout
+    <LinearLayout
         android:id="@+id/filterRoutines"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
         android:layout_width="250dp"
@@ -72,22 +72,22 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout2">
 
-        <AutoCompleteTextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:inputType="none"
-            tools:ignore="MissingConstraints,TouchTargetSizeCheck" />
+<!--        <AutoCompleteTextView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:inputType="none"-->
+<!--            tools:ignore="MissingConstraints,TouchTargetSizeCheck" />-->
 
         <Spinner
             android:id="@+id/sortDiscoverSpinner"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:padding="20dp"
             android:prompt="@string/sort_title"
-            android:spinnerMode="dialog" />
+            android:spinnerMode="dropdown" />
 
-    </com.google.android.material.textfield.TextInputLayout>
+    </LinearLayout>
 
     <ImageButton
         android:id="@+id/orderButton"
