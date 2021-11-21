@@ -38,16 +38,16 @@ public class CycleExpandableListFragment extends Fragment {
         return cycleList;
     }
 
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
+//    @Override
+//    public void onCreate(@Nullable Bundle savedInstanceState) {
+//        super.onCreate(savedInstanceState);
+//    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        return init(inflater.inflate(R.layout.routine_activity, container, false));
+        return init(inflater.inflate(R.layout.fragment_view_routine, container, false));
     }
 
     private View init(View inflate) {
