@@ -21,24 +21,29 @@ public interface ApiRoutineService {
     Single<ApiResponse<PagedListModel<RoutineModel>>> getRoutines(
             @QueryMap Map<String, String> options);
 
+    @GET("users/current/routines")
+    Single<ApiResponse<PagedListModel<RoutineModel>>> getUserRoutines(
+            @QueryMap Map<String, String> options
+    );
+
     @GET("routines/{routineId}")
     Single<ApiResponse<RoutineModel>> getRoutine(
-            @Path("routineId") int routineId);
+            @Path("routineId") Integer routineId);
 
     @GET("routines/{routineId}/cycles")
     Single<ApiResponse<PagedListModel<RoutineCycle>>> getRoutineCycles(
-            @Path("routineId") int routineId);
+            @Path("routineId") Integer routineId,  Map<String, String> options);
 
-    @GET("routines/{routineId}/cycles/{cycleId}")
-    Single<ApiResponse<RoutineCycle>> getRoutineCycle(
-            @Path("routineId") int routineId,
-            @Path("cycleId") int cycleId);
-
-    //trae las rutinas ejecutadas para el historial
-    @GET("users/current/executions")
-    Single<ApiResponse<PagedListModel<RoutineModel>>> getUserExecutionsRoutines(
-            @QueryMap Map<String, String> options
-    );
+//    @GET("routines/{routineId}/cycles/{cycleId}")
+//    Single<ApiResponse<RoutineCycle>> getRoutineCycle(
+//            @Path("routineId") int routineId,
+//            @Path("cycleId") int cycleId);
+//
+//    //trae las rutinas ejecutadas para el historial
+//    @GET("users/current/executions")
+//    Single<ApiResponse<PagedListModel<RoutineModel>>> getUserExecutionsRoutines(
+//            @QueryMap Map<String, String> options
+//    );
 
     //traer y actualizar los favoritos
     @GET("favourites")
