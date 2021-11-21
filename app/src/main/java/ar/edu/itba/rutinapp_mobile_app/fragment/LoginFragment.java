@@ -131,6 +131,7 @@ public class LoginFragment extends Fragment {
                     startActivity(intent);
                 }
                 getActivity().overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+                Log.e("LOGIN", "estoy por terminar la actividad");
                 getActivity().finish();
             }
         });

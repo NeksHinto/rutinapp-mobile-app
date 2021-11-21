@@ -12,6 +12,7 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -21,29 +22,35 @@ import androidx.navigation.ui.NavigationUI;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
 
+import ar.edu.itba.rutinapp_mobile_app.AppPreferences;
 import ar.edu.itba.rutinapp_mobile_app.R;
 import ar.edu.itba.rutinapp_mobile_app.databinding.ActivityMainBinding;
+import ar.edu.itba.rutinapp_mobile_app.view_model.UserViewModel;
 
 public class MainNavActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private AppBarConfiguration appBarConfiguration;
     private NavigationView navigationView;
+    private UserViewModel userViewModel;
     ActivityMainBinding binding;
     DrawerLayout drawer;
     Toolbar toolbar;
+    AppPreferences preferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        preferences = new AppPreferences(this.getApplication());
+
         Log.e("HOME", "Intento de crear HOME");
 
-        //binding = ActivityMainBinding.inflate(getLayoutInflater());
-        binding = ActivityMainBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
+//        binding = ActivityMainBinding.inflate(getLayoutInflater());
+//        setContentView(binding.getRoot());
+        setContentView(R.layout.activity_main);
         Log.e("HOME", "binding");
 
-        setSupportActionBar(binding.appBarMain.ToolbarMenu);
+        setSupportActionBar(findViewById(R.id.Toolbar_menu));
         Log.e("HOME", "seteo action bar");
 
         //toolbar = findViewById(R.id.Toolbar_menu);
@@ -55,6 +62,9 @@ public class MainNavActivity extends AppCompatActivity implements NavigationView
                 R.id.profile_fragment, R.id.favourite_fragment, R.id.settings_fragment)
                 .setOpenableLayout(drawer)
                 .build();
+
+        userViewModel = new ViewModelProvider(this).get(UserViewModel.class);
+        userViewModel.setUserData();
 /*
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.header_title, R.string.header_title);
         drawer.addDrawerListener(toggle);
