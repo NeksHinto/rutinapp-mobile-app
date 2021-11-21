@@ -11,6 +11,7 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
@@ -41,7 +42,7 @@ public class MainNavActivity extends AppCompatActivity implements NavigationView
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        preferences = new AppPreferences(this.getApplication());
+//        preferences = new AppPreferences(this.getApplication());
 
         Log.e("HOME", "Intento de crear HOME");
 
@@ -51,6 +52,7 @@ public class MainNavActivity extends AppCompatActivity implements NavigationView
         Log.e("HOME", "binding");
 
         setSupportActionBar(findViewById(R.id.Toolbar_menu));
+//        setSupportActionBar(binding.appBarMain.ToolbarMenu);
         Log.e("HOME", "seteo action bar");
 
         //toolbar = findViewById(R.id.Toolbar_menu);
@@ -63,8 +65,8 @@ public class MainNavActivity extends AppCompatActivity implements NavigationView
                 .setOpenableLayout(drawer)
                 .build();
 
-        userViewModel = new ViewModelProvider(this).get(UserViewModel.class);
-        userViewModel.setUserData();
+//        userViewModel = new ViewModelProvider(this).get(UserViewModel.class);
+//        userViewModel.setUserData();
 /*
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.header_title, R.string.header_title);
         drawer.addDrawerListener(toggle);
@@ -98,9 +100,11 @@ public class MainNavActivity extends AppCompatActivity implements NavigationView
 
     @Override
     public boolean onSupportNavigateUp() {
-        NavController navController = Navigation.findNavController(this, R.id.nav_fragment_content);
-        return NavigationUI.navigateUp(navController, appBarConfiguration)
-                || super.onSupportNavigateUp();
+        NavController navController = Navigation.findNavController(this, R.id.navigationView);
+        return navController.navigateUp();
+//        NavController navController = Navigation.findNavController(this, R.id.nav_fragment_content);
+//        return NavigationUI.navigateUp(navController, appBarConfiguration)
+//                || super.onSupportNavigateUp();
     }
 
     public void setNavigationVisibility(boolean b) {
@@ -139,4 +143,14 @@ public class MainNavActivity extends AppCompatActivity implements NavigationView
     public void onPointerCaptureChanged(boolean hasCapture) {
 
     }
+
+//    @Override
+//    public void onBackPressed() {
+//        if(drawer.isDrawerOpen(GravityCompat.START)){
+//            drawer.closeDrawer(GravityCompat.START);
+//        }
+//        else{
+//            super.onBackPressed();
+//        }
+//    }
 }
