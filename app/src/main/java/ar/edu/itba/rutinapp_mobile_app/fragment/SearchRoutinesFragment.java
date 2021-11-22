@@ -27,10 +27,12 @@ import ar.edu.itba.rutinapp_mobile_app.activity.MainNavActivity;
 import ar.edu.itba.rutinapp_mobile_app.api.model.RoutineModel;
 import ar.edu.itba.rutinapp_mobile_app.databinding.SearchRoutineFragmentBinding;
 import ar.edu.itba.rutinapp_mobile_app.view_model.FavouriteViewModel;
+import ar.edu.itba.rutinapp_mobile_app.view_model.RoutineViewModel;
 
 public class SearchRoutinesFragment extends Fragment {
 
     private SearchRoutineFragmentBinding binding;
+    private RoutineViewModel viewModel;
 
     private NestedScrollView nestedScrollView;
     private RecyclerView recyclerView;
@@ -69,8 +71,10 @@ public class SearchRoutinesFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        //viewModel = new ViewModelProvider(getActivity()).get(RoutinesViewModel.class);
+        viewModel = new ViewModelProvider(getActivity()).get(RoutineViewModel.class);
+
         setSpinners(view);
+
         if(savedInstanceState != null) {
             direction = savedInstanceState.getString("direction");
         }
@@ -118,5 +122,7 @@ public class SearchRoutinesFragment extends Fragment {
 
     public void getRoutines() {
     }
+
+
 
 }

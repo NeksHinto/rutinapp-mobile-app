@@ -1,10 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     >
+
+    <data>
+        <variable
+            name="routineData"
+            type="ar.edu.itba.rutinapp_mobile_app.api.model.RoutineModel" />
+
+        <variable
+            name="clickListener"
+            type="ar.edu.itba.rutinapp_mobile_app.fragment.RoutineClickListener" />
+    </data>
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -32,7 +42,7 @@
                 android:layout_height="23dp"
                 android:layout_marginTop="84dp"
                 android:layout_marginEnd="16dp"
-                android:text="@{routineData.title}"
+                android:text="@{routineData.name}"
                 android:background="@color/backgrounfText"
                 android:textColor="@color/black"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -50,4 +60,4 @@
 
     </androidx.cardview.widget.CardView>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
