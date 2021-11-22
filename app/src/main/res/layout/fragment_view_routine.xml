@@ -117,6 +117,7 @@
                 android:progressTint="?colorSecondary"
                 android:scaleX=".75"
                 android:scaleY=".75"
+                android:contentDescription="@string/rating"
                 android:secondaryProgressTint="?colorSecondary"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

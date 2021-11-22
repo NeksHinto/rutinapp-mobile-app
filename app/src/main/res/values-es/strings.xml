@@ -36,11 +36,11 @@
     <string name="order_title">Ordenar Rutinas</string>
 
     <string-array name="sort">
-        <item>Rookie</item>
-        <item>Beginner</item>
-        <item>Intermediate</item>
-        <item>Advanced</item>
-        <item>Expert</item>
+        <item>Novato</item>
+        <item>Principiante</item>
+        <item>Intermedio</item>
+        <item>Avanzado</item>
+        <item>Experto</item>
     </string-array>
 
 
@@ -75,5 +75,6 @@
     <string name="share">compartir</string>
     <string name="favourite">favorito</string>
     <string name="start_routine">Iniciar</string>
+    <string name="rating">rating</string>
 
 </resources>
