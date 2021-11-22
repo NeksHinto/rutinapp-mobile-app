@@ -1,6 +1,7 @@
 package ar.edu.itba.rutinapp_mobile_app.view_model;
 
 import android.app.Application;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
@@ -138,12 +139,14 @@ public class UserViewModel extends AndroidViewModel {
 
                     @Override
                     public void onSuccess(@NonNull ApiResponse<Void> voidResponse) {
+                        Log.e("VIEWMODEL", "Verification succeeded");
                         verified.setValue(true);
                         loading.setValue(false);
                     }
 
                     @Override
                     public void onError(@NonNull Throwable e) {
+                        Log.e("VIEWMODEL", "Que carajo paso");
                         verified.setValue(false);
                         loading.setValue(false);
                         e.printStackTrace();

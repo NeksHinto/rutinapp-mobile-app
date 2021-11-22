@@ -10,6 +10,7 @@ import androidx.navigation.NavController;
 import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -76,15 +77,22 @@ public class EmailVerificationFragment extends Fragment {
     }
 
     private void tryVerify(View view) {
+        Log.e("EMAIL", "estoy por verificar");
         this.viewModel.userVerification(code.getEditText().getText().toString());
         this.viewModel.getVerified().observe(getViewLifecycleOwner(), verified -> {
             if (verified) {
+                Log.e("EMAIL", "verificado");
                 Bundle b = getArguments();
 
                 NavController navController = Navigation.findNavController(view);
-                @NonNull NavDirections action = EmailVerificationFragmentDirections.actionEmailVerificationFragmentToWelcomeFragment();
-                navController.navigate(action);
+                EmailVerificationFragmentDirections.ActionEmailVerificationFragmentToWelcomeFragment action = EmailVerificationFragmentDirections.actionEmailVerificationFragmentToWelcomeFragment();
+                if(b != null) {
+                    navController.navigate(action);
+                } else {
+                    navController.navigate(action);
+                }
             }
+            Log.e("EMAIL", "No se verificó bien");
         });
     }
 

@@ -11,6 +11,7 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +19,7 @@ import android.view.ViewGroup;
 import ar.edu.itba.rutinapp_mobile_app.AppPreferences;
 import ar.edu.itba.rutinapp_mobile_app.R;
 import ar.edu.itba.rutinapp_mobile_app.activity.MainNavActivity;
+import ar.edu.itba.rutinapp_mobile_app.activity.WelcomeActivity;
 import ar.edu.itba.rutinapp_mobile_app.databinding.FragmentSettingsBinding;
 import ar.edu.itba.rutinapp_mobile_app.view_model.UserViewModel;
 
@@ -74,9 +76,11 @@ public class SettingsFragment extends Fragment {
     }
 
     private void logout() {
+        Log.e("LOGOUT", "intento logout");
         userViewModel.logout();
+        Log.e("LOGOUT", "Pudo logout");
 
-        Intent intent = new Intent(getActivity(), WelcomeFragment.class);
+        Intent intent = new Intent(getActivity(), WelcomeActivity.class);
         startActivity(intent);
         getActivity().overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
 

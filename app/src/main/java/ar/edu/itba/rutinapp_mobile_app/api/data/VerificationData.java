@@ -23,9 +23,9 @@ public class VerificationData {
         return email;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+//    public void setEmail(String email) {
+//        this.email = email;
+//    }
 
     public String getCode() {
         return code;

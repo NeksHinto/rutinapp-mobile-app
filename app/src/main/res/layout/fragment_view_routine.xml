@@ -40,7 +40,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="52dp"
                 android:gravity="center_horizontal"
-                android:text="@{Routine.name}"
+                android:text="Rutina"
                 android:textAlignment="center"
                 android:textColor="@color/black"
                 android:textSize="24sp"
