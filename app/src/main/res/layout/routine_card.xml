@@ -52,7 +52,7 @@
                 android:id="@+id/routineFav"
                 android:layout_width="37dp"
                 android:layout_height="30dp"
-                app:srcCompat="@drawable/ic_fav"
+                app:srcCompat="@drawable/ic_favourite"
                 tools:layout_editor_absoluteX="11dp"
                 tools:layout_editor_absoluteY="82dp" />
 
