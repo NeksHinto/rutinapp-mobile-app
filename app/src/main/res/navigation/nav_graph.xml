@@ -39,6 +39,9 @@
             android:id="@+id/action_searchRoutine_fragmentFragment_to_profileFragment"
             app:destination="@id/profileFragment" />
             -->
+        <action
+            android:id="@+id/action_searchRoutine_fragmentFragment_to_viewRountineFragment2"
+            app:destination="@id/viewRountineFragment2" />
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
@@ -118,5 +121,39 @@
             android:id="@+id/action_informationFragment_to_settings_fragment"
             app:destination="@id/settings_fragment" />
     </dialog>
+    <fragment
+        android:id="@+id/viewRountineFragment2"
+        android:name="ar.edu.itba.rutinapp_mobile_app.fragment.ViewRountineFragment"
+        android:label="ViewRountineFragment" >
+        <action
+            android:id="@+id/action_viewRountineFragment2_to_activeRoutineFragment3"
+            app:destination="@id/activeRoutineFragment3" />
+    </fragment>
+    <fragment
+        android:id="@+id/activeRoutineFragment3"
+        android:name="ar.edu.itba.rutinapp_mobile_app.fragment.ActiveRoutineFragment"
+        android:label="ActiveRoutineFragment" >
+        <action
+            android:id="@+id/action_activeRoutineFragment3_to_manualModeRoutineFragment"
+            app:destination="@id/manualModeRoutineFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/manualModeRoutineFragment"
+        android:name="ar.edu.itba.rutinapp_mobile_app.fragment.ManualModeRoutineFragment"
+        android:label="fragment_manual_mode_routine"
+        tools:layout="@layout/fragment_manual_mode_routine" >
+        <action
+            android:id="@+id/action_manualModeRoutineFragment_to_autoModeRoutineFragment"
+            app:destination="@id/autoModeRoutineFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/autoModeRoutineFragment"
+        android:name="ar.edu.itba.rutinapp_mobile_app.fragment.AutoModeRoutineFragment"
+        android:label="fragment_auto_mode_routine"
+        tools:layout="@layout/fragment_auto_mode_routine" >
+        <action
+            android:id="@+id/action_autoModeRoutineFragment_to_manualModeRoutineFragment"
+            app:destination="@id/manualModeRoutineFragment" />
+    </fragment>
 
 </navigation>
