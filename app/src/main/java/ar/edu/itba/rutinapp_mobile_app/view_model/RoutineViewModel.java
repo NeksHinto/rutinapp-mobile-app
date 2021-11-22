@@ -112,7 +112,6 @@ public class RoutineViewModel extends AndroidViewModel {
         options.put("orderBy", orderBy);
         options.put("direction", direction);
         options.put("size", String.valueOf(1000));
-        //TODO:el otro error que no entiendo
         disposable.add(
                 routinesService.getRoutines(options)
                         .subscribeOn(Schedulers.newThread())

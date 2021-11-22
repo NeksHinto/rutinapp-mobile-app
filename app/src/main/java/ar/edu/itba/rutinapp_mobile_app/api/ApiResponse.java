@@ -2,6 +2,8 @@ package ar.edu.itba.rutinapp_mobile_app.api;
 
 import android.util.Log;
 
+import androidx.lifecycle.LiveData;
+
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -10,7 +12,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ar.edu.itba.rutinapp_mobile_app.api.model.ErrorModel;
+import ar.edu.itba.rutinapp_mobile_app.api.model.RoutineModel;
 import retrofit2.Response;
+import retrofit2.http.GET;
+import retrofit2.http.Path;
 
 public class ApiResponse<T> {
 
@@ -69,4 +74,12 @@ public class ApiResponse<T> {
         }
         return error;
     }
+
+    public static interface ApiRoutineServiceInner {
+
+        @GET("routines/{routineId}")
+        LiveData<ApiResponse<RoutineModel>> getRoutine(@Path("routineId") int routineId);
+
+    }
+
 }

@@ -31,11 +31,13 @@ public class RoutineClickListener implements View.OnClickListener {
         routineViewModel.getRoutineById(routineId);
         switch (from) {
             case ROUTINES_ID:
-                NavDirections action1 = SearchRoutinesFragmentDirections.actionSearchRoutineFragmentFragmentToViewRountineFragment2();
+                SearchRoutinesFragmentDirections.ActionSearchRoutineFragmentFragmentToViewRountineFragment2 action1 = SearchRoutinesFragmentDirections.actionSearchRoutineFragmentFragmentToViewRountineFragment2();
+                action1.setRoutineId(routineId);
                 Navigation.findNavController(view).navigate(action1);
                 break;
             case FAV_ID:
-                NavDirections action2 = FavouriteFragmentDirections.actionFavoriteFragmentToViewRountineFragment2();
+                FavouriteFragmentDirections.ActionFavoriteFragmentToViewRountineFragment2 action2 = FavouriteFragmentDirections.actionFavoriteFragmentToViewRountineFragment2();
+                action2.setRoutineId(routineId);
                 Navigation.findNavController(view).navigate(action2);
                 break;
 //            case MY_ACTIVITY:

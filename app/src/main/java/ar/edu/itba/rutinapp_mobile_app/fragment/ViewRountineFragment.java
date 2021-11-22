@@ -42,6 +42,7 @@ public class ViewRountineFragment extends Fragment {
     private RecyclerView recyclerViewPrin;
     private RecyclerView recyclerViewEntrada;
 
+    private int routineId;
     private TextView routineTitle;
 
     private CompositeDisposable disposable = new CompositeDisposable();
@@ -54,8 +55,6 @@ public class ViewRountineFragment extends Fragment {
     private FloatingActionButton unFavouriteBtn;
     private FloatingActionButton shareBtn;
     private MaterialButton startBtn;
-
-    int routineId;
 
     public ViewRountineFragment() {
         // Required empty public constructor
@@ -83,7 +82,7 @@ public class ViewRountineFragment extends Fragment {
         binding = FragmentViewRoutineBinding.inflate(getLayoutInflater());
         view = binding.getRoot();
 
-        this.routineTitle = binding.routTitle;
+//        this.routineTitle = binding.routTitle;
         this.ratingBar = binding.ratingBar;
         this.favButton = binding.floatingActionButtonFavorite;
         this.unFavouriteBtn = binding.floatingActionButtonUnFavorite;

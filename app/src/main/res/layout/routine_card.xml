@@ -37,6 +37,18 @@
                 tools:layout_editor_absoluteX="1dp" />
 
             <TextView
+                android:id="@+id/routineId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{String.valueOf(routineData.id)}"
+                android:visibility="gone"
+                android:textColor="@color/black"
+                app:layout_constraintBottom_toTopOf="parent"
+                app:layout_constraintEnd_toStartOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
                 android:id="@+id/routineTitle"
                 android:layout_width="202dp"
                 android:layout_height="23dp"

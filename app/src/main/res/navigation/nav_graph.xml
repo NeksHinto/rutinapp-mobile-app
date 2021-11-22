@@ -142,6 +142,10 @@
         <action
             android:id="@+id/action_viewRountineFragment2_to_activeRoutineFragment32"
             app:destination="@id/activeRoutineFragment3" />
+        <argument
+            android:name="routineId"
+            app:argType="integer"
+            android:defaultValue="-1"/>
     </fragment>
     <fragment
         android:id="@+id/activeRoutineFragment3"
