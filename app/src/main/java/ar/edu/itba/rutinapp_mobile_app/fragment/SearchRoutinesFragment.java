@@ -13,6 +13,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.widget.NestedScrollView;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -24,6 +26,7 @@ import com.google.android.material.textfield.TextInputLayout;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.stream.Collectors;
 
 import ar.edu.itba.rutinapp_mobile_app.R;
@@ -45,6 +48,8 @@ public class SearchRoutinesFragment extends Fragment {
     private RecyclerView recyclerView;
     private Spinner sortSpinner;
     private Spinner orderSpinner;
+
+    private MutableLiveData<List<RoutineModel>> routine;
 
     boolean searching = false; //si estoy scrolleando
     boolean noMoreEntries = false;
@@ -116,8 +121,6 @@ public class SearchRoutinesFragment extends Fragment {
             binding.orderButton.setImageResource(R.drawable.ic_sort_desc);
         }
 
-        getRoutines();
-
         binding.orderButton.setOnClickListener(v -> {
             if(direction.equals("asc")) {
                 direction = "desc";
@@ -144,9 +147,9 @@ public class SearchRoutinesFragment extends Fragment {
 
         nestedScrollView.setOnScrollChangeListener(
                 (NestedScrollView.OnScrollChangeListener) (v, scrollX, scrollY, oldScrollX, oldScrollY) -> {
-                    if (!searching && !nestedScrollView.canScrollVertically(1)) {
+                    if (!searching && !noMoreEntries && !nestedScrollView.canScrollVertically(1)) {
                         searching = true;
-                        //viewModel.updateData();
+                        viewModel.updateData();
                     }
                 });
     }
@@ -161,6 +164,7 @@ public class SearchRoutinesFragment extends Fragment {
     }
 
     public void getRoutines() {
+        routine = viewModel.getRoutineCards();
     }
 
 
