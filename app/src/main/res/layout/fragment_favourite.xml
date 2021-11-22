@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/green_app"
+    android:background="?colorPrimary"
     tools:context=".fragment.FavouriteFragment"
     >
 
@@ -19,7 +19,7 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/favoriteRecyclerView"
-        android:background="@color/green_app"
+        android:background="?colorPrimary"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
