@@ -56,6 +56,7 @@ public class SearchRoutinesFragment extends Fragment {
 
     private String orderBy = "categoryId";
     private String direction = "asc";
+    private int option = 0;
 
     private TextInputEditText searchInput;
 
@@ -124,12 +125,16 @@ public class SearchRoutinesFragment extends Fragment {
         binding.orderButton.setOnClickListener(v -> {
             if(direction.equals("asc")) {
                 direction = "desc";
+                option = 0;
+                viewModel.orderRoutines(option);
                 binding.orderButton.setImageResource(R.drawable.ic_sort_desc);
             } else {
                 direction = "asc";
+                option = 1;
+                viewModel.orderRoutines(option);
                 binding.orderButton.setImageResource(R.drawable.ic_sort_asc);
             }
-            getRoutines();
+
         });
 
         FavouriteViewModel favouriteViewModel = new FavouriteViewModel(getActivity().getApplication());
