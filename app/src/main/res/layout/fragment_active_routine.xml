@@ -34,6 +34,15 @@
         app:layout_constraintStart_toEndOf="@+id/previousExercise" />
 
     <ImageButton
+        android:id="@+id/pause"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:contentDescription="pause"
+        android:visibility="invisible"
+        app:srcCompat="@drawable/ic_pause_24" />
+
+    <ImageButton
         android:id="@+id/previousExercise"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -53,7 +62,7 @@
         app:layout_constraintEnd_toEndOf="@+id/activeRoutineFragment" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/NameExercise1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="NombreEjercicio"
@@ -71,7 +80,7 @@
         app:layout_constraintBottom_toTopOf="@+id/switch1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/textView5"
+        app:layout_constraintStart_toEndOf="@+id/NameExercise1"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -83,7 +92,7 @@
         app:layout_constraintEnd_toStartOf="@+id/switch1"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+        app:layout_constraintTop_toBottomOf="@+id/NameExercise1" />
 
     <Switch
         android:id="@+id/switch1"
