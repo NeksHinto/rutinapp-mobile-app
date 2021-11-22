@@ -17,7 +17,7 @@ public class RoutineClickListener implements View.OnClickListener {
     private RoutineViewModel routineViewModel;
     private int from;
     public static final int ROUTINES_ID = 1;
-//    public static final int FAV_ID = 2;
+    public static final int FAV_ID = 2;
     public static final int MY_ACTIVITY = 3;
 
     public RoutineClickListener(RoutineViewModel routineViewModel, int from) {
@@ -33,11 +33,11 @@ public class RoutineClickListener implements View.OnClickListener {
             case ROUTINES_ID:
                 NavDirections action1 = SearchRoutinesFragmentDirections.actionSearchRoutineFragmentFragmentToViewRountineFragment2();
                 Navigation.findNavController(view).navigate(action1);
-//            case FAV_ID:
-//                ProfileFragmentDirections.ProfileFragmentToRoutineFragment action2 = ProfileFragmentDirections.actionProfileFragmentToRoutineFragment();
-//                action2.setRoutineId(routineId);
-//                Navigation.findNavController(view).navigate(action2);
-//                break;
+                break;
+            case FAV_ID:
+                NavDirections action2 = FavouriteFragmentDirections.actionFavoriteFragmentToViewRountineFragment2();
+                Navigation.findNavController(view).navigate(action2);
+                break;
 //            case MY_ACTIVITY:
 //                MyActivityFragmentDirections.ActionMyActivityFragmentToRoutineFragment action3 = MyActivityFragmentDirections.actionMyActivityFragmentToRoutineFragment();
 //                action3.setRoutineId(routineId);
