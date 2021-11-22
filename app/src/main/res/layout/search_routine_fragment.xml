@@ -89,7 +89,7 @@
 
     </LinearLayout>
 
-    <ImageButton
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/orderButton"
         android:layout_width="52dp"
         android:layout_height="48dp"
@@ -100,11 +100,12 @@
         android:contentDescription="@string/order_title"
         android:gravity="center_vertical|start"
         android:scaleType="centerInside"
+        app:backgroundTint="@color/green_app"
         app:layout_constraintStart_toEndOf="@+id/filterRoutines"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_sort">
 
-    </ImageButton>
+    </com.google.android.material.floatingactionbutton.FloatingActionButton>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         app:layout_constraintTop_toBottomOf="@+id/filterRoutines"
