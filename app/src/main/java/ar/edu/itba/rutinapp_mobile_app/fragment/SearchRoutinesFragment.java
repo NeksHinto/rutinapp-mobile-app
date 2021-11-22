@@ -90,7 +90,7 @@ public class SearchRoutinesFragment extends Fragment {
 
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        recyclerView.setAdapter(routinesAdapter);
+        //recyclerView.setAdapter(routinesAdapter);
 
         viewModel.getRoutinesFirstLoad().observe(getViewLifecycleOwner(), firstLoad -> {
             if (firstLoad != null) {
