@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.view.View;
 import android.widget.TextView;
 
+import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
 
 import ar.edu.itba.rutinapp_mobile_app.R;
@@ -30,8 +31,8 @@ public class RoutineClickListener implements View.OnClickListener {
         routineViewModel.getRoutineById(routineId);
         switch (from) {
             case ROUTINES_ID:
-//                Intent intent = new Intent(view.getContext(), RoutineActivity.class);
-//                break;
+                NavDirections action1 = SearchRoutinesFragmentDirections.actionSearchRoutineFragmentFragmentToViewRountineFragment2();
+                Navigation.findNavController(view).navigate(action1);
 //            case FAV_ID:
 //                ProfileFragmentDirections.ProfileFragmentToRoutineFragment action2 = ProfileFragmentDirections.actionProfileFragmentToRoutineFragment();
 //                action2.setRoutineId(routineId);

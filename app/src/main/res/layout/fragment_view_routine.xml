@@ -12,6 +12,9 @@
         <variable
             name="Cycle"
             type="ar.edu.itba.rutinapp_mobile_app.api.model.RoutineCycle" />
+        <variable
+            name="Routine"
+            type="ar.edu.itba.rutinapp_mobile_app.api.model.RoutineModel" />
     </data>
 
     <ScrollView
@@ -31,6 +34,19 @@
             android:layout_height="wrap_content"
             android:background="?colorPrimary">
 
+            <TextView
+                android:id="@+id/routTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="52dp"
+                android:gravity="center_horizontal"
+                android:text="@{Routine.name}"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="24sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
             <ImageView
                 android:id="@+id/imageView5"
                 android:layout_width="wrap_content"
@@ -39,8 +55,8 @@
                 android:layout_marginTop="20dp"
                 android:contentDescription="@string/routine_description"
                 android:src="@drawable/routine"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toBottomOf="@id/routTitle"
+                app:layout_constraintStart_toStartOf="parent" />
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/floatingActionButtonShare"
