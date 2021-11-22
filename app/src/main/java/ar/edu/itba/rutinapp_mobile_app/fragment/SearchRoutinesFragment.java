@@ -14,16 +14,21 @@ import androidx.annotation.Nullable;
 import androidx.core.widget.NestedScrollView;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.snackbar.Snackbar;
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.util.ArrayList;
 import java.util.stream.Collectors;
 
 import ar.edu.itba.rutinapp_mobile_app.R;
 import ar.edu.itba.rutinapp_mobile_app.activity.MainNavActivity;
+import ar.edu.itba.rutinapp_mobile_app.api.RoutinesAdapter;
 import ar.edu.itba.rutinapp_mobile_app.api.model.RoutineModel;
 import ar.edu.itba.rutinapp_mobile_app.databinding.SearchRoutineFragmentBinding;
 import ar.edu.itba.rutinapp_mobile_app.view_model.FavouriteViewModel;
@@ -34,14 +39,20 @@ public class SearchRoutinesFragment extends Fragment {
     private SearchRoutineFragmentBinding binding;
     private RoutineViewModel viewModel;
 
+    private RoutinesAdapter routinesAdapter;
+
     private NestedScrollView nestedScrollView;
     private RecyclerView recyclerView;
     private Spinner sortSpinner;
     private Spinner orderSpinner;
 
     boolean searching = false; //si estoy scrolleando
+    boolean noMoreEntries = false;
+
     private String orderBy = "categoryId";
     private String direction = "asc";
+
+    private TextInputEditText searchInput;
 
     public SearchRoutinesFragment() {
     }
@@ -54,15 +65,9 @@ public class SearchRoutinesFragment extends Fragment {
         nestedScrollView = binding.scrollView;
         recyclerView = binding.recyclerView;
 
-//        ((MainNavActivity) getActivity()).setNavigationVisibility(true);
+        searchInput = binding.textInputEditText;
 
-        nestedScrollView.setOnScrollChangeListener(
-                (NestedScrollView.OnScrollChangeListener) (v, scrollX, scrollY, oldScrollX, oldScrollY) -> {
-                    if (!searching && !nestedScrollView.canScrollVertically(1)) {
-                        searching = true;
-                        //viewModel.updateData();
-                    }
-                });
+//        ((MainNavActivity) getActivity()).setNavigationVisibility(true);
 
         return view;
     }
@@ -74,6 +79,33 @@ public class SearchRoutinesFragment extends Fragment {
         viewModel = new ViewModelProvider(getActivity()).get(RoutineViewModel.class);
 
         setSpinners(view);
+
+        routinesAdapter = new RoutinesAdapter(new ArrayList<>(), RoutineClickListener.ROUTINES_ID, viewModel);
+
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        recyclerView.setAdapter(routinesAdapter);
+
+        viewModel.getRoutinesFirstLoad().observe(getViewLifecycleOwner(), firstLoad -> {
+            if (firstLoad != null) {
+                if (firstLoad) {
+                    viewModel.updateData();
+                    viewModel.setRoutinesFirstLoad(false);
+                }
+            }
+        });
+
+        viewModel.getRoutineCards().observe(getViewLifecycleOwner(), routines -> {
+            if (routines != null) {
+                routinesAdapter.updateRoutines(routines);
+            }
+        });
+
+        viewModel.getNoMoreEntries().observe(getViewLifecycleOwner(), value -> {
+            if (value != null) {
+                noMoreEntries = value;
+            }
+        });
 
         if(savedInstanceState != null) {
             direction = savedInstanceState.getString("direction");
@@ -109,6 +141,14 @@ public class SearchRoutinesFragment extends Fragment {
                 }
             }
         };
+
+        nestedScrollView.setOnScrollChangeListener(
+                (NestedScrollView.OnScrollChangeListener) (v, scrollX, scrollY, oldScrollX, oldScrollY) -> {
+                    if (!searching && !nestedScrollView.canScrollVertically(1)) {
+                        searching = true;
+                        //viewModel.updateData();
+                    }
+                });
     }
 
     private void setSpinners(View view) {
