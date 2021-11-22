@@ -31,7 +31,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/nextExercise"
         app:layout_constraintHorizontal_bias="0.504"
-        app:layout_constraintStart_toEndOf="@+id/previousExercise" />
+        app:layout_constraintStart_toEndOf="@+id/previousExercise"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <ImageButton
         android:id="@+id/pause"
@@ -40,7 +41,10 @@
         android:background="@android:color/transparent"
         android:contentDescription="pause"
         android:visibility="invisible"
-        app:srcCompat="@drawable/ic_pause_24" />
+        app:srcCompat="@drawable/ic_pause_24"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="193dp"
+        tools:layout_editor_absoluteY="661dp" />
 
     <ImageButton
         android:id="@+id/previousExercise"
@@ -49,7 +53,8 @@
         android:layout_marginBottom="32dp"
         android:src="@android:drawable/ic_media_previous"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/activeRoutineFragment" />
+        app:layout_constraintStart_toStartOf="@+id/activeRoutineFragment"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <ImageButton
         android:id="@+id/nextExercise"
@@ -59,7 +64,8 @@
         android:layout_marginBottom="32dp"
         android:src="@android:drawable/ic_media_next"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/activeRoutineFragment" />
+        app:layout_constraintEnd_toEndOf="@+id/activeRoutineFragment"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <TextView
         android:id="@+id/NameExercise1"
@@ -98,6 +104,7 @@
         android:id="@+id/switch1"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:minHeight="48dp"
         app:layout_constraintBottom_toTopOf="@+id/activeRoutineFragment"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
