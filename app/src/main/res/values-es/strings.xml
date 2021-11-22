@@ -36,9 +36,11 @@
     <string name="order_title">Ordenar Rutinas</string>
 
     <string-array name="sort">
-        <item>Aerobico</item>
-        <item>Fuerza</item>
-        <item>Resistencia</item>
+        <item>Rookie</item>
+        <item>Beginner</item>
+        <item>Intermediate</item>
+        <item>Advanced</item>
+        <item>Expert</item>
     </string-array>
 
 

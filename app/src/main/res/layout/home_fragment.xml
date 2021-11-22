@@ -9,94 +9,173 @@
     tools:context=".fragment.HomeFragment">
 
 
-    <ImageButton
-        android:id="@+id/category1"
-        android:layout_width="390dp"
-        android:layout_height="180dp"
-        android:layout_marginTop="20dp"
-        android:adjustViewBounds="true"
-        android:background="@color/green_app"
-        android:scaleType="centerInside"
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.761"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/categoria2"
-        tools:ignore="SpeakableTextPresentCheck" />
+        app:layout_constraintVertical_bias="1.0">
 
-    <ImageButton
-        android:id="@+id/category2"
-        android:layout_width="417dp"
-        android:layout_height="194dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="220dp"
-        android:adjustViewBounds="true"
-        android:background="@color/green_app"
-        android:scaleType="centerInside"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/categoria1"
-        tools:ignore="SpeakableTextPresentCheck" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
 
-    <ImageButton
-        android:id="@+id/category3"
-        android:layout_width="412dp"
-        android:layout_height="223dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="436dp"
-        android:adjustViewBounds="true"
-        android:background="@color/green_app"
-        android:scaleType="centerInside"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/categoria3"
-        tools:ignore="SpeakableTextPresentCheck" />
+            <ImageButton
+                android:id="@+id/category1"
+                android:layout_width="390dp"
+                android:layout_height="180dp"
+                android:layout_marginTop="20dp"
+                android:adjustViewBounds="true"
+                android:background="@color/green_app"
+                android:scaleType="centerInside"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.761"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/categoria2"
+                tools:ignore="SpeakableTextPresentCheck" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="174dp"
-        android:layout_height="56dp"
-        android:layout_marginTop="224dp"
-        android:layout_marginEnd="36dp"
-        android:background="@color/backgrounfText"
-        android:text="@string/Aerobics"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="35sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+            <ImageButton
+                android:id="@+id/category2"
+                android:layout_width="417dp"
+                android:layout_height="194dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="220dp"
+                android:adjustViewBounds="true"
+                android:background="@color/green_app"
+                android:scaleType="centerInside"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/categoria1"
+                tools:ignore="SpeakableTextPresentCheck" />
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="191dp"
-        android:layout_height="63dp"
-        android:layout_marginTop="436dp"
-        android:layout_marginEnd="28dp"
-        android:background="@color/backgrounfText"
-        android:backgroundTint="#050000"
-        android:text="@string/Resistance"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="35sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+            <ImageButton
+                android:id="@+id/category3"
+                android:layout_width="412dp"
+                android:layout_height="223dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="436dp"
+                android:adjustViewBounds="true"
+                android:background="@color/green_app"
+                android:scaleType="centerInside"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/categoria3"
+                tools:ignore="SpeakableTextPresentCheck" />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="148dp"
-        android:layout_height="58dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="40dp"
-        android:background="@color/backgrounfText"
-        android:backgroundTint="#050000"
-        android:text="@string/Strength"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="35sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+            <ImageButton
+                android:id="@+id/category4"
+                android:layout_width="412dp"
+                android:layout_height="223dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="20dp"
+                android:adjustViewBounds="true"
+                android:background="@color/green_app"
+                android:scaleType="centerInside"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/category3"
+                app:srcCompat="@drawable/categoria4"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <ImageButton
+                android:id="@+id/category5"
+                android:layout_width="339dp"
+                android:layout_height="223dp"
+                android:layout_marginStart="44dp"
+                android:layout_marginTop="10dp"
+                android:adjustViewBounds="true"
+                android:background="@color/green_app"
+                android:scaleType="centerInside"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/category4"
+                app:srcCompat="@drawable/categoria5"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="154dp"
+                android:layout_height="54dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="36dp"
+                android:background="@color/backgrounfText"
+                android:text="Rookie"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="35sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="174dp"
+                android:layout_height="56dp"
+                android:layout_marginTop="436dp"
+                android:layout_marginEnd="28dp"
+                android:background="@color/backgrounfText"
+                android:text="Beginner"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="35sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="224dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="220dp"
+                android:layout_marginEnd="36dp"
+                android:background="@color/backgrounfText"
+                android:backgroundTint="#050000"
+                android:text="Intermediate"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="35sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="165dp"
+                android:layout_height="53dp"
+                android:layout_marginTop="684dp"
+                android:layout_marginEnd="28dp"
+                android:background="@color/backgrounfText"
+                android:backgroundTint="#050000"
+                android:text="Advanced"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="35sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="148dp"
+                android:layout_height="58dp"
+                android:layout_marginTop="932dp"
+                android:layout_marginEnd="28dp"
+                android:background="@color/backgrounfText"
+                android:backgroundTint="#050000"
+                android:text="Expert"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="35sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

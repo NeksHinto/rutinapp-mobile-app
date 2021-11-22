@@ -70,6 +70,14 @@ public class HomeFragment extends Fragment {
 
             NavHostFragment.findNavController(this).navigate(R.id.action_homeFragment_to_searchRoutine_fragmentFragment);
         });
+        binding.category4.setOnClickListener(view -> {
+
+            NavHostFragment.findNavController(this).navigate(R.id.action_homeFragment_to_searchRoutine_fragmentFragment);
+        });
+        binding.category5.setOnClickListener(view -> {
+
+            NavHostFragment.findNavController(this).navigate(R.id.action_homeFragment_to_searchRoutine_fragmentFragment);
+        });
 
         return rootview;
         //return inflater.inflate(R.layout.home_fragment, container, false);
