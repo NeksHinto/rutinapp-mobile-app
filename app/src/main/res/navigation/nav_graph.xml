@@ -32,7 +32,7 @@
     <fragment
         android:id="@+id/profileFragment"
         android:name="ar.edu.itba.rutinapp_mobile_app.fragment.ProfileFragment"
-        android:label="Home"
+        android:label="Profile"
         tools:layout="@layout/profile_fragment">
         <!--
         <action
@@ -55,7 +55,7 @@
     <fragment
         android:id="@+id/favoriteFragment"
         android:name="ar.edu.itba.rutinapp_mobile_app.fragment.FavouriteFragment"
-        android:label="Home"
+        android:label="Favourite"
         tools:layout="@layout/fragment_favourite">
         <!--
         <action

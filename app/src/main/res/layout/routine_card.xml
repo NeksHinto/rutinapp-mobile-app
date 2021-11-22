@@ -10,17 +10,17 @@
             android:layout_height="125dp">
 
 
-            <ImageButton
-                android:id="@+id/favoriteButton"
-                android:layout_width="406dp"
-                android:layout_height="126dp"
-                android:scaleType="centerCrop"
-                tools:layout_editor_absoluteX="1dp"
-                tools:ignore="MissingConstraints"
-                app:srcCompat="@drawable/routine_photo_default"/>
+    <ImageButton
+        android:id="@+id/favoriteButton"
+        android:layout_width="406dp"
+        android:layout_height="126dp"
+        android:scaleType="centerCrop"
+        app:srcCompat="@drawable/routine_photo_default"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="2dp"
+        tools:layout_editor_absoluteY="29dp" />
 
-
-            <TextView
+    <TextView
                 android:id="@+id/routineTitle"
                 android:layout_width="202dp"
                 android:layout_height="23dp"
